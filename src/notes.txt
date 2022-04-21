@@ -1,0 +1,19 @@
+------
+Part 1
+------
+-Création du formulaire & récupération des informations XXX
+-Http requests  XXX
+-Création projet db 
+-insertion des données 
+-Link Angular & Node & Mongodb
+-Login
+--------------
+Bibliothèque
+--------------
+------------
+BackEnd
+------------
+-Express
+-mongoose
+-cors
+-body parser
