@@ -31,7 +31,7 @@ export class AuthService {
   }
 
   getUserDetails(username : string,password : string){
-     return this.http.post<myData>(this.SERVER_EXPRESS_IP_PORT+'/api/auth.php' , {
+     return this.http.post<myData>(this.SERVER_EXPRESS_IP_PORT+'/api/login' , {
         username,
         password
      })

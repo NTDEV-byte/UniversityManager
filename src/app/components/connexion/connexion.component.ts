@@ -30,7 +30,7 @@ export class ConnexionComponent {
       const password = this.LoginForm.value.password;
 
         console.log("Password  & email not empty !");
-        this.auth.findPrefecture(email , password).subscribe((data) => {
+        this.auth.getUserDetails(email , password).subscribe((data) => {
              console.log(data);
         });
        /* this.auth.registerUser(email,password).subscribe((data) => {

@@ -1,19 +1,30 @@
-------
-Part 1
-------
+-------------
+Foundations
+-------------
 -Création du formulaire & récupération des informations XXX
--Http requests  XXX
--Création projet db 
+-Http requests  Postman XXX
+-Création projet db  XXX
+-Link Angular & Node & Mongodb XXX
 -insertion des données 
--Link Angular & Node & Mongodb
+
 -Login
 --------------
-Bibliothèque
+Bibliothèques 
 --------------
+-MEAN
+-------------
+Dependencies
+-------------
+-Bootstrap
 ------------
-BackEnd
+Server
 ------------
--Express
--mongoose
+-express
 -cors
 -body parser
+------------
+Database
+------------
+-mongoose
+-mongodb
+-rxjs 
