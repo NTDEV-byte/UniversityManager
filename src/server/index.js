@@ -22,12 +22,18 @@ app.use(cors());
 app.use(bodyParser.json())
 app.listen(8888,() => console.log('Server listenning at 8888 port ...'))
 
+
+
+
+
 // API Logique
 const auth = new Auths()
 
 // routes 
+
 // authentification
 auth.logUserIn(app,UserModel)
-auth.test(app)
+
+
 
 

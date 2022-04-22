@@ -1,7 +1,39 @@
 class AuthsAPI {
 
-    test(app){
-        // méthode vu en tp
+
+    
+    // inscription
+
+    // connexion
+    logUserIn(app,UserModel){
+        app.post('/api/login' , async (req,res) => {
+            const {email,password} = req.body
+            //console.log(req.body)
+            const response = await UserModel.findOne({email,password})
+            //console.log("reponse Mongo: "+response)
+            if(!response){
+              // si introuvable
+                console.log('utilisateur non trouvé')
+                res.json({
+                    success: false,
+                    message: "Incorrect details !"
+                })
+            }
+            else{
+                // creation d'une session
+                console.log('utilisateur trouvé')
+                res.json({
+                    success: true,
+                    message: "Connexion Success !",
+                    role: "Admin"
+                })
+            }
+          //  res.send("Ok Route correct") test
+        }) 
+    }
+
+    logInDBWithMongoDB(app){
+        // méthode vu en cours
         let mongo = require('mongodb').MongoClient;
         let url = "mongodb://localhost:27017/HDF";
         app.post('/prefInfo',(req , res) => {
@@ -17,35 +49,10 @@ class AuthsAPI {
                });
         })
     }
-    // inscription
+
 
     
-    // connexion
-    logUserIn(app,UserModel){
-        app.post('/api/login' , async (req,res) => {
-            const {email,password} = req.body
-            console.log(req.body)
-            const response = await UserModel.findOne({email,password})
-            console.log("reponse Mongo: "+response)
-            if(!response){
-              // not found
-                console.log('utilisateur non trouvé')
-                res.json({
-                    success: false,
-                    message: "Incorrect details !"
-                })
-            }
-            else{
-                // creation d'une session
-                console.log('utilisateur trouvé')
-                res.json({
-                    success: true,
-                    message: "Connexion Success !"
-                })
-            }
-          //  res.send("Ok Route correct") test
-        }) 
-    }
+    
 }
 
 module.exports = AuthsAPI;

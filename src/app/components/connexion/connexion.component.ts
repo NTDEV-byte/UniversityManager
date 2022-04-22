@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth/auth.service';
 export class ConnexionComponent {
 
 
-  constructor(private auth: AuthService , private router: Router){
+  constructor(private auth: AuthService, private router: Router){
   }
 
   LoginForm = new FormGroup({
@@ -33,7 +33,9 @@ export class ConnexionComponent {
         this.auth.logUserIn(email , password).subscribe((data) => {
             if(data.success){
               this.router.navigate(['dashboard'])
+              this.auth.setLoggedIn(true)
               console.log("Connexion réussi !")
+              console.log("role: "+data.role)
             }
             else{
                 console.log("Informations incorrect !")

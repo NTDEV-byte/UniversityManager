@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 
 interface LoginData{
     success: boolean,
-    message: string
+    message: string,
+    role : string
 }
 
 interface registerResponse{
@@ -27,8 +28,8 @@ export class AuthService {
     return this.loggedIn;
   }
 
-  findPrefecture(email : string , password: string){
-     return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+"/prefInfo" , {email,password});
+   setLoggedIn(value : boolean){
+      this.loggedIn = value
   }
 
   logUserIn(email : string,password : string){
@@ -38,11 +39,15 @@ export class AuthService {
      })
   }
 
+  findPrefecture(email : string , password: string){
+    return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+"/prefInfo" , {email,password});
+ }
+
   registerUser(email : string,password : string){
       return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+'/routeTest',{
           email,
           password
       });
-
   }
+
 }
