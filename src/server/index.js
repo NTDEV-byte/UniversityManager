@@ -22,13 +22,12 @@ app.use(cors());
 app.use(bodyParser.json())
 app.listen(8888,() => console.log('Server listenning at 8888 port ...'))
 
-// API Logic
+// API Logique
 const auth = new Auths()
 
+// routes 
+// authentification
 auth.logUserIn(app,UserModel)
 auth.test(app)
 
-app.post('/routeTest', (req,res) =>{
-    console.log(req.body)
-    console.log("Posted One ! ");
-})
+

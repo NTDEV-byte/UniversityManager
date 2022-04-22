@@ -28,18 +28,18 @@ export class ConnexionComponent {
     if(this.LoginForm.value.password != '' && this.LoginForm.value.email){
       const email = this.LoginForm.value.email;
       const password = this.LoginForm.value.password;
-
-        console.log("Password  & email not empty !");
-        this.auth.getUserDetails(email , password).subscribe((data) => {
-             console.log(data);
+  
+       // console.log("Password  & email not empty !");
+        this.auth.logUserIn(email , password).subscribe((data) => {
+            if(data.success){
+              this.router.navigate(['dashboard'])
+              console.log("Connexion réussi !")
+            }
+            else{
+                console.log("Informations incorrect !")
+            }
+           //  console.log(data);
         });
-       /* this.auth.registerUser(email,password).subscribe((data) => {
-          console.log(data)
-          if(data.success){
-             // redirection to dashboard
-            // this.router.navigate(['dashboard']);
-          } 
-        });*/
     }
   }
 

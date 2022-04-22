@@ -1,13 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-interface myData{
+interface LoginData{
     success: boolean,
     message: string
 }
 
 interface registerResponse{
-     success : boolean
+     success: boolean,
+     message: string
 }
 
 @Injectable({
@@ -26,20 +27,20 @@ export class AuthService {
     return this.loggedIn;
   }
 
-  findPrefecture(username : string , password: string){
-     return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+"/prefInfo" , {username,password});
+  findPrefecture(email : string , password: string){
+     return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+"/prefInfo" , {email,password});
   }
 
-  getUserDetails(username : string,password : string){
-     return this.http.post<myData>(this.SERVER_EXPRESS_IP_PORT+'/api/login' , {
-        username,
+  logUserIn(email : string,password : string){
+     return this.http.post<LoginData>(this.SERVER_EXPRESS_IP_PORT+'/api/login' , {
+        email,
         password
      })
   }
 
-  registerUser(username : string,password : string){
+  registerUser(email : string,password : string){
       return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+'/routeTest',{
-          username,
+          email,
           password
       });
 

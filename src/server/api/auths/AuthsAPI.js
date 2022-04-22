@@ -1,4 +1,3 @@
-
 class AuthsAPI {
 
     test(app){
@@ -18,7 +17,6 @@ class AuthsAPI {
                });
         })
     }
-
     // inscription
 
     
@@ -32,14 +30,22 @@ class AuthsAPI {
             if(!response){
               // not found
                 console.log('utilisateur non trouvé')
+                res.json({
+                    success: false,
+                    message: "Incorrect details !"
+                })
             }
             else{
                 // creation d'une session
                 console.log('utilisateur trouvé')
+                res.json({
+                    success: true,
+                    message: "Connexion Success !"
+                })
             }
-            res.send("Ok Route correct")
+          //  res.send("Ok Route correct") test
         }) 
     }
 }
 
-module.exports = Auths;
+module.exports = AuthsAPI;
