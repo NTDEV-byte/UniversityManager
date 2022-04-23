@@ -13,6 +13,9 @@ import { AdminComponent } from './components/admin/admin.component';
 import { AjouterEnseignantComponent } from './components/admin/crud/ajouter-enseignant/ajouter-enseignant.component';
 import { ModifierEnseignantComponent } from './components/admin/crud/modifier-enseignant/modifier-enseignant.component';
 import { SupprimerEnseignantComponent } from './components/admin/crud/supprimer-enseignant/supprimer-enseignant.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatSelectModule} from '@angular/material/select';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,9 @@ import { SupprimerEnseignantComponent } from './components/admin/crud/supprimer-
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

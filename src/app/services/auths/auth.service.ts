@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-interface LoginData {
+interface LoginResponseData {
     success: boolean,
     message: string,
     role : string
@@ -13,12 +13,11 @@ interface LoginData {
 
 export class AuthService {
 
-  private SERVER_EXPRESS_IP_PORT : string = "http://localhost:8888";
+  public static SERVER_EXPRESS_IP_PORT : string = "http://localhost:8888";
 
   private loggedIn = false;
 
   constructor(private http: HttpClient) { }
-
 
   get isLoggedIn(){
     return this.loggedIn;
@@ -29,7 +28,7 @@ export class AuthService {
   }
 
   logUserIn(email : string, password : string){
-     return this.http.post<LoginData>(this.SERVER_EXPRESS_IP_PORT+'/api/login' , {
+     return this.http.post<LoginResponseData>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/auths/login' , {
         email,
         password
      })

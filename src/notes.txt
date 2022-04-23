@@ -47,7 +47,8 @@ Bibliothèques
 -------------
 Dependencies
 -------------
--Bootstrap
+-Bootstrap | popper  | jquery
+-angular material
 ------------
 Server
 ------------

@@ -6,11 +6,12 @@ const mongoose = require('mongoose')
 // models
 const UserModel = require('./models/users')
 // api
-const Auths = require('./api/auths/AuthsAPI');
-
+const AuthAPI = require('./api/auths/AuthsAPI');
+const AdminAPI = require('./api/admin/AdminAPI');
 
 //creation d'une instance du serveur Express 
 const app = express()
+
 // connexion avec mongoose a la base de données
 mongoose.Promise = Promise; // mode promise au lieu des callbacks
 mongoose.connect('mongodb://localhost:27017/projet')
@@ -23,17 +24,17 @@ app.use(bodyParser.json())
 app.listen(8888,() => console.log('Server listenning at 8888 port ...'))
 
 
-
-
-
 // API Logique
-const auth = new Auths()
-
+const auth = new AuthAPI();
+const admin = new AdminAPI();
 // routes 
+
 
 // authentification
 auth.logUserIn(app,UserModel)
-
-
+//admin
+admin.ajouterEnseignant(app,UserModel)
+admin.modifierEnseignant(app,UserModel)
+admin.supprimerEnseignant(app,UserModel)
 
 

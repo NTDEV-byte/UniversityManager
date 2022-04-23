@@ -1,20 +1,18 @@
 class AuthsAPI {
 
-
     
+
     // inscription
     
-
-
     // connexion
     logUserIn(app,UserModel){
-        app.post('/api/login' , async (req,res) => {
+        app.post('/api/auths/login' , async (req,res) => {
             const {email,password} = req.body
             //console.log(req.body)
             const response = await UserModel.findOne({email,password})
             //console.log("reponse Mongo: "+response)
             if(!response){
-               // console.log('utilisateur non trouvé')
+                console.log('utilisateur non trouvé')
                 res.json({
                     success: false,
                     message: "Incorrect details !"
@@ -26,7 +24,7 @@ class AuthsAPI {
                 res.json({
                     success: true,
                     message: "Connexion Success !",
-                    role: "Admin"
+                    role: response.role
                 })
             }
           //  res.send("Ok Route correct") test

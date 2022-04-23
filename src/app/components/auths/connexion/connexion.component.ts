@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auth/auth.service';
+import { AuthService } from '../../../services/auths/auth.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { AuthService } from '../../../services/auth/auth.service';
 export class ConnexionComponent {
 
 
-  constructor(private auth: AuthService, private router: Router){
+  constructor(private authService: AuthService, private router: Router){
   }
 
   LoginForm = new FormGroup({
@@ -20,7 +20,7 @@ export class ConnexionComponent {
     password: new FormControl(''),
   });
 
-  public onSubmit() : void{
+  public onSubmit() : void {
     // logic to db and check data & redirection
     // console.log("Email:  "+this.LoginForm.value.email);
     // console.log("Password: "+this.LoginForm.value.password);
@@ -30,24 +30,29 @@ export class ConnexionComponent {
       const password = this.LoginForm.value.password;
   
        // console.log("Password  & email not empty !");
-        this.auth.logUserIn(email , password).subscribe((data) => {
+        this.authService.logUserIn(email , password).subscribe((data) => {
             if(data.success){
+              
               if(data.role.toLowerCase() == 'admin'){
                 this.router.navigate(['admin'])
               }
               else{
                 this.router.navigate(['enseignant'])
               }
-              this.auth.setLoggedIn(true)
+              this.authService.setLoggedIn(true)
               console.log("Connexion réussi !")
               console.log("role: "+data.role)
             }
+
             else{
                 console.log("Informations incorrect !")
             }
            //  console.log(data);
         });
     }
+
+    this.LoginForm.reset();
   }
+
 
 }
