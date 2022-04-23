@@ -1,17 +1,49 @@
--------------
+------------
+Objectifs
+------------
+Obligatoire
+------------
+1-l’administrateur doit pouvoir ajouter/modifier/supprimer un compte enseignant
+2-l’administrateur et les utilisateurs doivent pouvoir modifier leur compte (mot de passe, etc)
+3-un enseignant non vacataire doit pouvoir renseigner son nombre minimum d’UC à faire.
+L’administrateur doit pouvoir modifier ces nombres.
+4-un enseignant non vacataire doit pouvoir s’inscrire (ou se désinscrire) sur un enseignement
+disponible. Il précise le module et le nombre de groupes de CM, TD et TP qu’il veut assurer. Un
+enseignant qui assure un CM doit forcément prendre au moins un groupe de TD (et de TP si le
+module en comporte). Le nombre de groupes choisi peut être non entier. Par exemple, dans un
+module où il n’y a qu’un groupe de CM et que le module comporte deux parties assurées par deux
+enseignants différents, chacun des deux enseignants prendra 0.5 groupe de CM. L’administrateur
+peut inscrire/désinscrire un enseignant d’un enseignement, ou modifier le nombre de groupes
+attribué.
+5-chaque enseignant (et l’administrateur) doit pouvoir éditer un récapitulatif de son service
+d’enseignement, qui liste les modules où il intervient avec son nombre de groupes de CM/TD/TP,
+ainsi que son nombre total d’UC et le détail par type d’enseignement (CM/TD/TP).
+6- l’administrateur doit pouvoir éditer un récapitulatif des enseignements qui ne sont pas
+pourvus, c’est-à-dire pour lesquels des groupes de CM, TD ou TP n’ont pas d’enseignant affecté
+------------
+Optionnelle
+-----------
+1- l’administrateur doit pouvoir modifier les règles de calcul des UC (par exemple quand les
+ATER seront payés comme les autres).
+2- l’administrateur et les responsables de module (ceux qui font les CM) doivent pouvoir
+éditer le tableau de l’équipe enseignante du module, avec les heures de chacun
+3- on peut prendre en compte la notion de responsable de module, indépendamment des CM.
+Certains modules n’ont pas de CM, et dans certains modules il y a plusieurs intervenants dans les
+CM, mais un seul enseignant est responsable.
+4-Vous pouvez ajouter toutes les fonctionnalités pertinentes que vous souhaitez (graphiques
+pour rendre les données plus claires, etc).
+------------
 Foundations
--------------
+------------
 -Création du formulaire & récupération des informations XXX
 -Http requests  Postman XXX
 -Création projet db  XXX
 -Link Angular & Node & Mongodb XXX
--insertion des données 
-
--Login
+-insertion des données XXX
+-Login & roles XXX
 --------------
 Bibliothèques 
 --------------
--MEAN
 -------------
 Dependencies
 -------------
@@ -28,3 +60,35 @@ Database
 -mongoose
 -mongodb
 -rxjs 
+---------------------
+Discovered & learned
+---------------------
+-Mean Stack
+------------
+Mongo
+------------
+
+------------
+Express
+------------
+setup a proje
+------------
+Angular
+------------
+-Architecture
+-OneWayDataBinding
+-TwoWayDataBinding
+-Directives
+-Services pattern singleton & Dependencie injection
+-Components 
+
+------------
+nodeJS
+------------
+
+-----------
+Tools 
+-----------
+-robot t3
+-postman
+

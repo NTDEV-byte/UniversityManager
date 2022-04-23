@@ -7,14 +7,11 @@ interface LoginData{
     role : string
 }
 
-interface registerResponse{
-     success: boolean,
-     message: string
-}
-
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class AuthService {
 
   private SERVER_EXPRESS_IP_PORT : string = "http://localhost:8888";
@@ -37,17 +34,6 @@ export class AuthService {
         email,
         password
      })
-  }
-
-  findPrefecture(email : string , password: string){
-    return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+"/prefInfo" , {email,password});
- }
-
-  registerUser(email : string,password : string){
-      return this.http.post<registerResponse>(this.SERVER_EXPRESS_IP_PORT+'/routeTest',{
-          email,
-          password
-      });
   }
 
 }

@@ -13,7 +13,7 @@ const Auths = require('./api/auths/AuthsAPI');
 const app = express()
 // connexion avec mongoose a la base de données
 mongoose.Promise = Promise; // mode promise au lieu des callbacks
-mongoose.connect('mongodb://localhost:27017/testing')
+mongoose.connect('mongodb://localhost:27017/projet')
 .then(() => {
     console.log('Connected to mongoDB')
 })

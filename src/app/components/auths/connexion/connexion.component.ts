@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../services/auth/auth.service';
+import { AuthService } from '../../../services/auth/auth.service';
 
 
 @Component({
@@ -32,7 +32,12 @@ export class ConnexionComponent {
        // console.log("Password  & email not empty !");
         this.auth.logUserIn(email , password).subscribe((data) => {
             if(data.success){
-              this.router.navigate(['dashboard'])
+              if(data.role.toLowerCase() == 'admin'){
+                this.router.navigate(['admin'])
+              }
+              else{
+                this.router.navigate(['enseignant'])
+              }
               this.auth.setLoggedIn(true)
               console.log("Connexion réussi !")
               console.log("role: "+data.role)

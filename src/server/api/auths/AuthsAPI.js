@@ -3,6 +3,8 @@ class AuthsAPI {
 
     
     // inscription
+    
+
 
     // connexion
     logUserIn(app,UserModel){
@@ -12,8 +14,7 @@ class AuthsAPI {
             const response = await UserModel.findOne({email,password})
             //console.log("reponse Mongo: "+response)
             if(!response){
-              // si introuvable
-                console.log('utilisateur non trouvé')
+               // console.log('utilisateur non trouvé')
                 res.json({
                     success: false,
                     message: "Incorrect details !"
