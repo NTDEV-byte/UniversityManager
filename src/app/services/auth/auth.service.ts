@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-interface LoginData{
+interface LoginData {
     success: boolean,
     message: string,
     role : string
@@ -10,7 +10,6 @@ interface LoginData{
 @Injectable({
   providedIn: 'root'
 })
-
 
 export class AuthService {
 
@@ -29,7 +28,7 @@ export class AuthService {
       this.loggedIn = value
   }
 
-  logUserIn(email : string,password : string){
+  logUserIn(email : string, password : string){
      return this.http.post<LoginData>(this.SERVER_EXPRESS_IP_PORT+'/api/login' , {
         email,
         password
