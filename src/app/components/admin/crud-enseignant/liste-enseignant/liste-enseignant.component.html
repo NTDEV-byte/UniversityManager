@@ -1,0 +1,21 @@
+<div class="list-enseignant" *ngFor="let enseignant of enseignants">
+    <div class="card">
+        <div class="card-header">
+          Featured
+        </div>
+        <div class="card-body">
+         <h3 class="card-title">Id</h3>
+          <p class="card-text">{{enseignant._id}}</p>
+          <h3 class="card-title">Nom</h3>
+          <p class="card-text">{{enseignant.nom}}</p>
+          <h3 class="card-title">Prenom</h3>
+          <p class="card-text">{{enseignant.prenom}}</p>
+          <h3 class="card-title">Email</h3>
+          <p class="card-text">{{enseignant.email}}</p>
+          <h3 class="card-title">Role</h3>
+          <p class="card-text">{{enseignant.role}}</p>
+          <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+      </div>
+</div>
+

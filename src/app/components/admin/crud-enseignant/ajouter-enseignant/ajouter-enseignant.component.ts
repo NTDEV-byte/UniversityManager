@@ -15,7 +15,7 @@ export class AjouterEnseignantComponent implements OnInit {
    alertType : String = "";
 
 
-   ajouteAdminForm = new FormGroup({
+   ajouteEnseignantForm = new FormGroup({
     nom: new FormControl('',[Validators.required]),
     prenom: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required , Validators.email]),
@@ -29,21 +29,21 @@ export class AjouterEnseignantComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this.alertMessage = "Ajouté avec succés"
+      this.alertMessage = "Ajouté avec succès"
       this.alertType = "alert-success"
   }
 
 
   onSubmit() : void{
 
-    if(this.ajouteAdminForm.valid){
+    if(this.ajouteEnseignantForm.valid){
 
-      const nom = this.ajouteAdminForm.value.nom;
-      const prenom = this.ajouteAdminForm.value.prenom;
-      const email = this.ajouteAdminForm.value.email;
-      const password = this.ajouteAdminForm.value.password;
-      const confirmPass = this.ajouteAdminForm.value.confirmPass;
-      const role = this.ajouteAdminForm.value.role;
+      const nom = this.ajouteEnseignantForm.value.nom;
+      const prenom = this.ajouteEnseignantForm.value.prenom;
+      const email = this.ajouteEnseignantForm.value.email;
+      const password = this.ajouteEnseignantForm.value.password;
+      const confirmPass = this.ajouteEnseignantForm.value.confirmPass;
+      const role = this.ajouteEnseignantForm.value.role;
   
      this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role)
   
@@ -52,13 +52,13 @@ export class AjouterEnseignantComponent implements OnInit {
         console.log("Alert mot de passe différents ")
       }
       else{
-        
         this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role).subscribe((data) => {
           console.log(data);
                 if(data.success){
                   console.log("Alerte enseignant ajouté avec success")
                   this.alert(data.message,"alert-success")
-                  this.ajouteAdminForm.reset();
+                  this.ajouteEnseignantForm.reset();
+                  this.resetState()
                 }
                 else{
                   console.log("Alerte Echec lors de l'ajout de l'enseignant")
@@ -76,5 +76,10 @@ export class AjouterEnseignantComponent implements OnInit {
      this.alertType = type;
   }
 
+  resetState(){
+    setInterval(() => {
+        this.formSubmitted = false;
+    } , 4000)
+  }
 
 }

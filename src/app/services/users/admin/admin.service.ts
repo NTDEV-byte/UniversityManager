@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AuthService } from '../../auths/auth.service';
 
-
 interface AjoutInformationRetour {
    success : boolean,
    message : string,
@@ -30,12 +29,16 @@ export class AdminService {
 
   modifierUnEnseignant(){
       console.log("Modifier Enseignant Service")
-      return this.http.post<AjoutInformationRetour>('https://jsonplaceholder.typicode.com/todos/1',{})
+      return this.http.post<AjoutInformationRetour>('/api/admin/modifierEnseignant',{})
   }
 
   supprimerUnEnseignant(){
     console.log("Supprimer Enseignant Service")
     return  this.http.post<AjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/supprimerEnseignant",{})
+  }
+
+  listeDesEnseignants(){
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/listeEnseignant",{})
   }
 
 }

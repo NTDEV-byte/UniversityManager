@@ -2,7 +2,7 @@
 
 
 <div *ngIf = "formSubmitted"  class="alert {{alertType}}" role="alert"> {{alertMessage}}</div>
-<form [formGroup]="ajouteAdminForm" (ngSubmit)="onSubmit()">
+<form [formGroup]="ajouteEnseignantForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
         
         <div class="form-group">
@@ -38,7 +38,7 @@
     </div>
 
     <div class="col text-center">
-        <button type="ajouter" class="btn btn-primary" [disabled] = "ajouteAdminForm.invalid">Ajouter</button>
+        <button type="ajouter" class="btn btn-primary" [disabled] = "ajouteEnseignantForm.invalid">Ajouter</button>
     </div>
     
 </form>

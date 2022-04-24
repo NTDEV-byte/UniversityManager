@@ -26,7 +26,9 @@ class AdminAPI{
 
     modifierEnseignant(app,UserModel){
         app.post('/api/admin/modifierEnseignant' , async (req,res) => {
-               // console.log("Route Catched Modifier enseignant! ")
+               console.log("Triggred !")
+               const resp =  await UserModel.findOne({_id : "6263cb83c481ff2834862463"})
+               console.log(resp);
         }) 
     }
 
@@ -34,6 +36,16 @@ class AdminAPI{
         app.post('/api/admin/supprimerEnseignant' , async (req,res) => {
                // console.log("Route Catched supprimer enseignant ! ")
         }) 
+    }
+
+    listeEnseignants(app,UserModel){
+        app.post('/api/admin/listeEnseignant' , async (req,res) => {
+            console.log("Triggred !")
+            const resp =  await UserModel.find();   
+            console.log(resp)
+            res.json(resp)
+            //res.json(resp)
+      }) 
     }
 
 }

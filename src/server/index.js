@@ -36,5 +36,4 @@ auth.logUserIn(app,UserModel)
 admin.ajouterEnseignant(app,UserModel)
 admin.modifierEnseignant(app,UserModel)
 admin.supprimerEnseignant(app,UserModel)
-
-
+admin.listeEnseignants(app,UserModel)

@@ -10,12 +10,13 @@ import {ConnexionComponent} from './components/auths/connexion/connexion.compone
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { EnseignantComponent } from './components/enseignant/enseignant.component';
 import { AdminComponent } from './components/admin/admin.component';
-import { AjouterEnseignantComponent } from './components/admin/crud/ajouter-enseignant/ajouter-enseignant.component';
-import { ModifierEnseignantComponent } from './components/admin/crud/modifier-enseignant/modifier-enseignant.component';
-import { SupprimerEnseignantComponent } from './components/admin/crud/supprimer-enseignant/supprimer-enseignant.component';
+import { AjouterEnseignantComponent } from './components/admin/crud-enseignant/ajouter-enseignant/ajouter-enseignant.component';
+import { ModifierEnseignantComponent } from './components/admin/crud-enseignant/modifier-enseignant/modifier-enseignant.component';
+import { SupprimerEnseignantComponent } from './components/admin/crud-enseignant/supprimer-enseignant/supprimer-enseignant.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSelectModule} from '@angular/material/select';
 import {MatCardModule} from '@angular/material/card';
+import { ListeEnseignantComponent } from './components/admin/crud-enseignant/liste-enseignant/liste-enseignant.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {MatCardModule} from '@angular/material/card';
     AjouterEnseignantComponent,
     ModifierEnseignantComponent,
     SupprimerEnseignantComponent,
+    ListeEnseignantComponent,
   ],
   imports: [
     BrowserModule,

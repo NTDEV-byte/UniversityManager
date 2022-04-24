@@ -33,7 +33,10 @@ CM, mais un seul enseignant est responsable.
 4-Vous pouvez ajouter toutes les fonctionnalités pertinentes que vous souhaitez (graphiques
 pour rendre les données plus claires, etc).
 ------------
-Foundations
+Process
+------------
+------------
+Day 1
 ------------
 -Création du formulaire & récupération des informations XXX
 -Http requests  Postman XXX
@@ -41,29 +44,16 @@ Foundations
 -Link Angular & Node & Mongodb XXX
 -insertion des données XXX
 -Login & roles XXX
---------------
-Bibliothèques 
---------------
--------------
-Dependencies
--------------
--Bootstrap | popper  | jquery
--angular material
 ------------
-Server
+Day 2
 ------------
--express
--cors
--body parser
-------------
-Database
-------------
--mongoose
--mongodb
--rxjs 
----------------------
+- Ajout modification suppression par l'admin  Milestone 1 
+-  
+-
+-
+************************
 Discovered & learned
----------------------
+************************
 -Mean Stack
 ------------
 Mongo
@@ -82,14 +72,28 @@ Angular
 -Directives
 -Services pattern singleton & Dependencie injection
 -Components 
-
 ------------
 nodeJS
 ------------
-
 -----------
 Tools 
 -----------
 -robot t3
 -postman
-
+-------------
+Bibliothèques
+-------------
+-Bootstrap | popper  | jquery
+-angular material
+------------
+Server
+------------
+-express
+-cors
+-body parser
+------------
+Database
+------------
+-mongoose
+-mongodb
+-rxjs 
