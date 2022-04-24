@@ -27,9 +27,15 @@ export class AdminService {
     })
   }
 
-  modifierUnEnseignant(){
+  modifierUnEnseignant(id : string , nom : string , prenom: string , email: string, role: string){
       console.log("Modifier Enseignant Service")
-      return this.http.post<AjoutInformationRetour>('/api/admin/modifierEnseignant',{})
+      return this.http.post<AjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/admin/modifierEnseignant',{
+        id,
+        nom,
+        prenom,
+        email,
+        role
+      })
   }
 
   supprimerUnEnseignant(){

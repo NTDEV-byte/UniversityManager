@@ -12,14 +12,13 @@ export class ModifierEnseignantComponent implements OnInit {
   formSubmitted : boolean = false;
   alertMessage: String = "";
   alertType : String = "";
-
+  enseignants : any;
+  enseignantSelectionner : any;
 
   modifierEnseignantForm = new FormGroup({
    nom: new FormControl('',[Validators.required]),
    prenom: new FormControl('',[Validators.required]),
    email: new FormControl('',[Validators.required , Validators.email]),
-   password: new FormControl('',[Validators.required]),
-   confirmPass: new FormControl('',[Validators.required]),
    role : new FormControl('',[Validators.required])
  });
 
@@ -28,8 +27,18 @@ export class ModifierEnseignantComponent implements OnInit {
 
 
  ngOnInit(): void {
-     this.alertMessage = "Ajouté avec succès"
-     this.alertType = "alert-success"
+     this.alert("Modifier avec succès", "alert-success");
+     this.adminService.listeDesEnseignants().subscribe((data) => {
+              this.enseignants = data as [];
+     });
+ }
+
+ selectEnseignant(enseignant: any){
+  this.enseignantSelectionner = enseignant;
+  this.modifierEnseignantForm.controls['nom'].setValue(this.enseignantSelectionner.nom);
+  this.modifierEnseignantForm.controls['prenom'].setValue(this.enseignantSelectionner.prenom);
+  this.modifierEnseignantForm.controls['role'].setValue(this.enseignantSelectionner.role);
+  this.modifierEnseignantForm.controls['email'].setValue(this.enseignantSelectionner.email);
  }
 
 
@@ -37,35 +46,16 @@ export class ModifierEnseignantComponent implements OnInit {
 
    if(this.modifierEnseignantForm.valid){
 
+     const id = this.enseignantSelectionner._id;
      const nom = this.modifierEnseignantForm.value.nom;
      const prenom = this.modifierEnseignantForm.value.prenom;
      const email = this.modifierEnseignantForm.value.email;
-     const password = this.modifierEnseignantForm.value.password;
-     const confirmPass = this.modifierEnseignantForm.value.confirmPass;
      const role = this.modifierEnseignantForm.value.role;
- 
-    this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role)
- 
-     if(password != confirmPass){ 
-       this.alert("Mot de passe sont différents" , "alert-danger")
-       console.log("Alert mot de passe différents ")
-     }
-     else{
-       this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role).subscribe((data) => {
-         console.log(data);
-               if(data.success){
-                 console.log("Alerte enseignant ajouté avec success")
-                 this.alert(data.message,"alert-success")
-                 this.modifierEnseignantForm.reset();
-                 this.resetState()
-               }
-               else{
-                 console.log("Alerte Echec lors de l'ajout de l'enseignant")
-                 this.alert(data.message , "alert-danger")
-               }
-       });
-     }
+     this.adminService.modifierUnEnseignant(id,nom,prenom,email,role).subscribe((data) => {
+            console.log("Modifier avec succès")
+     });
    }
+
    
     this.formSubmitted = true;
  }

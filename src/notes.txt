@@ -47,6 +47,7 @@ Day 1
 ------------
 Day 2
 ------------
+- affichage de la liste des utilisateurs XXX
 - Ajout modification suppression par l'admin  Milestone 1 
 -  
 -

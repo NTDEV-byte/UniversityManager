@@ -27,7 +27,7 @@ export class ListeEnseignantComponent implements OnInit {
   ngOnInit(): void {
      this.adminService.listeDesEnseignants().subscribe((data) => {
       this.enseignants = data as [];
-      console.log(this.enseignants)
+      console.log("data retreived "  +this.enseignants[0])
      })
   }
 

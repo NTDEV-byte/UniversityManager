@@ -26,10 +26,29 @@ class AdminAPI{
 
     modifierEnseignant(app,UserModel){
         app.post('/api/admin/modifierEnseignant' , async (req,res) => {
-               console.log("Triggred !")
-               const resp =  await UserModel.findOne({_id : "6263cb83c481ff2834862463"})
-               console.log(resp);
-        }) 
+                console.log("body")
+               console.log(req.body)
+               const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "role" : req.body.role } , {new : true});
+               console.log(user);
+
+               if(user){
+                console.log("User Found !")
+                console.log(user)
+                    res.json({
+                        success : true,
+                        message : "Utilisateur modifier avec succès"
+                    });
+                }
+                else{
+                console.log("User Not Found !")
+                res.json({
+                    success : false,
+                    message : "Utilisateur Introuvable !"
+                    });
+                    }
+               })
+                
+      
     }
 
     supprimerEnseignant(app,UserModel){
@@ -40,9 +59,9 @@ class AdminAPI{
 
     listeEnseignants(app,UserModel){
         app.post('/api/admin/listeEnseignant' , async (req,res) => {
-            console.log("Triggred !")
+          //  console.log("Triggred !")
             const resp =  await UserModel.find();   
-            console.log(resp)
+           // console.log(resp)
             res.json(resp)
             //res.json(resp)
       }) 
