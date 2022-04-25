@@ -18,19 +18,16 @@ class AdminAPI{
                         success : true,
                         message : "Enseignant ajouté !"
                     });
-                   
                 }
-                
         }) 
     }
 
     modifierEnseignant(app,UserModel){
         app.post('/api/admin/modifierEnseignant' , async (req,res) => {
-                console.log("body")
+               console.log("body")
                console.log(req.body)
                const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "role" : req.body.role } , {new : true});
                console.log(user);
-
                if(user){
                 console.log("User Found !")
                 console.log(user)
@@ -47,12 +44,23 @@ class AdminAPI{
                     });
                     }
                })
-                
-      
     }
 
     supprimerEnseignant(app,UserModel){
         app.post('/api/admin/supprimerEnseignant' , async (req,res) => {
+              const {id} = req.body;
+              console.log(id);
+              const response = await UserModel.deleteOne({"_id" : id})
+              if(response){
+                    console.log("Suppression Réussi !")
+                    res.json({
+                        success : true,
+                        
+                    })
+              }
+              else{
+                    console.log("Echec lors de la suppression !")
+              }
                // console.log("Route Catched supprimer enseignant ! ")
         }) 
     }
