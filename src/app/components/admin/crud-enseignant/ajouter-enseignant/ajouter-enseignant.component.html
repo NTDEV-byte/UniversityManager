@@ -1,6 +1,5 @@
 <h1>Ajouter un enseignant</h1>
 
-<div *ngIf = "formSubmitted"  class="alert {{alertType}}" role="alert"> {{alertMessage}}</div>
 <form class="example-form" [formGroup]="ajouteEnseignantForm" (ngSubmit)="onSubmit()">
     <mat-form-field class="example-full-width" appearance="fill">
       <mat-label>Nom</mat-label>

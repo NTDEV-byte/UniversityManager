@@ -1,36 +1,33 @@
 <h1>Modifier un enseignant</h1>
+<form class="example-form" [formGroup]="modifierEnseignantForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom" formControlName = "nom">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Prenom</mat-label>
+        <input matInput placeholder="Prenom" formControlName = "prenom">
+      </mat-form-field>
+
+    <mat-form-field  class="example-full-width"  appearance="fill">
+        <mat-label>Role</mat-label>
+        <mat-select formControlName="role">
+        <mat-option *ngFor="let role of roles" [value]="role.value">
+            {{role.viewValue}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Email" formControlName = "email">
+      </mat-form-field>
+
+      <button mat-raised-button color="primary"  [disabled] = "modifierEnseignantForm.invalid">Modifier</button>
+  </form>
 
 
-    <div *ngIf = "formSubmitted"  class="alert {{alertType}}" role="alert"> {{alertMessage}}</div>
-    <form [formGroup]="modifierEnseignantForm" (ngSubmit)="onSubmit()">
-        <div class="form-group">
-            
-            <div class="form-group">
-                <label for="nom">Nom</label>
-                <input formControlName = "nom" type="text" class="form-control" placeholder="Nom">
-            </div>
-    
-            <div class="form-group">
-                <label for="prenom">Prenom</label>
-                <input formControlName = "prenom" type="text" class="form-control" placeholder="Prenom">
-            </div>
-            
-            <div class="form-group">
-                <label for="prenom">Role</label>
-                <input formControlName = "role" type="text" class="form-control" placeholder="Role">
-            </div>
-    
-            <div class="form-group">
-                 <label for="email">Email</label>
-                 <input formControlName = "email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
-            </div>
-    
-        </div>
-    
-        <div class="col text-center">
-            <button type="ajouter" class="btn btn-primary" [disabled] = "modifierEnseignantForm.invalid">Modifier</button>
-        </div>
-    </form>
     
 
 
@@ -52,3 +49,7 @@
         </div>
     </div>
 </div>
+
+
+
+

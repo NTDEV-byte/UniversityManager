@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
 
 
@@ -18,14 +19,14 @@ export interface Role{
 export class AjouterEnseignantComponent implements OnInit {
 
    formSubmitted : boolean = false;
-   alertMessage: String = "";
-   alertType : String = "";
 
    roles: Role[] = [
-    {value: 'Admin', viewValue: 'Admin'},
-    {value: 'Enseignant', viewValue: 'Enseignant'},
-    {value: 'Enseignant Non Vacataire', viewValue: 'Enseignant Non Vacataire'},
-    {value: 'Responsable des Modules' , viewValue: 'Responsable des Modules'}
+    {value: 'EC', viewValue: 'Enseignant-Chercheur'},
+    {value: 'PRAG', viewValue: 'Professeur agrégé du secondaire détaché dans le supérieur'},
+    {value: 'PAST' , viewValue: 'Enseignant-chercheur associé ou invité'},
+    {value: 'CDE' , viewValue: "Contrat d'enseignement"},
+    {value: 'ATER' , viewValue: "Attachés Temporaires d'Enseignement et de Recherche"},
+    {value: 'Vacataire' , viewValue: "Personne extérieure à l'université qui intervient pour quelques heures"}
   ];
 
 
@@ -39,18 +40,19 @@ export class AjouterEnseignantComponent implements OnInit {
   });
 
 
-  constructor(private adminService : AdminService) { }
+  constructor(private adminService : AdminService,private _snackBar: MatSnackBar) { }
 
 
   ngOnInit(): void {
-      this.alertMessage = "Ajouté avec succès"
-      this.alertType = "alert-success"
   }
 
 
   onSubmit() : void{
 
+
     if(this.ajouteEnseignantForm.valid){
+
+      
 
       const nom = this.ajouteEnseignantForm.value.nom;
       const prenom = this.ajouteEnseignantForm.value.prenom;
@@ -62,21 +64,17 @@ export class AjouterEnseignantComponent implements OnInit {
      this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role)
   
       if(password != confirmPass){ 
-        this.alert("Mot de passe sont différents" , "alert-danger")
-        console.log("Alert mot de passe différents ")
+        this._snackBar.open("Mot de passe non identique !" , "Fermer")
       }
       else{
         this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role).subscribe((data) => {
           console.log(data);
                 if(data.success){
-                  console.log("Alerte enseignant ajouté avec success")
-                  this.alert(data.message,"alert-success")
+                  this._snackBar.open("Enseignant Ajouté avec succès !" , "Fermer")
                   this.ajouteEnseignantForm.reset();
-                  this.resetState()
                 }
                 else{
-                  console.log("Alerte Echec lors de l'ajout de l'enseignant")
-                  this.alert(data.message , "alert-danger")
+                  this._snackBar.open("Echec lors de l'ajout de l'enseignant !" , "Fermer")
                 }
         });
       }
@@ -84,16 +82,4 @@ export class AjouterEnseignantComponent implements OnInit {
     
      this.formSubmitted = true;
   }
-
-  alert(message : string , type : string){
-     this.alertMessage = message;
-     this.alertType = type;
-  }
-
-  resetState(){
-    setInterval(() => {
-        this.formSubmitted = false;
-    } , 4000)
-  }
-
 }

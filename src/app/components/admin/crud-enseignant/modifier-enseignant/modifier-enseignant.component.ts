@@ -2,6 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
 
+
+
+export interface Role{
+  value : string,
+  viewValue : string
+}
+
 @Component({
   selector: 'app-modifier-enseignant',
   templateUrl: './modifier-enseignant.component.html',
@@ -14,6 +21,17 @@ export class ModifierEnseignantComponent implements OnInit {
   alertType : String = "";
   enseignants : any;
   enseignantSelectionner : any;
+
+
+  
+  roles: Role[] = [
+    {value: 'EC', viewValue: 'Enseignant-Chercheur'},
+    {value: 'PRAG', viewValue: 'Professeur agrégé du secondaire détaché dans le supérieur'},
+    {value: 'PAST' , viewValue: 'Enseignant-chercheur associé ou invité'},
+    {value: 'CDE' , viewValue: "Contrat d'enseignement"},
+    {value: 'ATER' , viewValue: "Attachés Temporaires d'Enseignement et de Recherche"},
+    {value: 'Vacataire' , viewValue: "Personne extérieure à l'université qui intervient pour quelques heures"}
+  ];
 
   modifierEnseignantForm = new FormGroup({
    nom: new FormControl('',[Validators.required]),
