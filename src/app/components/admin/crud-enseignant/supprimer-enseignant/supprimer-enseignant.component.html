@@ -1,1 +1,53 @@
-<p>supprimer-enseignant works!</p>
+<h1>Suppression d'un compte enseignant </h1>
+
+    <div *ngIf = "formSubmitted"  class="alert {{alertType}}" role="alert"> {{alertMessage}}</div>
+    <form [formGroup]="supprimerForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            
+            <div class="form-group">
+                <label for="nom">Nom</label>
+                <input formControlName = "nom" type="text" class="form-control" placeholder="Nom">
+            </div>
+    
+            <div class="form-group">
+                <label for="prenom">Prenom</label>
+                <input formControlName = "prenom" type="text" class="form-control" placeholder="Prenom">
+            </div>
+            
+            <div class="form-group">
+                <label for="prenom">Role</label>
+                <input formControlName = "role" type="text" class="form-control" placeholder="Role">
+            </div>
+    
+            <div class="form-group">
+                 <label for="email">Email</label>
+                 <input formControlName = "email" type="email" class="form-control" aria-describedby="emailHelp" placeholder="Email">
+            </div>
+    
+        </div>
+    
+        <div class="col text-center">
+            <button type="ajouter" class="btn btn-danger" [disabled] = "supprimerForm.invalid">Supprimer</button>
+        </div>
+    </form>
+    
+
+
+<h1>Liste des enseignants </h1>
+
+<div class="liste des des utilisateurs" *ngFor="let enseignant of enseignants" > 
+
+    <div class="card text-center">
+        <div class="card-header">
+            {{enseignant.id}}
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{enseignant.prenom}} {{enseignant.nom}}</h5>
+          <p class="card-text">{{enseignant.nom}}</p>
+          <a class="btn btn-primary" (click)="selectEnseignant(enseignant)" >voir</a>
+        </div>
+        <div class="card-footer text-muted">
+            {{enseignant.role}}
+        </div>
+    </div>
+</div>

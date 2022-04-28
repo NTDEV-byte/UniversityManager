@@ -29,7 +29,6 @@ const auth = new AuthAPI();
 const admin = new AdminAPI();
 // routes 
 
-
 // authentification
 auth.logUserIn(app,UserModel)
 //admin

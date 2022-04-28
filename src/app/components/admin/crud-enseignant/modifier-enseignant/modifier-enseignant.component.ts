@@ -53,6 +53,7 @@ export class ModifierEnseignantComponent implements OnInit {
      const role = this.modifierEnseignantForm.value.role;
      this.adminService.modifierUnEnseignant(id,nom,prenom,email,role).subscribe((data) => {
             console.log("Modifier avec succès")
+            this.modifierEnseignantForm.reset();
      });
    }
 

@@ -3,7 +3,7 @@ Objectifs
 ------------
 Obligatoire
 ------------
-1-l’administrateur doit pouvoir ajouter/modifier/supprimer un compte enseignant
+1-l’administrateur doit pouvoir ajouter/modifier/supprimer un compte enseignant XXX
 2-l’administrateur et les utilisateurs doivent pouvoir modifier leur compte (mot de passe, etc)
 3-un enseignant non vacataire doit pouvoir renseigner son nombre minimum d’UC à faire.
 L’administrateur doit pouvoir modifier ces nombres.
@@ -23,14 +23,14 @@ pourvus, c’est-à-dire pour lesquels des groupes de CM, TD ou TP n’ont pas d
 ------------
 Optionnelle
 -----------
-1- l’administrateur doit pouvoir modifier les règles de calcul des UC (par exemple quand les
+1 - l’administrateur doit pouvoir modifier les règles de calcul des UC (par exemple quand les
 ATER seront payés comme les autres).
-2- l’administrateur et les responsables de module (ceux qui font les CM) doivent pouvoir
+2 - l’administrateur et les responsables de module (ceux qui font les CM) doivent pouvoir
 éditer le tableau de l’équipe enseignante du module, avec les heures de chacun
-3- on peut prendre en compte la notion de responsable de module, indépendamment des CM.
+3 - on peut prendre en compte la notion de responsable de module, indépendamment des CM.
 Certains modules n’ont pas de CM, et dans certains modules il y a plusieurs intervenants dans les
 CM, mais un seul enseignant est responsable.
-4-Vous pouvez ajouter toutes les fonctionnalités pertinentes que vous souhaitez (graphiques
+4 -Vous pouvez ajouter toutes les fonctionnalités pertinentes que vous souhaitez (graphiques
 pour rendre les données plus claires, etc).
 ------------
 Process
@@ -48,10 +48,10 @@ Day 1
 Day 2
 ------------
 - affichage de la liste des utilisateurs XXX
-- Ajout modification suppression par l'admin  Milestone 1 
--  
--
--
+- Ajout d'un enseignant par l'admin  XXX
+- Modification d'un enseignant par l'admin XXX
+- Suppression d'un enseignant par l'admin XXX
+- Milestone 1  XXX
 ************************
 Discovered & learned
 ************************

@@ -1,7 +1,4 @@
 class AuthsAPI {
-
-    
-
     // inscription
     
     // connexion
@@ -48,8 +45,6 @@ class AuthsAPI {
                });
         })
     }
-
-
     
     
 }

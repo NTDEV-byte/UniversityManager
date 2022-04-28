@@ -7,7 +7,6 @@ interface AjoutInformationRetour {
    message : string,
 }
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -38,13 +37,14 @@ export class AdminService {
       })
   }
 
-  supprimerUnEnseignant(){
-    console.log("Supprimer Enseignant Service")
-    return  this.http.post<AjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/supprimerEnseignant",{})
+  supprimerUnEnseignant(id : string){
+    console.log("Supprimer un Enseignant");
+    return this.http.post<AjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/supprimerEnseignant",{
+      id
+    })
   }
 
   listeDesEnseignants(){
       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/listeEnseignant",{})
   }
-
 }

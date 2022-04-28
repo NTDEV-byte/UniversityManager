@@ -2,17 +2,31 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
 
+
+export interface Role{
+  value : string,
+  viewValue : string
+}
+
 @Component({
   selector: 'app-ajouter-enseignant',
   templateUrl: './ajouter-enseignant.component.html',
   styleUrls: ['./ajouter-enseignant.component.css']
 })
 
+
 export class AjouterEnseignantComponent implements OnInit {
 
    formSubmitted : boolean = false;
    alertMessage: String = "";
    alertType : String = "";
+
+   roles: Role[] = [
+    {value: 'Admin', viewValue: 'Admin'},
+    {value: 'Enseignant', viewValue: 'Enseignant'},
+    {value: 'Enseignant Non Vacataire', viewValue: 'Enseignant Non Vacataire'},
+    {value: 'Responsable des Modules' , viewValue: 'Responsable des Modules'}
+  ];
 
 
    ajouteEnseignantForm = new FormGroup({

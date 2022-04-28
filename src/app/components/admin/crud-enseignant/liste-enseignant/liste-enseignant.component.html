@@ -1,21 +1,42 @@
-<div class="list-enseignant" *ngFor="let enseignant of enseignants">
-    <div class="card">
-        <div class="card-header">
-          Featured
-        </div>
-        <div class="card-body">
-         <h3 class="card-title">Id</h3>
-          <p class="card-text">{{enseignant._id}}</p>
-          <h3 class="card-title">Nom</h3>
-          <p class="card-text">{{enseignant.nom}}</p>
-          <h3 class="card-title">Prenom</h3>
-          <p class="card-text">{{enseignant.prenom}}</p>
-          <h3 class="card-title">Email</h3>
-          <p class="card-text">{{enseignant.email}}</p>
-          <h3 class="card-title">Role</h3>
-          <p class="card-text">{{enseignant.role}}</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-</div>
+
+
+<table mat-table [dataSource]="enseignants" class="mat-elevation-z8">
+
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="Id">
+    <th mat-header-cell *matHeaderCellDef> Id </th>
+    <td mat-cell *matCellDef="let element"> {{element._id}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="nom">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let element"> {{element.nom}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="prenom">
+    <th mat-header-cell *matHeaderCellDef> Prenom </th>
+    <td mat-cell *matCellDef="let element"> {{element.prenom}} </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.email}}  </td>
+  </ng-container>
+
+   <!-- Symbol Column -->
+   <ng-container matColumnDef="role">
+    <th mat-header-cell *matHeaderCellDef> Role </th>
+    <td mat-cell *matCellDef="let element"> {{element.role | uppercase}}  </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
 
