@@ -18,9 +18,7 @@ export interface Role{
 
 export class AjouterEnseignantComponent implements OnInit {
 
-   formSubmitted : boolean = false;
-
-   roles: Role[] = [
+    roles: Role[] = [
     {value: 'EC', viewValue: 'Enseignant-Chercheur'},
     {value: 'PRAG', viewValue: 'Professeur agrégé du secondaire détaché dans le supérieur'},
     {value: 'PAST' , viewValue: 'Enseignant-chercheur associé ou invité'},
@@ -29,6 +27,8 @@ export class AjouterEnseignantComponent implements OnInit {
     {value: 'Vacataire' , viewValue: "Personne extérieure à l'université qui intervient pour quelques heures"}
   ];
 
+
+   formSubmitted : boolean = false;
 
    ajouteEnseignantForm = new FormGroup({
     nom: new FormControl('',[Validators.required]),

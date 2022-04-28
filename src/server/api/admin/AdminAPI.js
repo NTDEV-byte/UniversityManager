@@ -59,6 +59,10 @@ class AdminAPI{
                     })
               }
               else{
+                res.json({
+                    success : false,
+                    
+                })
                     console.log("Echec lors de la suppression !")
               }
                // console.log("Route Catched supprimer enseignant ! ")

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
 
 
@@ -9,6 +10,7 @@ export interface Role{
   viewValue : string
 }
 
+
 @Component({
   selector: 'app-modifier-enseignant',
   templateUrl: './modifier-enseignant.component.html',
@@ -17,8 +19,6 @@ export interface Role{
 export class ModifierEnseignantComponent implements OnInit {
 
   formSubmitted : boolean = false;
-  alertMessage: String = "";
-  alertType : String = "";
   enseignants : any;
   enseignantSelectionner : any;
 
@@ -41,11 +41,10 @@ export class ModifierEnseignantComponent implements OnInit {
  });
 
 
- constructor(private adminService : AdminService) { }
+ constructor(private adminService : AdminService,private _snackBar : MatSnackBar) { }
 
 
  ngOnInit(): void {
-     this.alert("Modifier avec succès", "alert-success");
      this.adminService.listeDesEnseignants().subscribe((data) => {
               this.enseignants = data as [];
      });
@@ -70,24 +69,14 @@ export class ModifierEnseignantComponent implements OnInit {
      const email = this.modifierEnseignantForm.value.email;
      const role = this.modifierEnseignantForm.value.role;
      this.adminService.modifierUnEnseignant(id,nom,prenom,email,role).subscribe((data) => {
-            console.log("Modifier avec succès")
+            //console.log("Modifier avec succès")
+            this._snackBar.open("Modifier avec succès !" , "Fermer")
             this.modifierEnseignantForm.reset();
      });
    }
 
    
     this.formSubmitted = true;
- }
-
- alert(message : string , type : string){
-    this.alertMessage = message;
-    this.alertType = type;
- }
-
- resetState(){
-   setInterval(() => {
-       this.formSubmitted = false;
-   } , 4000)
  }
 
 
