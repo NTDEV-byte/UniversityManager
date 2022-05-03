@@ -4,8 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
-
-
 // materials
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -16,6 +14,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatListModule} from '@angular/material/list';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule } from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 //components
 import { AppComponent } from './app.component';
@@ -26,7 +28,7 @@ import { AjouterEnseignantComponent } from './components/admin/crud-enseignant/a
 import { ModifierEnseignantComponent } from './components/admin/crud-enseignant/modifier-enseignant/modifier-enseignant.component';
 import { SupprimerEnseignantComponent } from './components/admin/crud-enseignant/supprimer-enseignant/supprimer-enseignant.component';
 import { ListeEnseignantComponent } from './components/admin/crud-enseignant/liste-enseignant/liste-enseignant.component';
-import { MatSidenavModule} from '@angular/material/sidenav';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
 @NgModule({
@@ -39,6 +41,7 @@ import { MatSidenavModule} from '@angular/material/sidenav';
     ModifierEnseignantComponent,
     SupprimerEnseignantComponent,
     ListeEnseignantComponent,
+    SidenavComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -54,7 +57,11 @@ import { MatSidenavModule} from '@angular/material/sidenav';
     MatTableModule,
     MatButtonModule,
     MatSnackBarModule,
-    MatListModule
+    MatListModule,
+    MatSidenavModule,
+    MatDividerModule,
+    MatIconModule,
+    MatToolbarModule
   ],
   providers: [],
   bootstrap: [AppComponent]

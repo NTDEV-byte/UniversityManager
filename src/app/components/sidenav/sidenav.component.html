@@ -1,0 +1,45 @@
+<mat-toolbar>
+    Responsive sidebar navigation
+</mat-toolbar>
+
+<mat-sidenav-container>
+
+    <mat-sidenav mode="side" opened>
+
+        <img class="avatar mat-elevation-z8" width = "120" height = "120" src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg">
+            <h4 class="name">John Smith</h4>
+            <p class="designation">Software Engineer</p>
+
+            <mat-divider></mat-divider>
+
+       <button mat-button class="menu-button" routerLink="/admin/ajouterEnseignant">
+           <mat-icon>add</mat-icon>
+           <span>Ajouter</span>
+       </button>
+
+       <button mat-button class="menu-button" routerLink="/admin/modifierEnseignant">
+        <mat-icon>edit</mat-icon>
+        <span>Modifier</span>
+       </button>
+
+       <button mat-button class="menu-button" routerLink="/admin/supprimerEnseignant">
+        <mat-icon>delete</mat-icon>
+        <span>Supprimer</span>
+       </button>
+
+       <button mat-button class="menu-button" routerLink="/admin/listEnseignant">
+        <mat-icon>list</mat-icon>
+        <span>Liste</span>
+       </button>
+
+    </mat-sidenav>
+
+
+    <mat-sidenav-content>
+           <div class="content mat-elevation-z4">
+               <router-outlet></router-outlet>
+           </div>
+
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
