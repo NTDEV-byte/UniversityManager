@@ -8,6 +8,7 @@ import { SupprimerEnseignantComponent } from './components/admin/crud-enseignant
 
 import {ConnexionComponent} from './components/auths/connexion/connexion.component';
 import { EnseignantComponent } from './components/enseignant/enseignant.component';
+import { FormationsComponent } from './components/formations/formations.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path : 'admin/ajouterEnseignant' , component: AjouterEnseignantComponent},
   { path : 'admin/modifierEnseignant' , component: ModifierEnseignantComponent},
   { path : 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},
-  { path : 'admin/listEnseignant' , component: ListeEnseignantComponent}
+  { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
+  { path : 'formation/listFormation' , component: FormationsComponent}
 ];
 
 @NgModule({

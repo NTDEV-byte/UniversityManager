@@ -1,5 +1,5 @@
 <mat-toolbar>
-    Responsive sidebar navigation
+    MoodleV2
 </mat-toolbar>
 
 <mat-sidenav-container>
@@ -10,6 +10,8 @@
             <h4 class="name">John Smith</h4>
             <p class="designation">Software Engineer</p>
 
+            <mat-divider></mat-divider>
+            <h3> Enseignant </h3>
             <mat-divider></mat-divider>
 
        <button mat-button class="menu-button" routerLink="/admin/ajouterEnseignant">
@@ -31,6 +33,16 @@
         <mat-icon>list</mat-icon>
         <span>Liste</span>
        </button>
+
+       <mat-divider></mat-divider>
+       <h3> Formations </h3>
+       <mat-divider></mat-divider>
+       
+       <button mat-button class="menu-button" routerLink="/formation/listFormation">
+        <mat-icon>list</mat-icon>
+        <span>Formation </span>
+       </button>
+
 
     </mat-sidenav>
 

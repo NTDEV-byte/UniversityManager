@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'; 
+
 // materials
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatSelectModule} from '@angular/material/select';
@@ -18,6 +19,7 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatDividerModule } from '@angular/material/divider';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatTreeModule} from '@angular/material/tree';
 
 //components
 import { AppComponent } from './app.component';
@@ -29,6 +31,7 @@ import { ModifierEnseignantComponent } from './components/admin/crud-enseignant/
 import { SupprimerEnseignantComponent } from './components/admin/crud-enseignant/supprimer-enseignant/supprimer-enseignant.component';
 import { ListeEnseignantComponent } from './components/admin/crud-enseignant/liste-enseignant/liste-enseignant.component';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { FormationsComponent } from './components/formations/formations.component';
 
 
 @NgModule({
@@ -42,6 +45,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     SupprimerEnseignantComponent,
     ListeEnseignantComponent,
     SidenavComponent,
+    FormationsComponent,
   ],
   imports: [
     MatFormFieldModule,
@@ -61,7 +65,8 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatSidenavModule,
     MatDividerModule,
     MatIconModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
