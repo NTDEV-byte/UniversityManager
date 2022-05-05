@@ -2,8 +2,6 @@ class AdminAPI{
 
     ajouterEnseignant(app,UserModel){
         app.post('/api/admin/ajouterEnseignant' , async (req,res) => {
-
-            console.log("UserModel: " + UserModel);
                 //console.log("Route Catched ajouter Enseignant ! ")
                 const {nom,prenom,email,password,role} =  req.body;
                 const response = await UserModel.create([{nom , prenom , email, password,role}])

@@ -2,60 +2,75 @@ import { Component, OnInit } from '@angular/core';
 import { FormationsService } from 'src/app/services/formations/formations.service';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
+import { Router } from '@angular/router';
 
-/**
- * Food data with nested structure.
- * Each node has a name and an optional list of children.
- */
- interface FoodNode {
-  name: string;
-  children?: FoodNode[];
+ interface Formation {
+  nom: string;
+  children?: Formation[];
+  url: string;
 }
 
-const TREE_DATA: FoodNode[] = [
+interface FormationExtensibleFlat {
+  expandable: boolean;
+  nom: string;
+  level: number;
+  url: string;
+}
+// /api/modules/{level}{num}/{semestre}{num}/
+
+const FORMATIONS: Formation[] = [
   {
-    name: 'Licence',
+    nom: 'Licence',url: "",
     children: [
-      {name: 'Licence 1' , 
-        children: [{name: "Semestre 1", } , {name : "Semestre 2"}]}, 
-      {name: 'Licence 2',  
-        children: [{name: "Semestre 3", } , {name : "Semestre 4"}]}, 
-      {name: 'Licence 3',  
-        children: [{name: "Semestre 5", } , {name : "Semestre 6"}]}, 
+      {nom: 'Licence 1' , url: "",
+        children: [
+          {nom: "Semestre 1", url: "/licence1/semestre1",} , 
+          {nom : "Semestre 2",url: "/licence1/semestre2",}
+              ]},
+      {nom: 'Licence 2', url: "",
+        children: [
+          {nom: "Semestre 3", url: "/licence2/semestre3"} , 
+          {nom : "Semestre 4", url: "/licence2/semestre4",}
+              ]}, 
+      {nom: 'Licence 3', url: "",  
+        children: [
+          {nom: "Semestre 5", url: "/licence3/semestre5", } , 
+          {nom : "Semestre 6", url: "/licence3/semestre6",}
+        ]}, 
     ],
   },
   {
-    name: 'Master',
+    nom: 'Master', url: "",
     children: [
       {
-        name: 'Master Informatique',
+        nom: 'Master Informatique', url: "",
         children: [
-                    {name: 'Informatique 1' ,
-                     children: [{name : "Semester 1"} , {name : "Semester 2"}]}, 
-                    {name: 'Informatique 2',
-                     children: [{name : "Semester 3"} , {name : "Semester 4"}]}
+                    {nom: 'Informatique 1' , url: "",
+                     children: [
+                       {nom : "Semester 1", url: "/master-1-informatique/semestre1",} , 
+                       {nom : "Semester 2", url: "/master-1-informatique/semestre2",}]}, 
+                    {nom: 'Informatique 2', url: "",
+                     children: [
+                       {nom : "Semester 3", url: "/master-2-informatique/semestre3",}, 
+                       {nom : "Semester 4", url: "/master-2-informatique/semestre4",}]}
                   ],
       },
       {
-        name: 'Master Miage',
+        nom: 'Master Miage', url: "",
         children: [
-          {name: 'Miage 1' ,
-           children: [{name : "Semester 1"} , {name : "Semester 2"}]}, 
-          {name: 'Miage 2',
-           children: [{name : "Semester 3"} , {name : "Semester 4"}]} , 
+          {nom: 'Miage 1' , url: "",
+           children: [
+             {nom : "Semester 1", url: "/master-1-miage/semestre1",} , 
+             {nom : "Semester 2", url: "/master-1-miage/semestre2",}]}, 
+          {nom: 'Miage 2', url: "",
+           children: [
+             {nom : "Semester 3", url: "/master-2-miage/semestre3",},
+             {nom : "Semester 4", url: "/master-2-miage/semestre4",}]} , 
         ],
       },
     ],
   },
 ];
-
-/** Flat node with expandable and level information */
-interface ExampleFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
-
 
 
 @Component({
@@ -70,15 +85,16 @@ export class FormationsComponent implements OnInit {
 
   formations : any[] = [];
 
-  private _transformer = (node: FoodNode, level: number) => {
+  private _transformer = (node: Formation, level: number) => {
     return {
       expandable: !!node.children && node.children.length > 0,
-      name: node.name,
+      nom: node.nom,
       level: level,
+      url: node.url
     };
   };
 
-  treeControl = new FlatTreeControl<ExampleFlatNode>(
+  treeControl = new FlatTreeControl<FormationExtensibleFlat>(
     node => node.level,
     node => node.expandable,
   );
@@ -90,17 +106,23 @@ export class FormationsComponent implements OnInit {
     node => node.children,
   );
 
-  dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
+  dataSource = new MatTreeFlatDataSource(this.treeControl,this.treeFlattener);
 
-  constructor(private formationService : FormationsService) {
-    this.dataSource.data = TREE_DATA;
+  constructor(private formationService : FormationsService, private router : Router) {
+    this.dataSource.data = FORMATIONS;
   }
 
-  hasChild = (_: number, node: ExampleFlatNode) => node.expandable;
+  hasChild = (_: number, node: FormationExtensibleFlat) => node.expandable;
 
   ngOnInit(): void {
     this.formationService.getAllFormations().subscribe((data) => {
          console.log(data);
     });
+  }
+
+
+  getFormationSelected(formation : any){
+      console.log(formation);
+      this.router.navigate(['/formation/detail', formation]);
   }
 }

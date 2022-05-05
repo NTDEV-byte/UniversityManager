@@ -52,6 +52,29 @@ Day 2
 - Modification d'un enseignant par l'admin XXX
 - Suppression d'un enseignant par l'admin XXX
 - Milestone 1  XXX
+-----------
+Day 3
+-----------
+-Formation Service XXX
+-Tree Formations XXX
+-Affichage des modules selon la formation et le semestre 
+-Modification du profil
+-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ************************
 Discovered & learned
 ************************
