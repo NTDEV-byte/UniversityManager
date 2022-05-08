@@ -10,12 +10,14 @@ import {ConnexionComponent} from './components/auths/connexion/connexion.compone
 import { EnseignantComponent } from './components/enseignant/enseignant.component';
 import { DetailComponent } from './components/formations/detail/detail.component';
 import { FormationsComponent } from './components/formations/formations.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 
 const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'enseignant', component: EnseignantComponent},
   { path : 'admin' , component: AdminComponent},
+  { path : 'admin/index' , component: SidenavComponent},
   { path : 'admin/ajouterEnseignant' , component: AjouterEnseignantComponent},
   { path : 'admin/modifierEnseignant' , component: ModifierEnseignantComponent},
   { path : 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},

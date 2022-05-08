@@ -1,10 +1,26 @@
 <mat-toolbar>
+
+    <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click) = "sidenav.toggle()">
+        <mat-icon *ngIf = "!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf = "sidenav.opened">
+            close
+        </mat-icon>
+    </button>
     MoodleV2
+    <span class="example-spacer"></span>
+    <button mat-button class="login-button" routerLink="connexion">
+        <mat-icon>login</mat-icon>
+        <span>Connexion</span>
+    </button>
+
+    
 </mat-toolbar>
 
 <mat-sidenav-container>
 
-    <mat-sidenav mode="side" opened>
+    <mat-sidenav #sidenav="matSidenav">
 
         <img class="avatar mat-elevation-z8" width = "120" height = "120" src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg">
             <h4 class="name">Admin 1</h4>

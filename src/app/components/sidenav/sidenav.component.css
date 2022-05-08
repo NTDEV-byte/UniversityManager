@@ -15,7 +15,7 @@ mat-sidenav{
 }
  
 .content {
-  height: calc(100vh - 85px);
+  height: calc(100vh - 100px);
   margin: 16px;
   margin-left: 32px;
   justify-content: center;
@@ -27,6 +27,9 @@ mat-sidenav-container {
    height: calc(100vh - 65px);
 }
 
+.example-spacer {
+    flex: 1 1 auto;
+  }
 .menu-button {
     width: 100%;
     display: flex;
