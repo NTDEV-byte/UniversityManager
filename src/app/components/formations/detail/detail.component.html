@@ -1,1 +1,25 @@
-<p>detail works!</p>
+<div *ngFor="let module of modules">
+
+<mat-card class="example-card">
+    <mat-card-title-group>
+      <mat-card-title>{{module["Intitulé"]}}</mat-card-title>
+      <mat-card-subtitle>Formation {{module.Formation}}</mat-card-subtitle>
+      <mat-card-subtitle>Semestre {{module.Semestre}}</mat-card-subtitle>
+      <mat-card-subtitle>Référence {{module.Ref}}</mat-card-subtitle>
+      <mat-card-subtitle>h/CM <b>{{module["h/CM"]}}</b> </mat-card-subtitle>
+      <mat-card-subtitle>h/TD <b>{{module["h/TD"]}}</b> </mat-card-subtitle>
+      <mat-card-subtitle>h/TP <b>{{module["h/TP"]}}</b> </mat-card-subtitle>
+      <mat-card-subtitle>Effectif <b>{{module.Effectif}}</b> </mat-card-subtitle>
+      <mat-card-subtitle>gr/CM <b>{{module["grCM"]}}</b> </mat-card-subtitle>
+      <mat-card-subtitle>gr/TD <b>{{module["grTD"]}}</b> </mat-card-subtitle>
+      <mat-card-subtitle>gr/TP <b>{{module["grTP"]}}</b> </mat-card-subtitle>
+
+      <img mat-card-xl-image src="https://us.123rf.com/450wm/olegdudko/olegdudko1604/olegdudko160400096/55045052-studying-.jpg?ver=6" >
+    </mat-card-title-group>
+    <mat-card-content>
+ 
+    </mat-card-content>
+  </mat-card>
+  
+
+</div>

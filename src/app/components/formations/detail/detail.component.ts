@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute} from '@angular/router';
 import { FormationsService } from 'src/app/services/formations/formations.service';
 
+
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
@@ -9,12 +10,17 @@ import { FormationsService } from 'src/app/services/formations/formations.servic
 })
 export class DetailComponent implements OnInit {
 
+
+  modules : any;
+
   constructor(private route: ActivatedRoute,private formationService : FormationsService) { }
 
   ngOnInit(): void {
     let urlRoute : string | null = this.route.snapshot.paramMap.get("url") ;
     this.formationService.getModulesByNiveauSemestre(urlRoute!)?.subscribe((data) => {
-         console.log(data);
+             this.modules = data as [];
+
+             console.log(this.modules[0].Intitulé);
     });
   }
 }
