@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../services/auths/auth.service';
+import { AuthService} from '../../../services/auths/auth.service';
 
 
 @Component({
@@ -21,17 +21,20 @@ export class ConnexionComponent {
   });
 
   public onSubmit() : void {
-    // logic to db and check data & redirection
-    // console.log("Email:  "+this.LoginForm.value.email);
-    // console.log("Password: "+this.LoginForm.value.password);
-     
     if(this.LoginForm.value.password != '' && this.LoginForm.value.email){
       const email = this.LoginForm.value.email;
       const password = this.LoginForm.value.password;
   
-       // console.log("Password  & email not empty !");
         this.authService.logUserIn(email , password).subscribe((data) => {
             if(data.success){
+              this.authService.createUserDetails(
+                {
+                  nom : data.nom ,
+                  prenom: data.prenom , 
+                  role : data.role , 
+                  loggedIn : true
+                }
+              )
               
               if(data.role.toLowerCase() == 'admin'){
                 this.router.navigate(['admin'])
@@ -47,7 +50,6 @@ export class ConnexionComponent {
             else{
                 console.log("Informations incorrect !")
             }
-           //  console.log(data);
         });
     }
 

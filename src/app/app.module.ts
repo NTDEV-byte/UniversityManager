@@ -21,6 +21,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatCardModule} from '@angular/material/card';
+import {MatDialogModule} from '@angular/material/dialog';
 //components
 import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
@@ -69,7 +70,8 @@ import { DetailComponent } from './components/formations/detail/detail.component
     MatIconModule,
     MatToolbarModule,
     MatTreeModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

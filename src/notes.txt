@@ -57,7 +57,8 @@ Day 3
 -----------
 -Formation Service XXX
 -Tree Formations XXX
--Affichage des modules selon la formation et le semestre 
+-Affichage des modules selon la formation et le semestre  XXX
+-Confirmation avant suppression d'un enseignant
 -Modification du profil
 -
 

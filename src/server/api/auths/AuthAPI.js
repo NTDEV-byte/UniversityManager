@@ -19,6 +19,8 @@ class AuthsAPI {
                 // creation d'une session
                 console.log('utilisateur trouvé')
                 res.json({
+                    nom: response.nom,
+                    prenom: response.prenom,
                     success: true,
                     message: "Connexion Success !",
                     role: response.role
