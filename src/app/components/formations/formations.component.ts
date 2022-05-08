@@ -24,18 +24,18 @@ const FORMATIONS: Formation[] = [
     children: [
       {nom: 'Licence 1' , url: "",
         children: [
-          {nom: "Semestre 1", url: "/licence1/semestre1",} , 
-          {nom : "Semestre 2",url: "/licence1/semestre2",}
+          {nom: "Semestre 1", url: FormationsService.LICENCE_1_S1,} , 
+          {nom : "Semestre 2",url: FormationsService.LICENCE_1_S2,}
               ]},
       {nom: 'Licence 2', url: "",
         children: [
-          {nom: "Semestre 3", url: "/licence2/semestre3"} , 
-          {nom : "Semestre 4", url: "/licence2/semestre4",}
+          {nom: "Semestre 3", url: FormationsService.LICENCE_2_S3} , 
+          {nom : "Semestre 4", url: FormationsService.LICENCE_2_S4,}
               ]}, 
       {nom: 'Licence 3', url: "",  
         children: [
-          {nom: "Semestre 5", url: "/licence3/semestre5", } , 
-          {nom : "Semestre 6", url: "/licence3/semestre6",}
+          {nom: "Semestre 5", url: FormationsService.LICENCE_3_S5,} , 
+          {nom : "Semestre 6", url: FormationsService.LICENCE_3_S6,}
         ]}, 
     ],
   },
@@ -47,12 +47,12 @@ const FORMATIONS: Formation[] = [
         children: [
                     {nom: 'Informatique 1' , url: "",
                      children: [
-                       {nom : "Semester 1", url: "/master-1-informatique/semestre1",} , 
-                       {nom : "Semester 2", url: "/master-1-informatique/semestre2",}]}, 
+                       {nom : "Semester 1", url: FormationsService.MASTER_1_INFORMATIQUE_S1,} , 
+                       {nom : "Semester 2", url: FormationsService.MASTER_1_INFORMATIQUE_S2,}]}, 
                     {nom: 'Informatique 2', url: "",
                      children: [
-                       {nom : "Semester 3", url: "/master-2-informatique/semestre3",}, 
-                       {nom : "Semester 4", url: "/master-2-informatique/semestre4",}]}
+                       {nom : "Semester 3", url: FormationsService.MASTER_2_INFORMATIQUE_S3,}, 
+                       {nom : "Semester 4", url: FormationsService.MASTER_2_INFORMATIQUE_S4,}]}
                   ],
       },
       {
@@ -60,12 +60,12 @@ const FORMATIONS: Formation[] = [
         children: [
           {nom: 'Miage 1' , url: "",
            children: [
-             {nom : "Semester 1", url: "/master-1-miage/semestre1",} , 
-             {nom : "Semester 2", url: "/master-1-miage/semestre2",}]}, 
-          {nom: 'Miage 2', url: "",
+             {nom : "Semester 1", url: FormationsService.MASTER_1_MIAGE_S1,} , 
+             {nom : "Semester 2", url: FormationsService.MASTER_1_MIAGE_S2,}]}, 
+           {nom: 'Miage 2', url: "",
            children: [
-             {nom : "Semester 3", url: "/master-2-miage/semestre3",},
-             {nom : "Semester 4", url: "/master-2-miage/semestre4",}]} , 
+             {nom : "Semester 3", url: FormationsService.MASTER_2_MIAGE_S3 ,},
+             {nom : "Semester 4", url: FormationsService.MASTER_2_MIAGE_S4,}]} , 
         ],
       },
     ],
@@ -115,14 +115,11 @@ export class FormationsComponent implements OnInit {
   hasChild = (_: number, node: FormationExtensibleFlat) => node.expandable;
 
   ngOnInit(): void {
-    this.formationService.getAllFormations().subscribe((data) => {
-         console.log(data);
-    });
+    
   }
 
 
   getFormationSelected(formation : any){
-      console.log(formation);
       this.router.navigate(['/formation/detail', formation]);
   }
 }

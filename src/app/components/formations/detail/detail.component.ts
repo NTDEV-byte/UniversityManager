@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute} from '@angular/router';
+import { FormationsService } from 'src/app/services/formations/formations.service';
 
 @Component({
   selector: 'app-detail',
@@ -8,14 +9,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class DetailComponent implements OnInit {
 
-
-
-  constructor(private route: ActivatedRoute) { }
-
+  constructor(private route: ActivatedRoute,private formationService : FormationsService) { }
 
   ngOnInit(): void {
-    console.log(this.route.snapshot.paramMap.get("nom"));
-
+    let urlRoute : string | null = this.route.snapshot.paramMap.get("url") ;
+    this.formationService.getModulesByNiveauSemestre(urlRoute!)?.subscribe((data) => {
+         console.log(data);
+    });
   }
-
 }

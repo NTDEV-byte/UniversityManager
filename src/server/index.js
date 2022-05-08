@@ -48,4 +48,4 @@ adminApi.listeEnseignants(app,UserModel)
 
 //modules
 formationAPI.getAllFormations(app,FormationModel)
-
+formationAPI.getModuleFormationsByNiveauAndSemestre(app,FormationModel)
