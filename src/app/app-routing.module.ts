@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AdminComponent } from './components/admin/admin.component';
-import { AjouterEnseignantComponent } from './components/admin/crud-enseignant/ajouter-enseignant/ajouter-enseignant.component';
-import { ListeEnseignantComponent } from './components/admin/crud-enseignant/liste-enseignant/liste-enseignant.component';
-import { ModifierEnseignantComponent } from './components/admin/crud-enseignant/modifier-enseignant/modifier-enseignant.component';
-import { SupprimerEnseignantComponent } from './components/admin/crud-enseignant/supprimer-enseignant/supprimer-enseignant.component';
+import { AdminComponent } from './components/users/admin/admin.component';
+import { AjouterEnseignantComponent } from './components/users/admin/crud-enseignant/ajouter-enseignant/ajouter-enseignant.component';
+import { ListeEnseignantComponent } from './components/users/admin/crud-enseignant/liste-enseignant/liste-enseignant.component';
+import { ModifierEnseignantComponent } from './components/users/admin/crud-enseignant/modifier-enseignant/modifier-enseignant.component';
+import { SupprimerEnseignantComponent } from './components/users/admin/crud-enseignant/supprimer-enseignant/supprimer-enseignant.component';
 
 import {ConnexionComponent} from './components/auths/connexion/connexion.component';
-import { EnseignantComponent } from './components/enseignant/enseignant.component';
+import { EnseignantComponent } from './components/users/enseignant/enseignant.component';
 import { DetailComponent } from './components/formations/detail/detail.component';
 import { FormationsComponent } from './components/formations/formations.component';
-import { SidenavComponent } from './components/sidenav/sidenav.component';
+import { SidenavComponent } from './components/home/sidenav/sidenav.component';
 
 
 const routes: Routes = [
