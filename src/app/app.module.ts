@@ -22,6 +22,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
+
 //components
 import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
@@ -52,6 +53,7 @@ import { HomeComponent } from './components/home/home.component';
     DetailComponent,
     HomeComponent,
   ],
+
   imports: [
     MatFormFieldModule,
     BrowserModule,
@@ -75,6 +77,7 @@ import { HomeComponent } from './components/home/home.component';
     MatCardModule,
     MatDialogModule
   ],
+  
   providers: [],
   bootstrap: [AppComponent]
 })

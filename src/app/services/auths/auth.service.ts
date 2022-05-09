@@ -37,6 +37,13 @@ export class AuthService {
 
    setLoggedIn(value : boolean){
     this.user.loggedIn = value;
+    this.destroySession();
+  }
+
+  destroySession(){
+    this.user.nom = "";
+    this.user.prenom = "";
+    this.user.role = "";
   }
 
   get getUserDetails(){
