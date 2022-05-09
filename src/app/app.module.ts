@@ -34,6 +34,7 @@ import { ListeEnseignantComponent } from './components/admin/crud-enseignant/lis
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { FormationsComponent } from './components/formations/formations.component';
 import { DetailComponent } from './components/formations/detail/detail.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { DetailComponent } from './components/formations/detail/detail.component
     SidenavComponent,
     FormationsComponent,
     DetailComponent,
+    HomeComponent,
   ],
   imports: [
     MatFormFieldModule,

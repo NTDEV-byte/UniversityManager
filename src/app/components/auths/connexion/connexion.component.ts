@@ -36,7 +36,7 @@ export class ConnexionComponent {
                 }
               )
               if(data.role.toLowerCase() == 'admin'){
-                this.router.navigate(['admin/index'])
+                this.router.navigate(['/admin/ajouterEnseignant'])
               }
               else{
                 this.router.navigate(['enseignant'])
