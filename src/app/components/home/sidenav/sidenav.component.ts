@@ -37,10 +37,8 @@ export class SidenavComponent implements OnInit {
 
    deconnexion(){
       this.authService.logout()
-      this.router.navigate(['']);
+      this.router.navigate(['/connexion']);
   }
-  modifierProfil(){
-    console.log("Modification du profil")
-  }
+  
 
 }

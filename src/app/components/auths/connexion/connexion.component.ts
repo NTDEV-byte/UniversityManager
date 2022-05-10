@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService} from '../../../services/auths/auth.service';
 
@@ -12,19 +13,23 @@ import { AuthService} from '../../../services/auths/auth.service';
 export class ConnexionComponent {
 
 
-  constructor(private authService: AuthService, private router: Router){
+  constructor(private authService: AuthService, private router: Router , private snackBar : MatSnackBar){
   }
 
   LoginForm = new FormGroup({
-    email: new FormControl(''),
-    password: new FormControl(''),
+    email: new FormControl('',[Validators.required,Validators.email]),
+    password: new FormControl('',[Validators.required]),
   });
 
   public onSubmit() : void {
-    if(this.LoginForm.value.password != '' && this.LoginForm.value.email){
+
+
+    if(this.LoginForm.valid){
+
+
       const email = this.LoginForm.value.email;
       const password = this.LoginForm.value.password;
-  
+      
         this.authService.logUserIn({email : email , password : password}).subscribe((data) => {
             if(data.success){
               console.log(data);
@@ -50,6 +55,7 @@ export class ConnexionComponent {
             }
 
             else{
+                this.snackBar.open("Email ou mot de passe incorrect " , "Fermer");
                 console.log("Informations incorrect !")
             }
         });

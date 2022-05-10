@@ -4,7 +4,7 @@ Objectifs
 Obligatoire
 ------------
 1-l’administrateur doit pouvoir ajouter/modifier/supprimer un compte enseignant XXX
-2-l’administrateur et les utilisateurs doivent pouvoir modifier leur compte (mot de passe, etc)
+2-l’administrateur et les utilisateurs doivent pouvoir modifier leur compte (mot de passe, etc) XXX
 3-un enseignant non vacataire doit pouvoir renseigner son nombre minimum d’UC à faire.
 L’administrateur doit pouvoir modifier ces nombres.
 4-un enseignant non vacataire doit pouvoir s’inscrire (ou se désinscrire) sur un enseignement
@@ -60,12 +60,11 @@ Day 3
 -Affichage des modules selon la formation et le semestre  XXX
 -Modification du profil XXX
 -Affichage des messages d'informations après modification du profil XXX
+-Modification de la vue connexion  XXX
+-Modification du landing page 
+
 -Confirmation avant suppression & Avant Modification d'un enseignant
 -Validateur Champs avec message d'erreur !
-
-
-
-
 
 ************************
 Discovered & learned
