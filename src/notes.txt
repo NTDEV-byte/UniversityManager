@@ -58,19 +58,10 @@ Day 3
 -Formation Service XXX
 -Tree Formations XXX
 -Affichage des modules selon la formation et le semestre  XXX
--Confirmation avant suppression d'un enseignant
--Modification du profil
--
-
-
-
-
-
-
-
-
-
-
+-Modification du profil XXX
+-Affichage des messages d'informations après modification du profil XXX
+-Confirmation avant suppression & Avant Modification d'un enseignant
+-Validateur Champs avec message d'erreur !
 
 
 

@@ -36,14 +36,10 @@ const adminApi = new AdminAPIClass();
 const formationAPI = new FormationAPIClass();
 const sharedAPI = new SharedAPIClass();
 
-
-
-
 // ROUTES 
 
 // authentification
 authApi.logUserIn(app,UserModel)
-
 
 //USERS 
 
@@ -56,7 +52,6 @@ adminApi.listeEnseignants(app,UserModel)
 //shared 
 
 sharedAPI.modificationProfilUtilisateur(app,UserModel);
-
 
 //Formation
 formationAPI.getAllFormations(app,FormationModel)

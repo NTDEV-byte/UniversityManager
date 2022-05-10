@@ -30,6 +30,7 @@ export class ConnexionComponent {
               console.log(data);
               this.authService.createUserDetails(
                 {
+                  id : data.id,
                   nom : data.nom ,
                   prenom: data.prenom , 
                   role : data.role , 

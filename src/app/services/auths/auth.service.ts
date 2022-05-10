@@ -7,6 +7,7 @@ export interface ISendLoginData {
 } 
 
 export interface IResponseLoginData {
+    id : string,
     nom: string,
     prenom: string,
     email: string,
@@ -16,6 +17,7 @@ export interface IResponseLoginData {
 }
 
 export interface IUserInformation {
+   id : string,
    nom : string,
    prenom: string,
    email: string,
@@ -31,7 +33,7 @@ export class AuthService {
 
 public static SERVER_EXPRESS_IP_PORT : string = "http://localhost:8888";
 
-private user : IUserInformation = {nom : ''  , prenom: '' , email: '',  role : '' , loggedIn : false};
+private user : IUserInformation = {id : '' , nom : ''  , prenom: '' , email: '',  role : '' , loggedIn : false};
 
 
 

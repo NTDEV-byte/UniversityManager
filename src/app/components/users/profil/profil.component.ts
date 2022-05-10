@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -19,7 +20,6 @@ export interface Role{
 
 export class ProfilComponent implements OnInit {
 
- 
     formSubmitted : boolean = false;
   
     modificationProfilForm = new FormGroup({
@@ -44,15 +44,32 @@ export class ProfilComponent implements OnInit {
    }
   
    onSubmit() : void{
-  
+    
      if(this.modificationProfilForm.valid){
+
+
         this.sharedUsersService.modifyProfil(
           {
+            id : this.authService.getUserDetails.id,
             nom : this.modificationProfilForm.value.nom , 
             prenom : this.modificationProfilForm.value.prenom , 
             email: this.modificationProfilForm.value.email , 
             password : this.modificationProfilForm.value.password
+          }).subscribe((data) => {
+
+              if(data.success){
+                  console.log("Success !");
+                  this._snackBar.open("Profil modifié avec succès" , "Fermer")
+                  
+              }
+              else{
+                 this._snackBar.open("Echec de la modification du profil","Femer")
+                console.log("Failed !");
+              }
+
           });
+
+          this.modificationProfilForm.reset();
    }
 }
 

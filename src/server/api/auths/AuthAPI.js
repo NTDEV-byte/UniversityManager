@@ -18,8 +18,9 @@ class AuthsAPI {
             else{
                 // creation d'une session
                 console.log('utilisateur trouvé')
-                console.log(response)
+                console.log(response._id)
                 res.json({
+                    id : response._id,
                     nom: response.nom,
                     prenom: response.prenom,
                     email: response.email,
