@@ -39,7 +39,7 @@ export class ModifierEnseignantComponent implements OnInit {
  constructor(private adminService : AdminService, private _snackBar : MatSnackBar) { }
 
  ngOnInit(): void {
-     this.adminService.listeDesEnseignants().subscribe((data) => {
+     this.adminService.listeDeToutLesEnseignants().subscribe((data) => {
               this.enseignants = data as [];
      });
  }
@@ -63,7 +63,7 @@ export class ModifierEnseignantComponent implements OnInit {
      const prenom = this.modifierEnseignantForm.value.prenom;
      const email = this.modifierEnseignantForm.value.email;
      const role = this.modifierEnseignantForm.value.role;
-     this.adminService.modifierUnEnseignant(id,nom,prenom,email,role).subscribe((data) => {
+     this.adminService.modifierUnEnseignant({id,nom,prenom,email,role}).subscribe((data) => {
             this._snackBar.open("Modifier avec succès !" , "Fermer")
             this.modifierEnseignantForm.reset();
      });

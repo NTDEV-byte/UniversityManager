@@ -20,14 +20,18 @@ export interface IReponseModificationProfil {
 
 export class SharedUsersService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
+
 
   modifyProfil(information : ISendModificationInformation ){
 
-
-    
-      this.http.post<IReponseModificationProfil>(AuthService.SERVER_EXPRESS_IP_PORT,{
-
+      const {nom,prenom,email,password} = information; 
+      
+      return this.http.post<IReponseModificationProfil>(AuthService.SERVER_EXPRESS_IP_PORT,{
+          nom,
+          prenom,
+          email,
+          password
       });
   }
 

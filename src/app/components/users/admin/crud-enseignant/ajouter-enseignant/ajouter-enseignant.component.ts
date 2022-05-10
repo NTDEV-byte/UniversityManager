@@ -61,13 +61,13 @@ export class AjouterEnseignantComponent implements OnInit {
       const confirmPass = this.ajouteEnseignantForm.value.confirmPass;
       const role = this.ajouteEnseignantForm.value.role;
   
-     this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role)
+    // this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role)
   
       if(password != confirmPass){ 
         this._snackBar.open("Mot de passe non identique !" , "Fermer")
       }
       else{
-        this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role).subscribe((data) => {
+        this.adminService.ajouterUnEnseignant({nom,prenom,email,password,role}).subscribe((data) => {
           console.log(data);
                 if(data.success){
                   this._snackBar.open("Enseignant Ajouté avec succès !" , "Fermer")

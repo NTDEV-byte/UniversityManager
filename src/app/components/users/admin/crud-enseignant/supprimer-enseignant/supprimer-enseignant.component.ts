@@ -22,7 +22,7 @@ export class SupprimerEnseignantComponent implements OnInit {
  constructor(private adminService : AdminService , private snackBar : MatSnackBar) { }
 
  ngOnInit(): void {
-     this.adminService.listeDesEnseignants().subscribe((data) => {
+     this.adminService.listeDeToutLesEnseignants().subscribe((data) => {
               this.enseignants = data as [];
      });
  }
@@ -30,7 +30,7 @@ export class SupprimerEnseignantComponent implements OnInit {
 
  onSubmit(enseignant : any) : void{
      const id = enseignant._id;
-     this.adminService.supprimerUnEnseignant(id).subscribe((data) => {
+     this.adminService.supprimerUnEnseignant({id}).subscribe((data) => {
                if(data.success){ 
                 this.snackBar.open("Supprimé avec succès !" , "Fermer")
                }

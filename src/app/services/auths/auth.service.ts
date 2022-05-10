@@ -1,7 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-interface ILoginResponseData {
+export interface ISendLoginData {
+      email : string,
+      password:  string,
+} 
+
+export interface IResponseLoginData {
     nom: string,
     prenom: string,
     email: string,
@@ -28,14 +33,19 @@ public static SERVER_EXPRESS_IP_PORT : string = "http://localhost:8888";
 
 private user : IUserInformation = {nom : ''  , prenom: '' , email: '',  role : '' , loggedIn : false};
 
+
+
 constructor(private http: HttpClient) { }
 
 createUserDetails(informationUser : IUserInformation){
     this.user = informationUser;
 }
 
-logUserIn(email : string, password : string){
-   return this.http.post<ILoginResponseData>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/auths/login' , {
+logUserIn(information : ISendLoginData){
+
+  const {email  , password} = information
+
+  return this.http.post<IResponseLoginData>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/auths/login' , {
       email,
       password
    })
@@ -60,7 +70,5 @@ get isLoggedIn(){
 get getUserDetails(){
       return this.user;
 }
-
-  
 
 }

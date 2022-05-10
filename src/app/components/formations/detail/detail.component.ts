@@ -17,10 +17,8 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     let urlRoute : string | null = this.route.snapshot.paramMap.get("url") ;
-    this.formationService.getModulesByNiveauSemestre(urlRoute!)?.subscribe((data) => {
+    this.formationService.getModulesByNiveauSemestre({formation: urlRoute!})?.subscribe((data) => {
              this.modules = data as [];
-
-             console.log(this.modules[0].Intitulé);
     });
   }
 }

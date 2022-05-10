@@ -11,9 +11,7 @@ import { AuthService } from './services/auths/auth.service';
 export class AppComponent {
   title = 'moodleV2';
 
-  constructor(public authService : AuthService){
-        
-  }
+  constructor(public authService : AuthService){}
 }
 
 

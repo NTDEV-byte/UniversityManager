@@ -25,7 +25,7 @@ export class ConnexionComponent {
       const email = this.LoginForm.value.email;
       const password = this.LoginForm.value.password;
   
-        this.authService.logUserIn(email , password).subscribe((data) => {
+        this.authService.logUserIn({email : email , password : password}).subscribe((data) => {
             if(data.success){
               console.log(data);
               this.authService.createUserDetails(

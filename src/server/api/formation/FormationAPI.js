@@ -16,6 +16,7 @@ class FormationAPI {
             const response = await FormationModel
                                     .where('Formation').eq(formation)
                                     .where('Semestre').eq(semestre);
+
            res.json(response);                         
     });
     }
