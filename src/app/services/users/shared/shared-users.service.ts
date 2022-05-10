@@ -27,13 +27,11 @@ export class SharedUsersService {
 
       const {nom,prenom,email,password} = information; 
       
-      return this.http.post<IReponseModificationProfil>(AuthService.SERVER_EXPRESS_IP_PORT,{
+      return this.http.post<IReponseModificationProfil>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/shared/modificationProfil",{
           nom,
           prenom,
           email,
           password
       });
   }
-
-
 }

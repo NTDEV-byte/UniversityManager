@@ -24,8 +24,8 @@ class AdminAPI{
 
     modifierEnseignant(app,UserModel){
         app.post('/api/admin/modifierEnseignant' , async (req,res) => {
-               console.log("body")
-               console.log(req.body)
+               //console.log("body")
+               //console.log(req.body)
                const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "role" : req.body.role } , {new : true});
                console.log(user);
                if(user){
@@ -49,7 +49,7 @@ class AdminAPI{
     supprimerEnseignant(app,UserModel){
         app.post('/api/admin/supprimerEnseignant' , async (req,res) => {
               const {id} = req.body;
-              console.log(id);
+             // console.log(id);
               const response = await UserModel.deleteOne({"_id" : id})
               if(response){
                     console.log("Suppression Réussi !")
