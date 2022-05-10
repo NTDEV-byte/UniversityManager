@@ -11,6 +11,7 @@ import { EnseignantComponent } from './components/users/enseignant/enseignant.co
 import { DetailComponent } from './components/formations/detail/detail.component';
 import { FormationsComponent } from './components/formations/formations.component';
 import { SidenavComponent } from './components/home/sidenav/sidenav.component';
+import { ProfilComponent } from './components/users/profil/profil.component';
 
 
 const routes: Routes = [
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path : 'admin/modifierEnseignant' , component: ModifierEnseignantComponent},
   { path : 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},
   { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
+  { path : 'utilisateur/modificationProfil' , component: ProfilComponent},
   { path : 'formation/listFormation' , component: FormationsComponent},
   { path : 'formation/detail' , component: DetailComponent},
 ];

@@ -27,11 +27,13 @@ export class ConnexionComponent {
   
         this.authService.logUserIn(email , password).subscribe((data) => {
             if(data.success){
+              console.log(data);
               this.authService.createUserDetails(
                 {
                   nom : data.nom ,
                   prenom: data.prenom , 
                   role : data.role , 
+                  email : data.email,
                   loggedIn : true
                 }
               )

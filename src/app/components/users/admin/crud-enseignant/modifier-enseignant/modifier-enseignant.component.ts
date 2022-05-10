@@ -4,12 +4,10 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
 
 
-
 export interface Role{
   value : string,
   viewValue : string
 }
-
 
 @Component({
   selector: 'app-modifier-enseignant',
@@ -21,8 +19,6 @@ export class ModifierEnseignantComponent implements OnInit {
   formSubmitted : boolean = false;
   enseignants : any;
   enseignantSelectionner : any;
-
-
   
   roles: Role[] = [
     {value: 'EC', viewValue: 'Enseignant-Chercheur'},
@@ -40,9 +36,7 @@ export class ModifierEnseignantComponent implements OnInit {
    role : new FormControl('',[Validators.required])
  });
 
-
- constructor(private adminService : AdminService,private _snackBar : MatSnackBar) { }
-
+ constructor(private adminService : AdminService, private _snackBar : MatSnackBar) { }
 
  ngOnInit(): void {
      this.adminService.listeDesEnseignants().subscribe((data) => {
@@ -58,26 +52,23 @@ export class ModifierEnseignantComponent implements OnInit {
   this.modifierEnseignantForm.controls['email'].setValue(this.enseignantSelectionner.email);
  }
 
-
  onSubmit() : void{
 
    if(this.modifierEnseignantForm.valid){
 
      const id = this.enseignantSelectionner._id;
+
+     // données du formulaire
      const nom = this.modifierEnseignantForm.value.nom;
      const prenom = this.modifierEnseignantForm.value.prenom;
      const email = this.modifierEnseignantForm.value.email;
      const role = this.modifierEnseignantForm.value.role;
      this.adminService.modifierUnEnseignant(id,nom,prenom,email,role).subscribe((data) => {
-            //console.log("Modifier avec succès")
             this._snackBar.open("Modifier avec succès !" , "Fermer")
             this.modifierEnseignantForm.reset();
      });
    }
-
-   
     this.formSubmitted = true;
  }
-
 
 }

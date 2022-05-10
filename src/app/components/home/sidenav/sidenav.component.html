@@ -19,10 +19,12 @@
 
     <mat-sidenav #sidenav="matSidenav">
 
-        <img class="avatar mat-elevation-z8" width = "120" height = "120" src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg">
+        <button mat-button class="menu-button" routerLink="utilisateur/modificationProfil">
+            <img class="avatar mat-elevation-z8" width = "120" height = "120" src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg">
             <h4 class="name">{{authService.getUserDetails.prenom}} {{authService.getUserDetails.nom}}</h4>
             <p class="designation">{{authService.getUserDetails.role | uppercase}}</p>
-
+        </button>
+    
             <mat-divider></mat-divider>
             <h3> Enseignant </h3>
             <mat-divider></mat-divider>

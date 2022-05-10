@@ -36,6 +36,7 @@ import { SidenavComponent } from './components/home/sidenav/sidenav.component';
 import { FormationsComponent } from './components/formations/formations.component';
 import { DetailComponent } from './components/formations/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
+import { ProfilComponent } from './components/users/profil/profil.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { HomeComponent } from './components/home/home.component';
     FormationsComponent,
     DetailComponent,
     HomeComponent,
+    ProfilComponent,
   ],
 
   imports: [

@@ -19,6 +19,7 @@ export class SidenavComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    
   }
 
   ngAfterViewInit(): void {
@@ -35,8 +36,11 @@ export class SidenavComponent implements OnInit {
    }
 
    deconnexion(){
-      this.authService.setLoggedIn(false)
+      this.authService.logout()
       this.router.navigate(['']);
+  }
+  modifierProfil(){
+    console.log("Modification du profil")
   }
 
 }

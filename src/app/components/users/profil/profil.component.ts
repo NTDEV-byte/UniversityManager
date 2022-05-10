@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/auths/auth.service';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
+import { SharedUsersService } from 'src/app/services/users/shared/shared-users.service';
 
 
 export interface Role{
@@ -19,35 +21,38 @@ export class ProfilComponent implements OnInit {
 
  
     formSubmitted : boolean = false;
-    
   
     modificationProfilForm = new FormGroup({
      nom: new FormControl('',[Validators.required]),
      prenom: new FormControl('',[Validators.required]),
-     role : new FormControl('',[Validators.required]),
      email: new FormControl('',[Validators.required , Validators.email]),
      password: new FormControl('',[Validators.required]),
      confirmPassword: new FormControl('',[Validators.required]),
    });
   
-  
-   constructor(private adminService : AdminService,private _snackBar : MatSnackBar) { }
-  
+   constructor(private authService : AuthService, private sharedUsersService : SharedUsersService, private _snackBar : MatSnackBar) { }
   
    ngOnInit(): void {
-
-       this.adminService.listeDesEnseignants().subscribe((data) => {
-       });
+       this.fillFormWithConnectedUserInformation()
    }
   
-   selectEnseignant(){
-    
+   fillFormWithConnectedUserInformation(){
+       const {nom,prenom,email} = this.authService.getUserDetails;
+       this.modificationProfilForm.controls['nom'].setValue(nom);
+       this.modificationProfilForm.controls['prenom'].setValue(prenom);
+       this.modificationProfilForm.controls['email'].setValue(email);
    }
   
    onSubmit() : void{
   
      if(this.modificationProfilForm.valid){
-     
+        this.sharedUsersService.modifyProfil(
+          {
+            nom : this.modificationProfilForm.value.nom , 
+            prenom : this.modificationProfilForm.value.prenom , 
+            email: this.modificationProfilForm.value.email , 
+            password : this.modificationProfilForm.value.password
+          });
    }
 }
 

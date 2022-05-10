@@ -1,0 +1,37 @@
+<h1>Modification du profil</h1>
+
+<form class="example-form" [formGroup]="modificationProfilForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Nom</mat-label>
+      <input matInput placeholder="Nom" formControlName = "nom">
+    </mat-form-field>
+  
+    <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Prenom</mat-label>
+        <input matInput placeholder="Prenom" formControlName = "prenom">
+      </mat-form-field>
+
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input type="email" matInput placeholder="Email" formControlName = "email">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Mot de passe</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName = "password">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Confirmation du mot de passe</mat-label>
+        <input type="password" matInput placeholder="Password" formControlName = "confirmPassword">
+      </mat-form-field>
+
+
+      <button mat-raised-button color="primary"  [disabled] = "modificationProfilForm.invalid">Modifier</button>
+  </form>
+
+
+
+
+
