@@ -45,5 +45,4 @@ Thumbs.db
 src/notes.txt
 src/notes.txt
 .gitignore
-src/notes.txt
-.gitignore
+notes.txt
