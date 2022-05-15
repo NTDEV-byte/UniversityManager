@@ -5,15 +5,14 @@ import { AuthService } from 'src/app/services/auths/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sidenav',
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.css']
+  selector: 'app-sidenav-admin',
+  templateUrl: './sidenav-admin.component.html',
+  styleUrls: ['./sidenav-admin.component.css']
 })
-export class SidenavComponent implements OnInit {
 
+export class SidenavAdminComponent implements OnInit {
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
-
 
   constructor(private observer : BreakpointObserver , public authService : AuthService , private router : Router) {
    }
@@ -39,6 +38,5 @@ export class SidenavComponent implements OnInit {
       this.authService.logout()
       this.router.navigate(['/connexion']);
   }
-  
 
 }

@@ -22,10 +22,7 @@ export class ConnexionComponent {
   });
 
   public onSubmit() : void {
-
-
     if(this.LoginForm.valid){
-
 
       const email = this.LoginForm.value.email;
       const password = this.LoginForm.value.password;
@@ -43,12 +40,13 @@ export class ConnexionComponent {
                   loggedIn : true
                 }
               )
+
               if(data.role.toLowerCase() == 'admin'){
                 this.router.navigate(['/admin/ajouterEnseignant'])
               }
               else{
-                this.router.navigate(['enseignant'])
-              }
+                this.router.navigate(['utilisateur/modificationProfil'])
+              } 
               this.authService.setLoggedIn(true)
               console.log("Connexion réussi !")
               console.log("role: "+data.role)

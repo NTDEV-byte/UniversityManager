@@ -1,1 +1,7 @@
-<app-sidenav></app-sidenav>
+<div *ngIf="authService.getUserDetails.role == 'admin'">
+      <app-sidenav-admin></app-sidenav-admin>
+ </div>
+
+ <div *ngIf="authService.getUserDetails.role == 'EC'">
+    <app-sidenav-enseignant></app-sidenav-enseignant>
+ </div>

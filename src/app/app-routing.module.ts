@@ -7,22 +7,23 @@ import { ModifierEnseignantComponent } from './components/users/admin/crud-ensei
 import { SupprimerEnseignantComponent } from './components/users/admin/crud-enseignant/supprimer-enseignant/supprimer-enseignant.component';
 
 import {ConnexionComponent} from './components/auths/connexion/connexion.component';
-import { EnseignantComponent } from './components/users/enseignant/enseignant.component';
 import { DetailComponent } from './components/formations/detail/detail.component';
 import { FormationsComponent } from './components/formations/formations.component';
-import { SidenavComponent } from './components/home/sidenav/sidenav.component';
+import { SidenavAdminComponent } from './components/home/sidenav/sidenav-admin/sidenav-admin.component';
 import { ProfilComponent } from './components/users/profil/profil.component';
+import { HomeComponent } from './components/home/home.component';
+import { SidenavEnseignantComponent } from './components/home/sidenav/sidenav-enseignant/sidenav-enseignant.component';
 
 
 const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
-  { path: 'enseignant', component: EnseignantComponent},
-  { path : 'admin' , component: AdminComponent},
-  { path : 'admin/index' , component: SidenavComponent},
+  { path: 'home', component: HomeComponent },
+  { path : 'admin/index' , component: SidenavAdminComponent},
   { path : 'admin/ajouterEnseignant' , component: AjouterEnseignantComponent},
   { path : 'admin/modifierEnseignant' , component: ModifierEnseignantComponent},
   { path : 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},
   { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
+  { path:  'enseignant/index', component: SidenavEnseignantComponent},
   { path : 'utilisateur/modificationProfil' , component: ProfilComponent},
   { path : 'formation/listFormation' , component: FormationsComponent},
   { path : 'formation/detail' , component: DetailComponent},
