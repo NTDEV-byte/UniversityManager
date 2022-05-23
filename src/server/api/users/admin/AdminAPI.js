@@ -2,10 +2,8 @@ class AdminAPI{
 
     ajouterEnseignant(app,UserModel){
         app.post('/api/admin/ajouterEnseignant' , async (req,res) => {
-                //console.log("Route Catched ajouter Enseignant ! ")
-                const {nom,prenom,email,password,role} =  req.body;
-                const response = await UserModel.create([{nom , prenom , email, password,role}])
-
+                const {nom,prenom,email,password,statut,role} =  req.body;
+                const response = await UserModel.create([{nom , prenom , email, password,statut,role}])
                 if(!response){
                     res.json({
                         success : false,
@@ -24,9 +22,7 @@ class AdminAPI{
 
     modifierEnseignant(app,UserModel){
         app.post('/api/admin/modifierEnseignant' , async (req,res) => {
-               //console.log("body")
-               //console.log(req.body)
-               const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "role" : req.body.role } , {new : true});
+               const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "statut" : req.body.statut , "role" : req.body.role } , {new : true});
                console.log(user);
                if(user){
                 console.log("User Found !")
@@ -49,7 +45,6 @@ class AdminAPI{
     supprimerEnseignant(app,UserModel){
         app.post('/api/admin/supprimerEnseignant' , async (req,res) => {
               const {id} = req.body;
-             // console.log(id);
               const response = await UserModel.deleteOne({"_id" : id})
               if(response){
                     console.log("Suppression Réussi !")
@@ -65,17 +60,13 @@ class AdminAPI{
                 })
                     console.log("Echec lors de la suppression !")
               }
-               // console.log("Route Catched supprimer enseignant ! ")
         }) 
     }
 
     listeEnseignants(app,UserModel){
         app.post('/api/admin/listeEnseignant' , async (req,res) => {
-          //  console.log("Triggred !")
-            const resp =  await UserModel.find();   
-           // console.log(resp)
+            const resp =  await UserModel.find({role : 'enseignant'});   
             res.json(resp)
-            //res.json(resp)
       }) 
     }
 

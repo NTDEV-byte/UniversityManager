@@ -4,7 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
 
 
-export interface Role{
+export interface IStatut {
   value : string,
   viewValue : string
 }
@@ -20,7 +20,7 @@ export class ModifierEnseignantComponent implements OnInit {
   enseignants : any;
   enseignantSelectionner : any;
   
-  roles: Role[] = [
+  statuts : IStatut[] = [
     {value: 'EC', viewValue: 'Enseignant-Chercheur'},
     {value: 'PRAG', viewValue: 'Professeur agrégé du secondaire détaché dans le supérieur'},
     {value: 'PAST' , viewValue: 'Enseignant-chercheur associé ou invité'},
@@ -33,7 +33,7 @@ export class ModifierEnseignantComponent implements OnInit {
    nom: new FormControl('',[Validators.required]),
    prenom: new FormControl('',[Validators.required]),
    email: new FormControl('',[Validators.required , Validators.email]),
-   role : new FormControl('',[Validators.required])
+   statut : new FormControl('',[Validators.required , Validators.email]), 
  });
 
  constructor(private adminService : AdminService, private _snackBar : MatSnackBar) { }
@@ -48,7 +48,7 @@ export class ModifierEnseignantComponent implements OnInit {
   this.enseignantSelectionner = enseignant;
   this.modifierEnseignantForm.controls['nom'].setValue(this.enseignantSelectionner.nom);
   this.modifierEnseignantForm.controls['prenom'].setValue(this.enseignantSelectionner.prenom);
-  this.modifierEnseignantForm.controls['role'].setValue(this.enseignantSelectionner.role);
+  this.modifierEnseignantForm.controls['statut'].setValue(this.enseignantSelectionner.statut);
   this.modifierEnseignantForm.controls['email'].setValue(this.enseignantSelectionner.email);
  }
 
@@ -62,8 +62,11 @@ export class ModifierEnseignantComponent implements OnInit {
      const nom = this.modifierEnseignantForm.value.nom;
      const prenom = this.modifierEnseignantForm.value.prenom;
      const email = this.modifierEnseignantForm.value.email;
-     const role = this.modifierEnseignantForm.value.role;
-     this.adminService.modifierUnEnseignant({id,nom,prenom,email,role}).subscribe((data) => {
+     const statut = this.modifierEnseignantForm.value.statut;
+     const role = "Enseignant";
+
+
+     this.adminService.modifierUnEnseignant({id,nom,prenom,email,statut,role}).subscribe((data) => {
             this._snackBar.open("Modifier avec succès !" , "Fermer")
             this.modifierEnseignantForm.reset();
      });

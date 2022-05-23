@@ -21,6 +21,7 @@ export class ConnexionComponent {
     password: new FormControl('',[Validators.required]),
   });
 
+
   public onSubmit() : void {
     if(this.LoginForm.valid){
 
@@ -29,32 +30,28 @@ export class ConnexionComponent {
       
         this.authService.logUserIn({email : email , password : password}).subscribe((data) => {
             if(data.success){
-              console.log(data);
+
+             // console.log(data);
               this.authService.createUserDetails(
                 {
                   id : data.id,
                   nom : data.nom ,
                   prenom: data.prenom , 
                   role : data.role , 
+                  statut : data.statut,
                   email : data.email,
                   loggedIn : true
                 }
               )
-
-              if(data.role.toLowerCase() == 'admin'){
-                this.router.navigate(['/admin/ajouterEnseignant'])
-              }
-              else{
-                this.router.navigate(['utilisateur/modificationProfil'])
-              } 
-              this.authService.setLoggedIn(true)
-              console.log("Connexion réussi !")
-              console.log("role: "+data.role)
+                
+            this.router.navigate(['home']);
+            //console.log("Connexion réussi !")
+            //console.log("role: "+data.role)
             }
 
             else{
                 this.snackBar.open("Email ou mot de passe incorrect " , "Fermer");
-                console.log("Informations incorrect !")
+                //console.log("Informations incorrect !")
             }
         });
     }

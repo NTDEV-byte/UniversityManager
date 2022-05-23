@@ -24,6 +24,7 @@ class AuthsAPI {
                     nom: response.nom,
                     prenom: response.prenom,
                     email: response.email,
+                    statut : response.statut,
                     success: true,
                     message: "Connexion Success !",
                     role: response.role

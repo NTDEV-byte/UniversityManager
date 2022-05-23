@@ -7,6 +7,7 @@ export interface ISendAjouteEnseignant {
     prenom : string,
     email : string,
     password : string,
+    statut : string,
     role : string,
 }
 
@@ -15,7 +16,8 @@ export interface ISendModificationEnseignant {
   nom : string,
   prenom : string,
   email : string,
-  role : string,
+  statut : string,
+  role : string
 }
 
 export interface ISendSuppressionEnseignant {
@@ -37,20 +39,21 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   ajouterUnEnseignant(information: ISendAjouteEnseignant){
-    const {nom , prenom , email , password , role} = information;
+    const {nom , prenom , email , password , statut ,role} = information;
     console.log("Ajouter Enseignant Service")
     return  this.http.post<IAjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/ajouterEnseignant" ,{
             nom,
             prenom,
             email,
             password,
+            statut,
             role,
     })
   }
 
   modifierUnEnseignant(information : ISendModificationEnseignant){
 
-    const {id , nom , prenom , email , role} = information;
+    const {id , nom , prenom , email , statut, role} = information;
       console.log("Modifier Enseignant Service")
       return this.http.post<IAjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/admin/modifierEnseignant',{
         id,

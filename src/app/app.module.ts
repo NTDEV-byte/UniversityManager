@@ -32,13 +32,16 @@ import { AjouterEnseignantComponent } from './components/users/admin/crud-enseig
 import { ModifierEnseignantComponent } from './components/users/admin/crud-enseignant/modifier-enseignant/modifier-enseignant.component';
 import { SupprimerEnseignantComponent } from './components/users/admin/crud-enseignant/supprimer-enseignant/supprimer-enseignant.component';
 import { ListeEnseignantComponent } from './components/users/admin/crud-enseignant/liste-enseignant/liste-enseignant.component';
-import { SidenavAdminComponent } from './components/home/sidenav/sidenav-admin/sidenav-admin.component';
 import { FormationsComponent } from './components/formations/formations.component';
 import { DetailComponent } from './components/formations/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfilComponent } from './components/users/profil/profil.component';
-import { SidenavEnseignantComponent } from './components/home/sidenav/sidenav-enseignant/sidenav-enseignant.component';
-
+import { NonVacataireComponent } from './components/users/enseignant/non-vacataire/non-vacataire.component';
+import { VacataireComponent } from './components/users/enseignant/vacataire/vacataire.component';
+import { SidenavComponent } from './components/home/sidenav/sidenav.component';
+import { AdminMenuComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu/admin-menu.component';
+import { VacataireMenuComponent } from './components/home/sidenav/menu-sidenav/enseignants/vactaire/vacataire-menu/vacataire-menu.component';
+import { NonVacataireMenuComponent } from './components/home/sidenav/menu-sidenav/enseignants/non-vactaire/non-vacataire-menu/non-vacataire-menu.component';
 
 @NgModule({
   declarations: [
@@ -50,12 +53,16 @@ import { SidenavEnseignantComponent } from './components/home/sidenav/sidenav-en
     ModifierEnseignantComponent,
     SupprimerEnseignantComponent,
     ListeEnseignantComponent,
-    SidenavAdminComponent,
     FormationsComponent,
     DetailComponent,
     HomeComponent,
     ProfilComponent,
-    SidenavEnseignantComponent,
+    NonVacataireComponent,
+    VacataireComponent,
+    SidenavComponent,
+    AdminMenuComponent,
+    VacataireMenuComponent,
+    NonVacataireMenuComponent,
   ],
 
   imports: [

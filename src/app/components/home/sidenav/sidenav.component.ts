@@ -5,12 +5,12 @@ import { AuthService } from 'src/app/services/auths/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sidenav-admin',
-  templateUrl: './sidenav-admin.component.html',
-  styleUrls: ['./sidenav-admin.component.css']
+  selector: 'app-sidenav',
+  templateUrl: './sidenav.component.html',
+  styleUrls: ['./sidenav.component.css']
 })
 
-export class SidenavAdminComponent implements OnInit {
+export class SidenavComponent implements OnInit {
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 

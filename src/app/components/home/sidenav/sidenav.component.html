@@ -25,40 +25,20 @@
             <p class="designation">{{authService.getUserDetails.role | uppercase}}</p>
         </button>
     
-            <mat-divider></mat-divider>
-            <h3> Modules </h3>
-            <mat-divider></mat-divider>
-
-       <button mat-button class="menu-button" routerLink="">
-           <mat-icon>add</mat-icon>
-           <span>Ajouter</span>
-       </button>
-
-       <button mat-button class="menu-button" routerLink="">
-        <mat-icon>edit</mat-icon>
-        <span>Modifier</span>
-       </button>
-
-       <button mat-button class="menu-button" routerLink="">
-        <mat-icon>delete</mat-icon>
-        <span>Supprimer</span>
-       </button>
-
-       <button mat-button class="menu-button" routerLink="">
-        <mat-icon>list</mat-icon>
-        <span>Liste</span>
-       </button>
-
-       <mat-divider></mat-divider>
-       <h3> Formations </h3>
-       <mat-divider></mat-divider>
+         
+    <div *ngIf="(authService.getUserDetails.statut | lowercase) == 'admin' ">
+        <app-admin-menu></app-admin-menu>
+    </div>
+    <div *ngIf="(authService.getUserDetails.statut | lowercase) == 'vacataire'">
+        <app-vacataire-menu></app-vacataire-menu>
        
-       <button mat-button class="menu-button" routerLink="">
-        <mat-icon>list</mat-icon>
-        <span>Formation </span>
-       </button>
-
+    </div>
+    <div *ngIf="(authService.getUserDetails.statut | lowercase) != 'vacataire' && (authService.getUserDetails.statut | lowercase) != 'admin'">
+        <app-non-vacataire-menu></app-non-vacataire-menu>
+    </div>
+       
     </mat-sidenav>
+
 
     <mat-sidenav-content>
            <div class="content mat-elevation-z4">

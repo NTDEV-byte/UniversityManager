@@ -12,10 +12,10 @@
       </mat-form-field>
 
     <mat-form-field  class="example-full-width"  appearance="fill">
-        <mat-label>Role</mat-label>
-        <mat-select formControlName="role">
-        <mat-option *ngFor="let role of roles" [value]="role.value">
-            {{role.viewValue}}
+        <mat-label>Statut</mat-label>
+        <mat-select formControlName="statut">
+        <mat-option *ngFor="let statut of statuts" [value]="statut.value">
+            {{statut.viewValue}}
         </mat-option>
         </mat-select>
     </mat-form-field>
