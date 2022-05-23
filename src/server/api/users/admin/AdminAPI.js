@@ -1,4 +1,31 @@
+const { ObjectId } = require("mongodb");
+
 class AdminAPI{
+
+
+    testRequete(app,UserModel){
+        app.post('/jointure' , async (req , res) => {
+               console.log("Route jointure called !")
+
+           // const response = EnseignementModel.create({"idEnseignant" : ObjectId(), "idEnseignement" : ObjectId()});
+            
+
+          const response = await UserModel.aggregate(
+                [
+                    {$match: {role : 'enseignant'}},
+                    {$lookup : {from : 'enseignements' , localField: '_id' , foreignField: 'idEnseignant' , as : 'teaches'},},
+                    {$unwind : "$teaches"},
+                    {$lookup : {from : 'formations' , localField: 'teaches.idEnseignement', foreignField: '_id' , as: 'sortie'}}
+                
+                ]
+                ) 
+
+           if(response){
+            console.log(response)   
+            res.json(response)
+                } 
+        })
+    }
 
     ajouterEnseignant(app,UserModel){
         app.post('/api/admin/ajouterEnseignant' , async (req,res) => {

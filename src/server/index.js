@@ -8,6 +8,7 @@ const mongoose = require('mongoose')
 // models
 const UserModel = require('./models/userModel')
 const FormationModel = require('./models/formationModel')
+const EnseignementModel = require('./models/enseignementModel')
 
 // api
 const AuthAPIClass = require('./api/auths/AuthAPI');
@@ -37,22 +38,27 @@ const formationAPI = new FormationAPIClass();
 const sharedAPI = new SharedAPIClass();
 
 // ROUTES 
-
+/**************************/
 // authentification
+/**************************/
 authApi.logUserIn(app,UserModel)
 
+/**************************/
 //USERS 
-
+/**************************/
 //admin
+adminApi.testRequete(app,UserModel,EnseignementModel)
 adminApi.ajouterEnseignant(app,UserModel)
 adminApi.modifierEnseignant(app,UserModel)
 adminApi.supprimerEnseignant(app,UserModel)
 adminApi.listeEnseignants(app,UserModel)
 
-//shared 
-
+/**************************/
+//Shared between users
+/**************************/
 sharedAPI.modificationProfilUtilisateur(app,UserModel);
-
+/**************************/
 //Formation
+/**************************/
 formationAPI.getAllFormations(app,FormationModel)
 formationAPI.getModuleFormationsByNiveauAndSemestre(app,FormationModel)
