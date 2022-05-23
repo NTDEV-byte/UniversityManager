@@ -47,7 +47,7 @@ authApi.logUserIn(app,UserModel)
 //USERS 
 /**************************/
 //admin
-adminApi.testRequete(app,UserModel,EnseignementModel)
+adminApi.testRequete(app,UserModel)
 adminApi.ajouterEnseignant(app,UserModel)
 adminApi.modifierEnseignant(app,UserModel)
 adminApi.supprimerEnseignant(app,UserModel)

@@ -19,8 +19,8 @@
 
     <mat-sidenav #sidenav="matSidenav">
 
-        <button mat-button class="menu-button" routerLink="utilisateur/modificationProfil">
-            <img class="avatar mat-elevation-z8" width = "120" height = "120" src="https://cdn2.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.jpg">
+        <button mat-button class="menu-button" routerLink="shared/modificationProfil">
+            <img class="avatar mat-elevation-z8" width = "120" height = "120" src="https://img.lovepik.com/free-png/20210924/lovepik-thinking-person-png-image_401333021_wh1200.png">
             <h4 class="name">{{authService.getUserDetails.prenom}} {{authService.getUserDetails.nom}}</h4>
             <p class="designation">{{authService.getUserDetails.role | uppercase}}</p>
         </button>
