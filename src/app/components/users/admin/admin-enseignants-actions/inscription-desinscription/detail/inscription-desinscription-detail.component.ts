@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormationsService } from 'src/app/services/formations/formations.service';
 
 @Component({
   selector: 'app-inscription-desinscription-detail',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InscriptionDesinscriptionDetailComponent implements OnInit {
 
-  constructor() { }
+  enseignements: any[] = [];
+
+  constructor(private formationService : FormationsService) { }
 
   ngOnInit(): void {
+   this.formationService.getAllFormations().subscribe((data) => {
+        this.enseignements = data as [];
+    });
   }
 
+  test(enseignement : string){
+    console.log(enseignement)
+  }
 }

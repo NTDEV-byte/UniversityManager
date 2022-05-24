@@ -22,7 +22,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTreeModule} from '@angular/material/tree';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
-
+import {MatMenuModule} from '@angular/material/menu';
 //components
 import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
@@ -42,7 +42,6 @@ import { SidenavComponent } from './components/home/sidenav/sidenav-index/sidena
 import { AdminMenuComponent } from './components/home/sidenav/menu-sidenav/admin/admin-main-menu-actions/admin-menu.component';
 import { VacataireMenuComponent } from './components/home/sidenav/menu-sidenav/enseignants/vactaire/vacataire-menu/vacataire-menu.component';
 import { NonVacataireMenuComponent } from './components/home/sidenav/menu-sidenav/enseignants/non-vactaire/non-vacataire-menu/non-vacataire-menu.component';
-import {MatMenuModule} from '@angular/material/menu';
 import { AdminMenuEnseignantActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-enseignant-actions/admin-menu-enseignant-actions.component';
 import { AdminMenuFormationActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-formation-actions/admin-menu-formation-actions.component';
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';

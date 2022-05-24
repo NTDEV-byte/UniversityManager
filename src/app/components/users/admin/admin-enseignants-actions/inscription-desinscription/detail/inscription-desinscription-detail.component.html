@@ -1,1 +1,9 @@
-<p>inscription-desinscription-detail works!</p>
+<mat-selection-list #enseignementsRef>
+    <mat-list-option *ngFor="let enseignement of enseignements" (click)="test(enseignement)">
+    {{enseignement["Intitulé"]}}
+    </mat-list-option>
+  </mat-selection-list>
+  
+  <p>
+    Options selected: {{enseignementsRef.selectedOptions.selected.length}}
+  </p>
