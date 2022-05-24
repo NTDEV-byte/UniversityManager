@@ -14,7 +14,7 @@ import { SidenavComponent } from './components/home/sidenav/sidenav-index/sidena
 import { AdminMenuEnseignantActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-enseignant-actions/admin-menu-enseignant-actions.component';
 import { AdminMenuFormationActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-formation-actions/admin-menu-formation-actions.component';
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
-import {InscriptionDesinscriptionDetailComponent} from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription-desinscription-detail.component';
+import {InscriptionDetailComponent} from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
 
 
 const routes: Routes = [
@@ -26,7 +26,7 @@ const routes: Routes = [
   { path : 'admin/modifierEnseignant' , component: ModifierEnseignantComponent},
   { path : 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},
   { path : 'admin/indexInscriptionDesinscriptionModule', component: IndexComponent},
-  { path:  'admin/inscriptionDesinscriptionModuleDetail/:id' , component: InscriptionDesinscriptionDetailComponent},
+  { path:  'admin/inscriptionModuleDetail/:id' , component: InscriptionDetailComponent},
   { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
   { path : 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},
   { path : 'admin/listFormation' , component: FormationsComponent},

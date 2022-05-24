@@ -31,7 +31,7 @@ export interface ISendAjoutEnseignantModule{
 }
 
 
-export interface IAjoutInformationRetour {
+export interface IinformationRetour {
    success : boolean,
    message : string,
 }
@@ -47,7 +47,7 @@ export class AdminService {
   ajouterUnEnseignant(information: ISendAjouteEnseignant){
     const {nom , prenom , email , password , statut ,role} = information;
     console.log("Ajouter Enseignant Service")
-    return  this.http.post<IAjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/ajouterEnseignant" ,{
+    return  this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/ajouterEnseignant" ,{
             nom,
             prenom,
             email,
@@ -61,7 +61,7 @@ export class AdminService {
 
     const {id , nom , prenom , email , statut, role} = information;
       console.log("Modifier Enseignant Service")
-      return this.http.post<IAjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/admin/modifierEnseignant',{
+      return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/admin/modifierEnseignant',{
         id,
         nom,
         prenom,
@@ -73,7 +73,7 @@ export class AdminService {
   supprimerUnEnseignant(information : ISendSuppressionEnseignant){
     const {id} = information;
     console.log("Supprimer un Enseignant");
-    return this.http.post<IAjoutInformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/supprimerEnseignant",{
+    return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/supprimerEnseignant",{
       id
     })
   }
@@ -85,7 +85,7 @@ export class AdminService {
   inscriptionEnseignantModules(information : ISendAjoutEnseignantModule){
       const {idEnseignant , modulesIDs} = information;
       console.log(idEnseignant)
-      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/inscriptionEnseignantModules",
+      return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/inscriptionEnseignantModules",
        {
           idEnseignant : idEnseignant,
           modulesIDs: modulesIDs

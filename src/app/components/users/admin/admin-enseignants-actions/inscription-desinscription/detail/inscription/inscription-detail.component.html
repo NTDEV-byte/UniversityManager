@@ -1,0 +1,9 @@
+<mat-selection-list #enseignementsRef> 
+    <mat-list-option *ngFor="let enseignement of enseignements" [value]="enseignement">
+        {{enseignement['Intitulé']}}
+    </mat-list-option>
+  </mat-selection-list>
+
+  <button mat-fab color="primary" (click)="getModulesSelectionner(enseignementsRef.selectedOptions)" class="custom-button">
+    <mat-icon>add</mat-icon>
+  </button>

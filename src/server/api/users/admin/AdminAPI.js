@@ -101,15 +101,18 @@ class AdminAPI{
     inscriptionEnseignantModules(app,EnseignementModel){
          app.post('/api/admin/inscriptionEnseignantModules', async(req,res) => {
                     const {idEnseignant , modulesIDs} = req.body;
+                    const success = true;
                     for(let i = 0; i < modulesIDs.length; i++){
                     const response = await EnseignementModel.create({"idEnseignant" : ObjectId(idEnseignant), "idEnseignement" : ObjectId(modulesIDs[i])})
                     if(response){
                             console.log("Ok !")
                     }   
                     else{
-                        console.log("Woro !")
+                         success = false;
                     }
                 }
+
+                return res.json({success : success , message:  "Insertion success !"});
          })
     }
 
