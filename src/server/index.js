@@ -52,6 +52,7 @@ adminApi.ajouterEnseignant(app,UserModel)
 adminApi.modifierEnseignant(app,UserModel)
 adminApi.supprimerEnseignant(app,UserModel)
 adminApi.listeEnseignants(app,UserModel)
+adminApi.inscriptionEnseignantModules(app,EnseignementModel)
 
 /**************************/
 //Shared between users

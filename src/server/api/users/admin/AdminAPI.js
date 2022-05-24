@@ -1,3 +1,4 @@
+const { response } = require("express");
 const { ObjectId } = require("mongodb");
 
 class AdminAPI{
@@ -95,6 +96,21 @@ class AdminAPI{
             const resp =  await UserModel.find({role : 'enseignant'});   
             res.json(resp)
       }) 
+    }
+
+    inscriptionEnseignantModules(app,EnseignementModel){
+         app.post('/api/admin/inscriptionEnseignantModules', async(req,res) => {
+                    const {idEnseignant , modulesIDs} = req.body;
+                    for(let i = 0; i < modulesIDs.length; i++){
+                    const response = await EnseignementModel.create({"idEnseignant" : ObjectId(idEnseignant), "idEnseignement" : ObjectId(modulesIDs[i])})
+                    if(response){
+                            console.log("Ok !")
+                    }   
+                    else{
+                        console.log("Woro !")
+                    }
+                }
+         })
     }
 
 }

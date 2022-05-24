@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ObjectId } from 'mongodb';
 import { AuthService } from '../../auths/auth.service';
 
 export interface ISendAjouteEnseignant {
@@ -22,6 +23,11 @@ export interface ISendModificationEnseignant {
 
 export interface ISendSuppressionEnseignant {
     id : string
+}
+
+export interface ISendAjoutEnseignantModule{
+    idEnseignant : string,
+    modulesIDs: string[]
 }
 
 
@@ -75,4 +81,15 @@ export class AdminService {
   listeDeToutLesEnseignants(){
       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/listeEnseignant",{})
   }
+
+  inscriptionEnseignantModules(information : ISendAjoutEnseignantModule){
+      const {idEnseignant , modulesIDs} = information;
+      console.log(idEnseignant)
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/inscriptionEnseignantModules",
+       {
+          idEnseignant : idEnseignant,
+          modulesIDs: modulesIDs
+       })
+  }
+
 }

@@ -1,5 +1,10 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
+import { MatListOption, MatSelectionListChange } from '@angular/material/list';
+import { ActivatedRoute } from '@angular/router';
 import { FormationsService } from 'src/app/services/formations/formations.service';
+import { AdminService } from 'src/app/services/users/admin/admin.service';
+import { ModifierEnseignantComponent } from '../../crud/modifier-enseignant/modifier-enseignant.component';
 
 @Component({
   selector: 'app-inscription-desinscription-detail',
@@ -9,16 +14,27 @@ import { FormationsService } from 'src/app/services/formations/formations.servic
 export class InscriptionDesinscriptionDetailComponent implements OnInit {
 
   enseignements: any[] = [];
+  idEnseignantSelectionner : string | null = null;
 
-  constructor(private formationService : FormationsService) { }
+  constructor(private activatedRoute: ActivatedRoute , private formationService : FormationsService,private AdminService : AdminService) { }
 
   ngOnInit(): void {
    this.formationService.getAllFormations().subscribe((data) => {
         this.enseignements = data as [];
     });
+   this.idEnseignantSelectionner = this.activatedRoute.snapshot.paramMap.get("id");
+   console.log(this.idEnseignantSelectionner)
   }
 
-  test(enseignement : string){
-    console.log(enseignement)
-  }
+  getModulesSelectionner(modulesSelectionner : SelectionModel<MatListOption>){
+            var modulesIds = [];
+            for(let module of modulesSelectionner.selected){
+                  //console.log(module["_value"]["_id"])
+                  modulesIds.push(module["_value"]["_id"])
+            }
+           this.AdminService.inscriptionEnseignantModules({idEnseignant: this.idEnseignantSelectionner! , modulesIDs: modulesIds}).subscribe(
+             (data) => {
+                
+           })
+  } 
 }
