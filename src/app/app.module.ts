@@ -28,12 +28,12 @@ import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
 import { EnseignantComponent } from './components/users/enseignant/enseignant.component';
 import { AdminComponent } from './components/users/admin/admin.component';
-import { AjouterEnseignantComponent } from './components/users/admin/admin-do-these-actions-on-enseignants/crud-enseignants/ajouter-enseignant/ajouter-enseignant.component';
-import { ModifierEnseignantComponent } from './components/users/admin/admin-do-these-actions-on-enseignants/crud-enseignants/modifier-enseignant/modifier-enseignant.component';
-import { SupprimerEnseignantComponent } from './components/users/admin/admin-do-these-actions-on-enseignants/crud-enseignants/supprimer-enseignant/supprimer-enseignant.component';
-import { ListeEnseignantComponent } from './components/users/admin/admin-do-these-actions-on-enseignants/crud-enseignants/liste-enseignant/liste-enseignant.component';
-import { FormationsComponent } from './components/users/admin/admin-do-these-actions-on-formations/affichage/formations/formations.component';
-import { DetailComponent } from './components/users/admin/admin-do-these-actions-on-formations/affichage/formations/detail/detail.component';
+import { AjouterEnseignantComponent } from './components/users/admin/admin-enseignants-actions/crud/ajouter-enseignant/ajouter-enseignant.component';
+import { ModifierEnseignantComponent } from './components/users/admin/admin-enseignants-actions/crud/modifier-enseignant/modifier-enseignant.component';
+import { SupprimerEnseignantComponent } from './components/users/admin/admin-enseignants-actions/crud/supprimer-enseignant/supprimer-enseignant.component';
+import { ListeEnseignantComponent } from './components/users/admin/admin-enseignants-actions/crud/liste-enseignant/liste-enseignant.component';
+import { FormationsComponent } from './components/users/admin/admin-formations-actions/affichage/formations/formations.component';
+import { DetailComponent } from './components/users/admin/admin-formations-actions/affichage/formations/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfilComponent } from './components/users/shared/profil/profil.component';
 import { NonVacataireComponent } from './components/users/enseignant/non-vacataire/non-vacataire.component';
@@ -45,9 +45,10 @@ import { NonVacataireMenuComponent } from './components/home/sidenav/menu-sidena
 import {MatMenuModule} from '@angular/material/menu';
 import { AdminMenuEnseignantActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-enseignant-actions/admin-menu-enseignant-actions.component';
 import { AdminMenuFormationActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-formation-actions/admin-menu-formation-actions.component';
+import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
+import { InscriptionDesinscriptionDetailComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription-desinscription-detail.component';
 
-
-@NgModule({
+  @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
@@ -69,6 +70,8 @@ import { AdminMenuFormationActionsComponent } from './components/home/sidenav/me
     NonVacataireMenuComponent,
     AdminMenuEnseignantActionsComponent,
     AdminMenuFormationActionsComponent,
+    IndexComponent,
+    InscriptionDesinscriptionDetailComponent,
   ],
 
   imports: [

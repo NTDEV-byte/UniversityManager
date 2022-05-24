@@ -1,0 +1,14 @@
+<h1>Inscription et d'inscription d'un enseignant </h1>
+<mat-list>
+  <mat-list-item *ngFor="let enseignant of enseignants">
+    <img matListAvatar src="https://img2.freepng.fr/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg" alt="image-indisponnible">
+    <h3 matLine> {{enseignant.prenom}} {{enseignant.nom}}  </h3>
+    <p matLine>
+      <span> {{enseignant.email}} </span>
+      <span class="demo-2"> -- {{enseignant.role}} </span>
+    </p>
+    <button mat-button color="primary" routerLink="/admin/inscriptionDesinscriptionDetail">Inscrire</button>
+    <button mat-button color="warn" routerLink="/admin/inscriptionDesinscriptionDetail">Désinscription</button>
+  </mat-list-item>
+</mat-list>
+
