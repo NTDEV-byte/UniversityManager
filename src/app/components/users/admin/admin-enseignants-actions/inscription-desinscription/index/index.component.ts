@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { AuthService } from 'src/app/services/auths/auth.service';
 import { AdminService } from 'src/app/services/users/admin/admin.service';
 
 @Component({

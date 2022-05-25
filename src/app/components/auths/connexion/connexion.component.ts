@@ -14,7 +14,7 @@ export class ConnexionComponent {
 
 
   constructor(private authService: AuthService, private router: Router , private snackBar : MatSnackBar){
-  }
+     }
 
   LoginForm = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
@@ -30,8 +30,6 @@ export class ConnexionComponent {
       
         this.authService.logUserIn({email : email , password : password}).subscribe((data) => {
             if(data.success){
-
-             // console.log(data);
               this.authService.createUserDetails(
                 {
                   id : data.id,
@@ -43,19 +41,13 @@ export class ConnexionComponent {
                   loggedIn : true
                 }
               )
-                
             this.router.navigate(['home']);
-            //console.log("Connexion réussi !")
-            //console.log("role: "+data.role)
             }
-
             else{
                 this.snackBar.open("Email ou mot de passe incorrect " , "Fermer");
-                //console.log("Informations incorrect !")
             }
         });
     }
-
     this.LoginForm.reset();
   }
 

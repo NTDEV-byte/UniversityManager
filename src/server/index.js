@@ -16,6 +16,7 @@ const AdminAPIClass = require('./api/users/admin/AdminAPI');
 const FormationAPIClass = require('./api/formation/FormationAPI');
 const SharedAPIClass  =  require('./api/users/shared/SharedAPI');
 
+
 //Mise en place de express
 const app = express()
 

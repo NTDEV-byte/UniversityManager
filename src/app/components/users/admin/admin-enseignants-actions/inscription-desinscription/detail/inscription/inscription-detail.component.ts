@@ -28,6 +28,7 @@ export class InscriptionDetailComponent implements OnInit {
         this.enseignements = data as [];
     });
    this.idEnseignantSelectionner = this.activatedRoute.snapshot.paramMap.get("id");
+   
   // console.log(this.idEnseignantSelectionner)
   }
 
