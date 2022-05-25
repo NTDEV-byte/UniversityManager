@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'; 
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 // materials
@@ -24,6 +24,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
+import {MatBadgeModule} from '@angular/material/badge';
 //components
 import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
@@ -75,6 +76,7 @@ import { InscriptionDetailComponent } from './components/users/admin/admin-ensei
   ],
 
   imports: [
+    MatBadgeModule,
     FormsModule,
     MatFormFieldModule,
     BrowserModule,
@@ -99,7 +101,7 @@ import { InscriptionDetailComponent } from './components/users/admin/admin-ensei
     MatDialogModule,
     MatMenuModule
   ],
-  
+
   providers: [],
   bootstrap: [AppComponent]
 })

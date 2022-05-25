@@ -8,19 +8,18 @@ import {AuthService} from "../../auths/auth.service";
 })
 export class EnseignantService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  getEnseignantInformationById(enseignantID : string){
+  getEnseignantInformationById(enseignantID : string) {
        return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/informations" , {
               enseignantID : enseignantID
        })
   }
 
-  getListModulesEnseignees(enseignantID : string){
-    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/modulesEnseignee" , {
-      enseignantID : enseignantID
-    })
+  getListModulesEnseignees(enseignantID : string) {
+       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/modulesEnseignee" , {
+              enseignantID : enseignantID
+       })
   }
-
 
 }

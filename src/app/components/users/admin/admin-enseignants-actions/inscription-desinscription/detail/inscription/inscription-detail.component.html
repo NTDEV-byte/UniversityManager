@@ -1,5 +1,13 @@
-<mat-selection-list #enseignementsRef> 
-    <mat-list-option *ngFor="let enseignement of enseignements" [value]="enseignement">
+
+
+<div layout="col">
+  <span [matBadge]="enseignementEnseigneeParCetEnseignant.length" matBadgeOverlap="false"> Modules dans lequels il est inscrit </span><br>
+  <span [matBadge]="differenceModules.length" matBadgeOverlap="false"> Modules dans lesquels il n'est pas inscrit </span><br>
+  <span [matBadge]="enseignementsDisponibles.length" matBadgeOverlap="false"> Total modules </span>
+</div>
+
+<mat-selection-list #enseignementsRef>
+    <mat-list-option *ngFor="let enseignement of differenceModules" [value]="enseignement">
         {{enseignement['Intitulé']}}
     </mat-list-option>
   </mat-selection-list>

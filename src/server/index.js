@@ -7,15 +7,16 @@ const mongoose = require('mongoose')
 
 // models
 const UserModel = require('./models/userModel')
-const FormationModel = require('./models/formationModel')
-const EnseignementModel = require('./models/enseignementModel')
+const FormationModel = require('./models/FormationModel')
+const EnseignementModel = require('./models/EnseignementModel')
+
 
 // api
 const AuthAPIClass = require('./api/auths/AuthAPI');
 const AdminAPIClass = require('./api/users/admin/AdminAPI');
+const EnseignantAPIClass = require('./api/users/enseignant/EnseignantAPI');
 const FormationAPIClass = require('./api/formation/FormationAPI');
 const SharedAPIClass  =  require('./api/users/shared/SharedAPI');
-
 
 //Mise en place de express
 const app = express()
@@ -35,26 +36,28 @@ app.listen(8888,() => console.log('Server listenning at 8888 port ...'))
 // API Logique Mise en Place
 const authApi = new AuthAPIClass();
 const adminApi = new AdminAPIClass();
+const enseignantApi = new EnseignantAPIClass();
 const formationAPI = new FormationAPIClass();
 const sharedAPI = new SharedAPIClass();
 
-// ROUTES 
-/**************************/
-// authentification
-/**************************/
+// ROUTES
+/********************/
+// Authentification
+/********************/
 authApi.logUserIn(app,UserModel)
 
 /**************************/
-//USERS 
+//USERS
 /**************************/
 //admin
-adminApi.testRequete(app,UserModel)
 adminApi.ajouterEnseignant(app,UserModel)
 adminApi.modifierEnseignant(app,UserModel)
 adminApi.supprimerEnseignant(app,UserModel)
 adminApi.listeEnseignants(app,UserModel)
 adminApi.inscriptionEnseignantModules(app,EnseignementModel)
-
+//Enseignant
+enseignantApi.getEnseignantInformationById(app,UserModel)
+enseignantApi.getListModulesEnseignees(app,UserModel)
 /**************************/
 //Shared between users
 /**************************/

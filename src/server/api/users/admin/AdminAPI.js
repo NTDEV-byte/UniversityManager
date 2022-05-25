@@ -3,31 +3,6 @@ const { ObjectId } = require("mongodb");
 
 class AdminAPI{
 
-
-    testRequete(app,UserModel){
-        app.post('/jointure' , async (req , res) => {
-               console.log("Route jointure called !")
-
-           // const response = EnseignementModel.create({"idEnseignant" : ObjectId(), "idEnseignement" : ObjectId()});
-            
-
-          const response = await UserModel.aggregate(
-                [
-                    {$match: {role : 'enseignant'}},
-                    {$lookup : {from : 'enseignements' , localField: '_id' , foreignField: 'idEnseignant' , as : 'teaches'},},
-                    {$unwind : "$teaches"},
-                    {$lookup : {from : 'formations' , localField: 'teaches.idEnseignement', foreignField: '_id' , as: 'sortie'}}
-                
-                ]
-                ) 
-
-           if(response){
-            console.log(response)   
-            res.json(response)
-                } 
-        })
-    }
-
     ajouterEnseignant(app,UserModel){
         app.post('/api/admin/ajouterEnseignant' , async (req,res) => {
                 const {nom,prenom,email,password,statut,role} =  req.body;
@@ -36,7 +11,7 @@ class AdminAPI{
                     res.json({
                         success : false,
                         message : "Echec lors de l'ajout de l'enseignant !"
-                    }); 
+                    });
                 }
                 else{
 
@@ -45,7 +20,7 @@ class AdminAPI{
                         message : "Enseignant ajouté !"
                     });
                 }
-        }) 
+        })
     }
 
     modifierEnseignant(app,UserModel){
@@ -78,24 +53,24 @@ class AdminAPI{
                     console.log("Suppression Réussi !")
                     res.json({
                         success : true,
-                        
+
                     })
               }
               else{
                 res.json({
                     success : false,
-                    
+
                 })
                     console.log("Echec lors de la suppression !")
               }
-        }) 
+        })
     }
 
     listeEnseignants(app,UserModel){
         app.post('/api/admin/listeEnseignant' , async (req,res) => {
-            const resp =  await UserModel.find({role : 'enseignant'});   
+            const resp =  await UserModel.find({role : 'enseignant'});
             res.json(resp)
-      }) 
+      })
     }
 
     inscriptionEnseignantModules(app,EnseignementModel){
@@ -106,7 +81,7 @@ class AdminAPI{
                     const response = await EnseignementModel.create({"idEnseignant" : ObjectId(idEnseignant), "idEnseignement" : ObjectId(modulesIDs[i])})
                     if(response){
                             console.log("Ok !")
-                    }   
+                    }
                     else{
                          success = false;
                     }

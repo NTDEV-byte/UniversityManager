@@ -1,3 +1,4 @@
+import { EnseignantService } from './../../../../../../../services/users/enseignant/enseignant.service';
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit } from '@angular/core';
 import { MatListOption } from '@angular/material/list';
@@ -13,23 +14,37 @@ import { AdminService } from 'src/app/services/users/admin/admin.service';
 })
 export class InscriptionDetailComponent implements OnInit {
 
-  enseignements: any[] = [];
+  enseignementsDisponibles: any[] = [];
+  enseignementEnseigneeParCetEnseignant : any[] = [];
+  differenceModules : any[]  = [];
   idEnseignantSelectionner : string | null = null;
 
-  constructor(private activatedRoute: ActivatedRoute, 
+  constructor(
               private formationService : FormationsService,
               private adminService : AdminService,
+              private enseignantService : EnseignantService,
+              private activatedRoute: ActivatedRoute,
               private snackbar : MatSnackBar
-              
-              ) { }
+              ) {}
+
 
   ngOnInit(): void {
-   this.formationService.getAllFormations().subscribe((data) => {
-        this.enseignements = data as [];
-    });
    this.idEnseignantSelectionner = this.activatedRoute.snapshot.paramMap.get("id");
-   
-  // console.log(this.idEnseignantSelectionner)
+
+   this.formationService.getAllFormations().subscribe((data) => {
+        this.enseignementsDisponibles = data as [];
+
+        this.enseignantService.getListModulesEnseignees(this.idEnseignantSelectionner!).subscribe((data) => {
+          this.enseignementEnseigneeParCetEnseignant = data as [];
+
+            this.differenceModules = this.enseignementsDisponibles.filter(a => !this.enseignementEnseigneeParCetEnseignant.map(b=>b["_id"]).includes(a["_id"]))
+
+          // console.log("total : "+this.enseignementsDisponibles.length);
+          // console.log("Difference : "+this.differenceModules.length);
+        });
+    });
+
+   // console.log(this.idEnseignantSelectionner)
   }
 
   getModulesSelectionner(modulesSelectionner : SelectionModel<MatListOption>){
@@ -47,5 +62,5 @@ export class InscriptionDetailComponent implements OnInit {
                      this.snackbar.open("Echec lors de l'ajouts des modules à l'enseignant" , "Fermer");
                   }
            })
-  } 
+  }
 }
