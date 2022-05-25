@@ -24,10 +24,16 @@ export interface ISendSuppressionEnseignant {
     id : string
 }
 
-export interface ISendAjoutEnseignantModule{
+export interface ISendInscriptionEnseignantModule{
     idEnseignant : string,
     modulesIDs: string[]
 }
+
+export interface ISendDesinscriptionEnseignantModule{
+  idEnseignant : string,
+  modulesIDs: string[]
+}
+
 
 
 export interface IinformationRetour {
@@ -81,9 +87,8 @@ export class AdminService {
       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/listeEnseignant",{})
   }
 
-  inscriptionEnseignantModules(information : ISendAjoutEnseignantModule){
+  inscriptionEnseignantModules(information : ISendInscriptionEnseignantModule){
       const {idEnseignant , modulesIDs} = information;
-      console.log(idEnseignant)
       return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/inscriptionEnseignantModules",
        {
           idEnseignant : idEnseignant,
@@ -91,4 +96,12 @@ export class AdminService {
        })
   }
 
+  desinscriptionEnseignantModules(information : ISendDesinscriptionEnseignantModule){
+    const {idEnseignant , modulesIDs} = information;
+    return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/desinscriptionEnseignantModules",
+     {
+      idEnseignant : idEnseignant,
+      modulesIDs: modulesIDs
+     })
+  }
 }

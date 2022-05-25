@@ -55,6 +55,7 @@ adminApi.modifierEnseignant(app,UserModel)
 adminApi.supprimerEnseignant(app,UserModel)
 adminApi.listeEnseignants(app,UserModel)
 adminApi.inscriptionEnseignantModules(app,EnseignementModel)
+adminApi.desinscriptionEnseignantModules(app,EnseignementModel)
 //Enseignant
 enseignantApi.getEnseignantInformationById(app,UserModel)
 enseignantApi.getListModulesEnseignees(app,UserModel)

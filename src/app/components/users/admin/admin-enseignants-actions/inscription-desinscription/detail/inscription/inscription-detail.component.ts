@@ -16,7 +16,7 @@ export class InscriptionDetailComponent implements OnInit {
 
   enseignementsDisponibles: any[] = [];
   enseignementEnseigneeParCetEnseignant : any[] = [];
-  differenceModules : any[]  = [];
+  enseignementNonEnseigneeParCetEnseignant : any[]  = [];
   idEnseignantSelectionner : string | null = null;
 
   constructor(
@@ -31,26 +31,21 @@ export class InscriptionDetailComponent implements OnInit {
   ngOnInit(): void {
    this.idEnseignantSelectionner = this.activatedRoute.snapshot.paramMap.get("id");
 
-   this.formationService.getAllFormations().subscribe((data) => {
+       this.formationService.getAllFormations().subscribe((data) => {
         this.enseignementsDisponibles = data as [];
-
-        this.enseignantService.getListModulesEnseignees(this.idEnseignantSelectionner!).subscribe((data) => {
-          this.enseignementEnseigneeParCetEnseignant = data as [];
-
-            this.differenceModules = this.enseignementsDisponibles.filter(a => !this.enseignementEnseigneeParCetEnseignant.map(b=>b["_id"]).includes(a["_id"]))
-
-          // console.log("total : "+this.enseignementsDisponibles.length);
-          // console.log("Difference : "+this.differenceModules.length);
+        this.enseignantService.getListModulesEnseignees(this.idEnseignantSelectionner!).subscribe((dataEnseignant) => {
+        this.enseignementEnseigneeParCetEnseignant = dataEnseignant as [];
+            this.enseignementNonEnseigneeParCetEnseignant = this.enseignementsDisponibles.filter(
+                                                                                          a => !this.enseignementEnseigneeParCetEnseignant
+                                                                                         .map(b=>b["_id"])
+                                                                                         .includes(a["_id"]))
         });
     });
-
-   // console.log(this.idEnseignantSelectionner)
   }
 
   getModulesSelectionner(modulesSelectionner : SelectionModel<MatListOption>){
             var modulesIds = [];
             for(let module of modulesSelectionner.selected){
-                  //console.log(module["_value"]["_id"])
                   modulesIds.push(module["_value"]["_id"])
             }
            this.adminService.inscriptionEnseignantModules({idEnseignant: this.idEnseignantSelectionner! , modulesIDs: modulesIds}).subscribe(

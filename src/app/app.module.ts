@@ -48,6 +48,7 @@ import { AdminMenuEnseignantActionsComponent } from './components/home/sidenav/m
 import { AdminMenuFormationActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-formation-actions/admin-menu-formation-actions.component';
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
 import { InscriptionDetailComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
+import { DesinscriptionComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/desinscription/desinscription.component';
 
   @NgModule({
   declarations: [
@@ -73,6 +74,7 @@ import { InscriptionDetailComponent } from './components/users/admin/admin-ensei
     AdminMenuFormationActionsComponent,
     IndexComponent,
     InscriptionDetailComponent,
+    DesinscriptionComponent,
   ],
 
   imports: [

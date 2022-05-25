@@ -1,17 +1,14 @@
-
-
 <div layout="col">
   <span [matBadge]="enseignementEnseigneeParCetEnseignant.length" matBadgeOverlap="false"> Modules dans lequels il est inscrit </span><br>
-  <span [matBadge]="enseignementNonEnseigneeParCetEnseignant.length" matBadgeOverlap="false"> Modules dans lesquels il n'est pas inscrit </span><br>
   <span [matBadge]="enseignementsDisponibles.length" matBadgeOverlap="false"> Total modules </span>
 </div>
 
 <mat-selection-list #enseignementsRef>
-    <mat-list-option *ngFor="let enseignement of enseignementNonEnseigneeParCetEnseignant" [value]="enseignement">
+    <mat-list-option *ngFor="let enseignement of enseignementsDisponibles" [value]="enseignement" [selected] = "this.checkOnlyIfModuleEstEnseignee(enseignement)">
         {{enseignement['Intitulé']}}
     </mat-list-option>
   </mat-selection-list>
 
-  <button mat-fab color="primary" (click)="getModulesSelectionner(enseignementsRef.selectedOptions)" class="custom-button">
+  <button mat-fab color="primary" (click)="getModulesDesinscrit(enseignementsRef.selectedOptions)" class="custom-button">
     <mat-icon>add</mat-icon>
   </button>

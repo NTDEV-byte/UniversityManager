@@ -91,6 +91,28 @@ class AdminAPI{
          })
     }
 
+
+    desinscriptionEnseignantModules(app,EnseignementModel){
+      app.post('/api/admin/desinscriptionEnseignantModules', async(req,res) => {
+                 const {idEnseignant , modulesIDs} = req.body;
+                 const success = true;
+                 for(let i = 0; i < modulesIDs.length; i++){
+                 const response = await EnseignementModel.deleteOne({"idEnseignant" : ObjectId(idEnseignant), "idEnseignement" : ObjectId(modulesIDs[i])})
+                 if(response){
+                         console.log("deleted module !")
+                 }
+                 else{
+                      success = false;
+                 }
+             }
+
+             return res.json({success : success , message:  "Désinscription avec succès !"});
+      })
+ }
+
+
+
+
 }
 
 module.exports = AdminAPI;

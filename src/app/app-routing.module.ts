@@ -1,3 +1,4 @@
+import { DesinscriptionComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/desinscription/desinscription.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AjouterEnseignantComponent } from './components/users/admin/admin-enseignants-actions/crud/ajouter-enseignant/ajouter-enseignant.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path : 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},
   { path : 'admin/indexInscriptionDesinscriptionModule', component: IndexComponent},
   { path:  'admin/inscriptionModuleDetail/:id' , component: InscriptionDetailComponent},
+  { path:  'admin/desinscriptionModuleDetail/:id' , component: DesinscriptionComponent},
   { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
   { path : 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},
   { path : 'admin/listFormation' , component: FormationsComponent},
