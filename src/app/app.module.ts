@@ -25,6 +25,9 @@ import {MatCardModule} from '@angular/material/card';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
+import {MatTabsModule} from '@angular/material/tabs';
+
+
 //components
 import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
@@ -49,6 +52,10 @@ import { AdminMenuFormationActionsComponent } from './components/home/sidenav/me
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
 import { InscriptionDetailComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
 import { DesinscriptionComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/desinscription/desinscription.component';
+import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
+import { AffectationGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/affectation-groupe/affectation-groupe.component';
+import { CreateGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/create-groupe/create-groupe.component';
+import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
 
   @NgModule({
   declarations: [
@@ -75,6 +82,10 @@ import { DesinscriptionComponent } from './components/users/admin/admin-enseigna
     IndexComponent,
     InscriptionDetailComponent,
     DesinscriptionComponent,
+    AttributionGroupeComponent,
+    AffectationGroupeComponent,
+    CreateGroupeComponent,
+    ListeGroupeComponent
   ],
 
   imports: [
@@ -101,7 +112,8 @@ import { DesinscriptionComponent } from './components/users/admin/admin-enseigna
     MatTreeModule,
     MatCardModule,
     MatDialogModule,
-    MatMenuModule
+    MatMenuModule,
+    MatTabsModule
   ],
 
   providers: [],

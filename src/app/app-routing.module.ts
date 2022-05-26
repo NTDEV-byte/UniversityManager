@@ -16,6 +16,7 @@ import { AdminMenuEnseignantActionsComponent } from './components/home/sidenav/m
 import { AdminMenuFormationActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-formation-actions/admin-menu-formation-actions.component';
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
 import {InscriptionDetailComponent} from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
+import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 
 
 const routes: Routes = [
@@ -29,6 +30,7 @@ const routes: Routes = [
   { path : 'admin/indexInscriptionDesinscriptionModule', component: IndexComponent},
   { path:  'admin/inscriptionModuleDetail/:id' , component: InscriptionDetailComponent},
   { path:  'admin/desinscriptionModuleDetail/:id' , component: DesinscriptionComponent},
+  { path:  'admin/attributionGroupe/:id' , component: AttributionGroupeComponent},
   { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
   { path : 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},
   { path : 'admin/listFormation' , component: FormationsComponent},

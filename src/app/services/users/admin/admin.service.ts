@@ -34,7 +34,12 @@ export interface ISendDesinscriptionEnseignantModule{
   modulesIDs: string[]
 }
 
-
+export interface ISendAttributionGroupeEnseignant{
+  nomGroupe: string,
+  nombreEtudiants: number,
+  idEnseignant: string,
+  idEnseignement: string,
+}
 
 export interface IinformationRetour {
    success : boolean,
@@ -104,4 +109,17 @@ export class AdminService {
       modulesIDs: modulesIDs
      })
   }
+
+  attributionGroupeEnseignant(information : ISendAttributionGroupeEnseignant){
+    const  {nomGroupe,nombreEtudiants,idEnseignant,idEnseignement} = information;
+    return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/attributionGroupeEnseignant",
+    {
+      nomGroupe: nomGroupe,
+      nombreEtudiants: nombreEtudiants,
+      idEnseignant : idEnseignant,
+      idEnseignement: idEnseignement
+    })
+   }
+
+
 }

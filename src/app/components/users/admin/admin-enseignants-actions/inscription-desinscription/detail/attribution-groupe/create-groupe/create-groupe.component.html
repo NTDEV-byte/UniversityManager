@@ -1,0 +1,22 @@
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Nom</mat-label>
+  <input matInput>
+</mat-form-field>
+
+
+<mat-form-field appearance="fill">
+  <mat-label>Enseignement</mat-label>
+
+  <mat-select>
+    <mat-option *ngFor="let module of modules" [value] = "module" >
+              {{module["Intitulé"]}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<button mat-raised-button color="primary" aria-label="Example icon button with a bookmark icon">
+      ajouté
+</button>
