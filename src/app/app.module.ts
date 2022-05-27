@@ -46,7 +46,7 @@ import { VacataireComponent } from './components/users/enseignant/vacataire/vaca
 import { SidenavComponent } from './components/home/sidenav/sidenav-index/sidenav.component';
 import { AdminMenuComponent } from './components/home/sidenav/menu-sidenav/admin/admin-main-menu-actions/admin-menu.component';
 import { VacataireMenuComponent } from './components/home/sidenav/menu-sidenav/enseignants/vactaire/vacataire-menu/vacataire-menu.component';
-import { NonVacataireMenuComponent } from './components/home/sidenav/menu-sidenav/enseignants/non-vactaire/non-vacataire-menu/non-vacataire-menu.component';
+import { NonVacataireMenuComponent } from './components/home/sidenav/menu-sidenav/enseignants/non-vactaire/non-vacataire-main-menu/non-vacataire-menu.component';
 import { AdminMenuEnseignantActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-enseignant-actions/admin-menu-enseignant-actions.component';
 import { AdminMenuFormationActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-formation-actions/admin-menu-formation-actions.component';
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
