@@ -15,12 +15,14 @@ import { SidenavComponent } from './components/home/sidenav/sidenav-index/sidena
 import { AdminMenuEnseignantActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-enseignant-actions/admin-menu-enseignant-actions.component';
 import { AdminMenuFormationActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-formation-actions/admin-menu-formation-actions.component';
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
-import {InscriptionDetailComponent} from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
+import { InscriptionDetailComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
-import { EnseignantNvUcActionsComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-uc-actions/enseignant-nv-uc-actions.component';
+import { EnseignantNvUcActionsComponent } from './components/users/enseignant/non-vacataire/nv-uc-actions/enseignant-nv-uc-actions.component';
 import { EnseignantNvEnseignementsActionsComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-enseignements-actions.component';
-import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
+import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
+import { EnseignantNvInscriptionDesincriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-inscription-desincription-enseignement/enseignant-nv-inscription-desincription-enseignement.component';
+import { EnseignantNvEnseignementInscritDetailComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/nv-enseignement-inscrit-detail/enseignant-nv-enseignement-inscrit-detail.component';
 
 
 const routes: Routes = [
@@ -43,6 +45,8 @@ const routes: Routes = [
 
   { path : 'EnseignantNV/UcIndex' , component: EnseignantNvUcActionsComponent},
   { path : 'EnseignantNV/EnseignementIndex' , component: EnseignantNvEnseignementsActionsComponent},
+  { path : 'EnseignantNV/Enseignement/InscriptionDesinscription' , component: EnseignantNvInscriptionDesincriptionEnseignementComponent},
+  { path : 'EnseignantNV/Enseignement/VoirDetailInscriptions' , component: EnseignantNvEnseignementInscritDetailComponent},
   { path : 'EnseignantNV/RecapitulatifIndex' , component: EnseignantNvRecapitulatifActionsComponent},
 
 

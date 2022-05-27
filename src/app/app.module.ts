@@ -54,11 +54,14 @@ import { DesinscriptionComponent } from './components/users/admin/admin-enseigna
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 import { CreateGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/create-groupe/create-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
-import {EnseignantNvUcActionsComponent} from './components/users/enseignant/non-vacataire/enseignant-nv-uc-actions/enseignant-nv-uc-actions.component';
+import {EnseignantNvUcActionsComponent} from './components/users/enseignant/non-vacataire/nv-uc-actions/enseignant-nv-uc-actions.component';
 import {EnseignantNvEnseignementsActionsComponent} from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-enseignements-actions.component';
-import {EnseignantNvRecapitulatifActionsComponent} from './components/users/enseignant/non-vacataire/enseignant-nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
+import {EnseignantNvRecapitulatifActionsComponent} from './components/users/enseignant/non-vacataire/nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
+import {EnseignantNvEnseignementInscritDetailComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/nv-enseignement-inscrit-detail/enseignant-nv-enseignement-inscrit-detail.component';
+import {EnseignantNvInscriptionDesincriptionEnseignementComponent} from "./components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-inscription-desincription-enseignement/enseignant-nv-inscription-desincription-enseignement.component"
 
-  @NgModule({
+
+@NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
@@ -88,7 +91,9 @@ import {EnseignantNvRecapitulatifActionsComponent} from './components/users/ense
     ListeGroupeComponent,
     EnseignantNvUcActionsComponent,
     EnseignantNvEnseignementsActionsComponent,
-    EnseignantNvRecapitulatifActionsComponent
+    EnseignantNvRecapitulatifActionsComponent,
+    EnseignantNvEnseignementInscritDetailComponent,
+    EnseignantNvInscriptionDesincriptionEnseignementComponent,
   ],
 
   imports: [
