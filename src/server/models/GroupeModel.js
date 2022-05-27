@@ -1,16 +1,14 @@
-const { ModuleResolver } = require('@angular/compiler-cli/src/ngtsc/imports');
 const mongoose = require('mongoose');
 
-const groupeSchema = mongoose.Schema({
-
+const groupeSchema = new mongoose.Schema({
     nomGroupe : String,
+    typeGroupe: String,
     nombreEtudiants: Number,
-    idEnseignement: mongoose.Schema.Types.ObjectId(),
-    idEnseignant: mongoose.Schema.Types.ObjectId(),
+    idEnseignement: mongoose.Schema.Types.ObjectId,
+    idEnseignant: mongoose.Schema.Types.ObjectId,
+    attribuee : Boolean
 })
 
-
 const groupe = mongoose.model('groupe' , groupeSchema);
-
 
 module.exports = groupe

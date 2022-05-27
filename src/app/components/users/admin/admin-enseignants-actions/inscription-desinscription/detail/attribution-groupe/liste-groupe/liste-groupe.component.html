@@ -1,3 +1,31 @@
-<p>
-  liste-groupe works!
-</p>
+<mat-accordion>
+
+<div *ngFor="let groupe of groupeAttribuee">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+         {{groupe["nomGroupe"]}}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{groupe["Enseignement_Details"][0]["Intitulé"]}} <br>
+      <strong>({{groupe["typeGroupe"]}})</strong>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <h1>Enseignant</h1>
+    Nom {{groupe["Enseignant_Details"][0]["nom"]}} <br>
+    Prénom {{groupe["Enseignant_Details"][0]["prenom"]}}<br>
+    Statut {{groupe["Enseignant_Details"][0]["statut"]}}<br>
+
+    <h1>Formation</h1>
+    Effectif {{groupe["Enseignement_Details"][0]["Effectif"]}} <br>
+    Formation {{groupe["Enseignement_Details"][0]["Formation"]}}<br>
+    Intitulé {{groupe["Enseignement_Details"][0]["Intitulé"]}}<br>
+    Ref {{groupe["Enseignement_Details"][0]["Ref"]}}<br>
+    Semestre {{groupe["Enseignement_Details"][0]["Semestre"]}}<br>
+    Statut {{groupe["Enseignement_Details"][0]["Statut"]}}<br>
+  </mat-expansion-panel>
+
+</div>
+
+
+</mat-accordion>

@@ -9,7 +9,7 @@ const mongoose = require('mongoose')
 const UserModel = require('./models/userModel')
 const FormationModel = require('./models/FormationModel')
 const EnseignementModel = require('./models/EnseignementModel')
-
+const GroupeModel = require('./models/GroupeModel')
 
 // api
 const AuthAPIClass = require('./api/auths/AuthAPI');
@@ -56,6 +56,9 @@ adminApi.supprimerEnseignant(app,UserModel)
 adminApi.listeEnseignants(app,UserModel)
 adminApi.inscriptionEnseignantModules(app,EnseignementModel)
 adminApi.desinscriptionEnseignantModules(app,EnseignementModel)
+adminApi.attributionGroupeEnseignant(app,GroupeModel)
+adminApi.getGroupesAttribuerACetEnseignant(app,GroupeModel)
+
 //Enseignant
 enseignantApi.getEnseignantInformationById(app,UserModel)
 enseignantApi.getListModulesEnseignees(app,UserModel)

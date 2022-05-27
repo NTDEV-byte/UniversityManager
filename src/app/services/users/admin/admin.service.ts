@@ -34,8 +34,10 @@ export interface ISendDesinscriptionEnseignantModule{
   modulesIDs: string[]
 }
 
+// groupes tools
 export interface ISendAttributionGroupeEnseignant{
   nomGroupe: string,
+  typeGroupe: string,
   nombreEtudiants: number,
   idEnseignant: string,
   idEnseignement: string,
@@ -68,7 +70,6 @@ export class AdminService {
   }
 
   modifierUnEnseignant(information : ISendModificationEnseignant){
-
     const {id , nom , prenom , email , statut, role} = information;
       console.log("Modifier Enseignant Service")
       return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/admin/modifierEnseignant',{
@@ -111,13 +112,21 @@ export class AdminService {
   }
 
   attributionGroupeEnseignant(information : ISendAttributionGroupeEnseignant){
-    const  {nomGroupe,nombreEtudiants,idEnseignant,idEnseignement} = information;
+    const  {nomGroupe,typeGroupe,nombreEtudiants,idEnseignant,idEnseignement} = information;
     return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/attributionGroupeEnseignant",
     {
       nomGroupe: nomGroupe,
+      typeGroupe : typeGroupe,
       nombreEtudiants: nombreEtudiants,
       idEnseignant : idEnseignant,
-      idEnseignement: idEnseignement
+      idEnseignement: idEnseignement,
+    })
+   }
+
+   getGroupesAttribuerACetEnseignant(idEnseignant : string){
+    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/groupesSuiviParCetEnseignant",
+    {
+      idEnseignant : idEnseignant
     })
    }
 

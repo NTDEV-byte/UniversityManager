@@ -26,7 +26,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTabsModule} from '@angular/material/tabs';
-
+import {MatExpansionModule} from '@angular/material/expansion';
 
 //components
 import { AppComponent } from './app.component';
@@ -53,7 +53,6 @@ import { IndexComponent } from './components/users/admin/admin-enseignants-actio
 import { InscriptionDetailComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
 import { DesinscriptionComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/desinscription/desinscription.component';
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
-import { AffectationGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/affectation-groupe/affectation-groupe.component';
 import { CreateGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/create-groupe/create-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
 
@@ -83,7 +82,6 @@ import { ListeGroupeComponent } from './components/users/admin/admin-enseignants
     InscriptionDetailComponent,
     DesinscriptionComponent,
     AttributionGroupeComponent,
-    AffectationGroupeComponent,
     CreateGroupeComponent,
     ListeGroupeComponent
   ],
@@ -113,7 +111,8 @@ import { ListeGroupeComponent } from './components/users/admin/admin-enseignants
     MatCardModule,
     MatDialogModule,
     MatMenuModule,
-    MatTabsModule
+    MatTabsModule,
+    MatExpansionModule
   ],
 
   providers: [],

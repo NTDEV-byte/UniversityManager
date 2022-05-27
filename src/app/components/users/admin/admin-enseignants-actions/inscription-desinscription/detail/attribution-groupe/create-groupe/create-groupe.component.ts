@@ -4,7 +4,6 @@ import { AdminService } from 'src/app/services/users/admin/admin.service';
 import { FormGroup, FormControl, Validators, AnyForUntypedForms } from '@angular/forms';
 import { FormationsService } from './../../../../../../../../services/formations/formations.service';
 import { Component, OnInit } from '@angular/core';
-import { AnimationDurations, MatOption } from '@angular/material/core';
 
 @Component({
   selector: 'app-create-groupe',
@@ -29,11 +28,11 @@ export class CreateGroupeComponent implements OnInit {
   ngOnInit() {
       this.formationService.getAllFormations().subscribe((data) => {
              this.modules = data as [];
-             console.log(this.modules)
+            // console.log(this.modules)
 
       });
       this.enseignantID = this.activeRoute.snapshot.paramMap.get("id");
-      console.log(this.enseignantID);
+      //console.log(this.enseignantID);
   }
 
   createGroupeEtudiant(selected : any , type: string){
@@ -47,7 +46,7 @@ export class CreateGroupeComponent implements OnInit {
             typeGroupe: type,
             nombreEtudiants: 0,
             idEnseignant: this.enseignantID,
-            idEnseignement: idEnseignement,}).subscribe((data) => {
+            idEnseignement: idEnseignement}).subscribe((data) => {
                   if(data.success){
                         this.snackBar.open("Groupe "+nomGroupe+" ajouté à l'enseignant" , "Fermer" ,  {duration: 2000})
                   }

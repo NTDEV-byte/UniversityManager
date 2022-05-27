@@ -87,7 +87,7 @@ class AdminAPI{
                     }
                 }
 
-                return res.json({success : success , message:  "Insertion success !"});
+                  res.json({success : success , message:  "Insertion success !"});
          })
     }
 
@@ -105,32 +105,41 @@ class AdminAPI{
                       success = false;
                  }
              }
-
-             return res.json({success : success , message:  "Désinscription avec succès !"});
+                 res.json({success : success , message:  "Désinscription avec succès !"});
       })
  }
 
-
-    attributionGroupeEnseignant(app,EnseignementModel){
+    attributionGroupeEnseignant(app,GroupeModel){
        app.post('/api/admin/attributionGroupeEnseignant', async(req,res) => {
-                const {idEnseignant , modulesIDs} = req.body;
-                const success = true;
-                for(let i = 0; i < modulesIDs.length; i++){
-                const response = await EnseignementModel.deleteOne({"idEnseignant" : ObjectId(idEnseignant), "idEnseignement" : ObjectId(modulesIDs[i])})
+                const{nomGroupe,typeGroupe,nombreEtudiants,idEnseignant,idEnseignement} =  req.body;
+                const response = await GroupeModel.create({"nomGroupe" : nomGroupe, "typeGroupe": typeGroupe, "nombreEtudiants"  : nombreEtudiants , "idEnseignant" : ObjectId(idEnseignant),"idEnseignement" : ObjectId(idEnseignement)})
                 if(response){
-                        console.log("deleted module !")
+                        res.json({success : true , message:  "Attribution du groupe avec succès !"});
                 }
                 else{
-                      success = false;
+                  res.json({success : false , message:  "Echec lors de l'attribution du groupe !"});
                 }
-            }
-
-            return res.json({success : success , message:  "Désinscription avec succès !"});
       })
     }
 
 
-
+  getGroupesAttribuerACetEnseignant(app,GroupeModel){
+      app.post('/api/admin/groupesSuiviParCetEnseignant', async(req,res) => {
+        const {idEnseignant} = req.body;
+        const response = await GroupeModel.aggregate([
+                  {$match: {idEnseignant: ObjectId(idEnseignant)}},
+                  {$lookup: {from : "formations" , localField: "idEnseignement" , foreignField: "_id" , as: "Enseignement_Details"}},
+                  {$lookup: {from : "users" , localField: "idEnseignant" , foreignField: "_id" , as: "Enseignant_Details"}},
+        ])
+        //const response = await GroupeModel.find({"idEnseignant": ObjectId(idEnseignant)})
+          if(response){
+                res.json(response);
+          }
+        else{
+                res.json({success : false , message:  "Aucun groupe trouvés "});
+        }
+      })
+     }
 
 }
 
