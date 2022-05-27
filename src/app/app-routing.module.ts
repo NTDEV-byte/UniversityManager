@@ -18,6 +18,9 @@ import { IndexComponent } from './components/users/admin/admin-enseignants-actio
 import {InscriptionDetailComponent} from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
+import { EnseignantNvUcActionsComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-uc-actions/enseignant-nv-uc-actions.component';
+import { EnseignantNvEnseignementsActionsComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-enseignements-actions.component';
+import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
 
 
 const routes: Routes = [
@@ -36,8 +39,14 @@ const routes: Routes = [
   { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
   { path : 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},
   { path : 'admin/listFormation' , component: FormationsComponent},
-  { path : 'formation/detail' , component: DetailComponent},
   { path : 'admin/RecapitulatifActions' , component: AdminMenuEnseignantActionsComponent},
+
+  { path : 'EnseignantNV/UcIndex' , component: EnseignantNvUcActionsComponent},
+  { path : 'EnseignantNV/EnseignementIndex' , component: EnseignantNvEnseignementsActionsComponent},
+  { path : 'EnseignantNV/RecapitulatifIndex' , component: EnseignantNvRecapitulatifActionsComponent},
+
+
+  { path : 'formation/detail' , component: DetailComponent},
 
   { path : 'shared/modificationProfil' , component: ProfilComponent},
 

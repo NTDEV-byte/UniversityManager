@@ -27,7 +27,6 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatExpansionModule} from '@angular/material/expansion';
-
 //components
 import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
@@ -55,6 +54,9 @@ import { DesinscriptionComponent } from './components/users/admin/admin-enseigna
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 import { CreateGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/create-groupe/create-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
+import {EnseignantNvUcActionsComponent} from './components/users/enseignant/non-vacataire/enseignant-nv-uc-actions/enseignant-nv-uc-actions.component';
+import {EnseignantNvEnseignementsActionsComponent} from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-enseignements-actions.component';
+import {EnseignantNvRecapitulatifActionsComponent} from './components/users/enseignant/non-vacataire/enseignant-nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
 
   @NgModule({
   declarations: [
@@ -83,7 +85,10 @@ import { ListeGroupeComponent } from './components/users/admin/admin-enseignants
     DesinscriptionComponent,
     AttributionGroupeComponent,
     CreateGroupeComponent,
-    ListeGroupeComponent
+    ListeGroupeComponent,
+    EnseignantNvUcActionsComponent,
+    EnseignantNvEnseignementsActionsComponent,
+    EnseignantNvRecapitulatifActionsComponent
   ],
 
   imports: [
