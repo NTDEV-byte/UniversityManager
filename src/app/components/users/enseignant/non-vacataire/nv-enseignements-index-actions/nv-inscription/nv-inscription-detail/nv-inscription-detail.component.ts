@@ -51,5 +51,7 @@ export class NvInscriptionEnseignementDetailComponent implements OnInit {
                     this.snackBar.open(data.message , "Fermer" , {duration : 2000})
                 }
           })
+
+        this.detailEnseignementForm.reset();
   }
 }

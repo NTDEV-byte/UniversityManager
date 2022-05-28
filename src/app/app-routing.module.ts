@@ -23,7 +23,7 @@ import { EnseignantNvEnseignementsActionsComponent } from './components/users/en
 import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/nv-recapitulatif-index-actions/enseignant-nv-recapitulatif-actions.component';
 import { NvInscriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-enseignement.component';
 import { NvInscriptionEnseignementDetailComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-detail/nv-inscription-detail.component';
-
+import { NvListModulesEnseigneesComponent} from "./components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-list-modules-enseignees/nv-list-modules-enseignees.component";
 
 const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
@@ -48,6 +48,7 @@ const routes: Routes = [
   { path : 'EnseignantNV/EnseignementIndex' , component: EnseignantNvEnseignementsActionsComponent},
   { path : 'EnseignantNV/InscriptionListEnseignement', component: NvInscriptionEnseignementComponent},
   { path : 'EnseignantNV/InscriptionEnseignementDetail/:id' , component: NvInscriptionEnseignementDetailComponent},
+  { path : 'EnseignantNV/ListeModulesEnseignee' , component: NvListModulesEnseigneesComponent},
   { path : 'EnseignantNV/RecapitulatifIndex' , component: EnseignantNvRecapitulatifActionsComponent},
 
 
