@@ -33,6 +33,19 @@ class EnseignantAPI {
               }
             })
    }
+
+   inscriptionEnseignantModule(app,EnseignementModel){
+    app.post("/api/enseignant/inscriptionEnseignantEnseignement" , async (req,res) => {
+      const {idEnseignant,idEnseignement,nombreCM,nombreTD,nombreTP} = req.body;
+       const response = await EnseignementModel.create({idEnseignement: idEnseignant , idEnseignant: idEnseignement , nombreCM: nombreCM , nombreTD: nombreTD , nombreTP: nombreTP})
+      if(response){
+          res.json({success: true , message : "Enseignant Inscrit dans le module avec succès !"});
+      }
+      else{
+        res.json({success: false , message : "Echec lors de l'inscription de l'enseignant dans le module !"})
+      }
+    })
+}
 }
 
 

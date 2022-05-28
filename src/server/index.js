@@ -62,6 +62,7 @@ adminApi.getGroupesAttribuerACetEnseignant(app,GroupeModel)
 //Enseignant
 enseignantApi.getEnseignantInformationById(app,UserModel)
 enseignantApi.getListModulesEnseignees(app,UserModel)
+enseignantApi.inscriptionEnseignantModule(app,EnseignementModel)
 /**************************/
 //Shared between users
 /**************************/

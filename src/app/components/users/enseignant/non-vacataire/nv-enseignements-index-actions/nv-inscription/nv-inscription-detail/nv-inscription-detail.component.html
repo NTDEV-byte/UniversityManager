@@ -23,20 +23,20 @@
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Nombre de groupe CM</mat-label>
-    <input matInput placeholder="Nombre de groupe CM">
+    <input matInput placeholder="Nombre de groupe CM" formControlName="nombreCM">
   </mat-form-field>
 
 
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Nombre de groupe TD</mat-label>
-    <input matInput placeholder="Nombre de groupe TD">
+    <input matInput placeholder="Nombre de groupe TD" formControlName="nombreTD">
   </mat-form-field>
 
 
   <mat-form-field *ngIf="this.enseignementDetail['grTP'] != 0" class="example-full-width" appearance="fill">
     <mat-label>Nombre de groupe TP</mat-label>
-    <input matInput placeholder="Nombre de groupe TP">
+    <input matInput placeholder="Nombre de groupe TP" formControlName="nombreTP">
   </mat-form-field>
 </form>
 
-<button color="primary" mat-raised-button>S'inscrire</button>
+<button color="primary" mat-raised-button (click)="inscriptionEnseignantModule()">S'inscrire</button>

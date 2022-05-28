@@ -78,7 +78,7 @@ class AdminAPI{
                     const {idEnseignant , modulesIDs} = req.body;
                     const success = true;
                     for(let i = 0; i < modulesIDs.length; i++){
-                    const response = await EnseignementModel.create({"idEnseignant" : ObjectId(idEnseignant), "idEnseignement" : ObjectId(modulesIDs[i])})
+                    const response = await EnseignementModel.create({"idEnseignant" : ObjectId(idEnseignant), "idEnseignement" : ObjectId(modulesIDs[i]),  nombreCM: 0 , nombreTD: 0 , nombreTP: 0})
                     if(response){
                             console.log("Ok !")
                     }

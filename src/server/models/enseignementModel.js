@@ -4,6 +4,9 @@ const mongoose = require('mongoose')
 const EnseignementSchema = new mongoose.Schema({
     idEnseignant: mongoose.Schema.Types.ObjectId,
     idEnseignement: mongoose.Schema.Types.ObjectId,
+    groupeCM: Number,
+    groupeTD: Number,
+    groupeTP: Number
 })
 
 const Enseignement = mongoose.model('Enseignement', EnseignementSchema)
