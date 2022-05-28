@@ -1,3 +1,5 @@
+import { AuthService } from 'src/app/services/auths/auth.service';
+import { EnseignantService } from 'src/app/services/users/enseignant/enseignant.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NvListModulesEnseigneesComponent implements OnInit {
 
-  constructor() { }
+  enseignements : any[] = []
+
+  constructor(
+    private enseignantService : EnseignantService,
+    private  authService : AuthService
+    ) { }
 
   ngOnInit() {
+
+    console.log("ID: Enseignant " + this.authService.getUserDetails.id)
+       this.enseignantService.getEnseignementsPrisEnCharges(this.authService.getUserDetails.id).subscribe((data) =>{
+               this.enseignements = data as [];
+               this.enseignements = this.enseignements[0]["teaches"]
+
+       })
   }
 
 }
