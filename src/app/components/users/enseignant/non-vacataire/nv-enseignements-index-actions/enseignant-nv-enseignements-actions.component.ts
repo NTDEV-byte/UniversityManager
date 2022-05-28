@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnseignantNvEnseignementsActionsComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
   }
+
+
 
 }

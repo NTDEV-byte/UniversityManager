@@ -1,0 +1,10 @@
+<mat-list>
+  <mat-list-item *ngFor="let enseignement of enseignements">
+    <img matListAvatar src="https://www.kindpng.com/picc/m/237-2377412_libro-math-book-png-transparent-png.png" alt="image-indisponnible">
+    <h3 matLine> {{enseignement["Intitulé"]}} </h3>
+    <p matLine>
+    </p>
+    <button mat-button color="primary" [routerLink]="['/EnseignantNV/InscriptionEnseignementDetail' ,enseignement['_id']]">Voir</button>
+  </mat-list-item>
+</mat-list>
+

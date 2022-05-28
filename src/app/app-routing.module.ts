@@ -18,16 +18,17 @@ import { IndexComponent } from './components/users/admin/admin-enseignants-actio
 import { InscriptionDetailComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
-import { EnseignantNvUcActionsComponent } from './components/users/enseignant/non-vacataire/nv-uc-actions/enseignant-nv-uc-actions.component';
-import { EnseignantNvEnseignementsActionsComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-enseignements-actions.component';
-import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
-import { EnseignantNvInscriptionDesincriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-inscription-desincription-enseignement/enseignant-nv-inscription-desincription-enseignement.component';
-import { EnseignantNvEnseignementInscritDetailComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/nv-enseignement-inscrit-detail/enseignant-nv-enseignement-inscrit-detail.component';
+import { EnseignantNvUcActionsComponent } from './components/users/enseignant/non-vacataire/nv-uc-index-actions/enseignant-nv-uc-actions.component';
+import { EnseignantNvEnseignementsActionsComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/enseignant-nv-enseignements-actions.component';
+import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/nv-recapitulatif-index-actions/enseignant-nv-recapitulatif-actions.component';
+import { NvInscriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-enseignement.component';
+import { NvInscriptionEnseignementDetailComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-detail/nv-inscription-detail.component';
 
 
 const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'home', component: HomeComponent },
+
   { path : 'admin/index' , component: SidenavComponent},
   { path : 'admin/EnseignantActions' , component: AdminMenuEnseignantActionsComponent},
   { path : 'admin/ajouterEnseignant' , component: AjouterEnseignantComponent},
@@ -45,8 +46,8 @@ const routes: Routes = [
 
   { path : 'EnseignantNV/UcIndex' , component: EnseignantNvUcActionsComponent},
   { path : 'EnseignantNV/EnseignementIndex' , component: EnseignantNvEnseignementsActionsComponent},
-  { path : 'EnseignantNV/Enseignement/InscriptionDesinscription' , component: EnseignantNvInscriptionDesincriptionEnseignementComponent},
-  { path : 'EnseignantNV/Enseignement/VoirDetailInscriptions' , component: EnseignantNvEnseignementInscritDetailComponent},
+  { path : 'EnseignantNV/InscriptionListEnseignement', component: NvInscriptionEnseignementComponent},
+  { path : 'EnseignantNV/InscriptionEnseignementDetail/:id' , component: NvInscriptionEnseignementDetailComponent},
   { path : 'EnseignantNV/RecapitulatifIndex' , component: EnseignantNvRecapitulatifActionsComponent},
 
 

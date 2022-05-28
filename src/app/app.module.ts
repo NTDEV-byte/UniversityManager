@@ -30,7 +30,6 @@ import {MatExpansionModule} from '@angular/material/expansion';
 //components
 import { AppComponent } from './app.component';
 import { ConnexionComponent} from './components/auths/connexion/connexion.component';
-import { EnseignantComponent } from './components/users/enseignant/enseignant.component';
 import { AdminComponent } from './components/users/admin/admin.component';
 import { AjouterEnseignantComponent } from './components/users/admin/admin-enseignants-actions/crud/ajouter-enseignant/ajouter-enseignant.component';
 import { ModifierEnseignantComponent } from './components/users/admin/admin-enseignants-actions/crud/modifier-enseignant/modifier-enseignant.component';
@@ -40,7 +39,6 @@ import { FormationsComponent } from './components/users/admin/admin-formations-a
 import { DetailComponent } from './components/users/admin/admin-formations-actions/affichage/formations/detail/detail.component';
 import { HomeComponent } from './components/home/home.component';
 import { ProfilComponent } from './components/users/shared/profil/profil.component';
-import { NonVacataireComponent } from './components/users/enseignant/non-vacataire/non-vacataire.component';
 import { VacataireComponent } from './components/users/enseignant/vacataire/vacataire.component';
 import { SidenavComponent } from './components/home/sidenav/sidenav-index/sidenav.component';
 import { AdminMenuComponent } from './components/home/sidenav/menu-sidenav/admin/admin-main-menu-actions/admin-menu.component';
@@ -54,18 +52,18 @@ import { DesinscriptionComponent } from './components/users/admin/admin-enseigna
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 import { CreateGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/create-groupe/create-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
-import {EnseignantNvUcActionsComponent} from './components/users/enseignant/non-vacataire/nv-uc-actions/enseignant-nv-uc-actions.component';
-import {EnseignantNvEnseignementsActionsComponent} from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-enseignements-actions.component';
-import {EnseignantNvRecapitulatifActionsComponent} from './components/users/enseignant/non-vacataire/nv-recapitulatif-actions/enseignant-nv-recapitulatif-actions.component';
-import {EnseignantNvEnseignementInscritDetailComponent } from './components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/nv-enseignement-inscrit-detail/enseignant-nv-enseignement-inscrit-detail.component';
-import {EnseignantNvInscriptionDesincriptionEnseignementComponent} from "./components/users/enseignant/non-vacataire/enseignant-nv-enseignements-actions/enseignant-nv-inscription-desincription-enseignement/enseignant-nv-inscription-desincription-enseignement.component"
+import {EnseignantNvUcActionsComponent} from './components/users/enseignant/non-vacataire/nv-uc-index-actions/enseignant-nv-uc-actions.component';
+import {EnseignantNvEnseignementsActionsComponent} from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/enseignant-nv-enseignements-actions.component';
+import {EnseignantNvRecapitulatifActionsComponent} from './components/users/enseignant/non-vacataire/nv-recapitulatif-index-actions/enseignant-nv-recapitulatif-actions.component';
+import { NvInscriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-enseignement.component';
+import { NvInscriptionEnseignementDetailComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-detail/nv-inscription-detail.component';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ConnexionComponent,
-    EnseignantComponent,
     AdminComponent,
     AjouterEnseignantComponent,
     ModifierEnseignantComponent,
@@ -75,7 +73,6 @@ import {EnseignantNvInscriptionDesincriptionEnseignementComponent} from "./compo
     DetailComponent,
     HomeComponent,
     ProfilComponent,
-    NonVacataireComponent,
     VacataireComponent,
     SidenavComponent,
     AdminMenuComponent,
@@ -92,8 +89,8 @@ import {EnseignantNvInscriptionDesincriptionEnseignementComponent} from "./compo
     EnseignantNvUcActionsComponent,
     EnseignantNvEnseignementsActionsComponent,
     EnseignantNvRecapitulatifActionsComponent,
-    EnseignantNvEnseignementInscritDetailComponent,
-    EnseignantNvInscriptionDesincriptionEnseignementComponent,
+    NvInscriptionEnseignementComponent,
+    NvInscriptionEnseignementDetailComponent,
   ],
 
   imports: [
