@@ -71,3 +71,4 @@ sharedAPI.modificationProfilUtilisateur(app,UserModel);
 /**************************/
 formationAPI.getAllFormations(app,FormationModel)
 formationAPI.getModuleFormationsByNiveauAndSemestre(app,FormationModel)
+formationAPI.getModuleFormationById(app,FormationModel)

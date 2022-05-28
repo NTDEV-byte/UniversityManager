@@ -1,4 +1,4 @@
-const { Console } = require("console");
+const { ObjectId } = require("mongodb");
 
 class FormationAPI {
 
@@ -12,13 +12,21 @@ class FormationAPI {
 
     getModuleFormationsByNiveauAndSemestre(app,FormationModel){
         app.post('/api/modules/getFormationSemetre' , async (req , res) => {
-            const{formation , semestre} = req.body; 
+            const{formation , semestre} = req.body;
             const response = await FormationModel
                                     .where('Formation').eq(formation)
                                     .where('Semestre').eq(semestre);
-
-           res.json(response);                         
+           res.json(response);
     });
+    }
+
+
+    getModuleFormationById(app,FormationModel){
+      app.post('/api/modules/getFormationById/' , async (req , res) => {
+        const{idFormation} = req.body;
+        const response = await FormationModel.findOne({"_id" : ObjectId(idFormation)})
+        res.json(response);
+});
     }
 }
 

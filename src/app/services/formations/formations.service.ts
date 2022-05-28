@@ -33,7 +33,7 @@ export class FormationsService {
 
   public static LICENCE_2_S3 : string = "/licence2/semestre3";
   public static LICENCE_2_S4 : string = "/licence2/semestre4";
-  
+
   public static LICENCE_3_S5 : string = "/licence3/semestre5";
   public static LICENCE_3_S6 : string = "/licence3/semestre6";
 
@@ -51,7 +51,12 @@ export class FormationsService {
 
 
   constructor(private http: HttpClient) {}
-  
+
+
+  getFormationById(id : string){
+    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getFormationById" , {idFormation : id})
+  }
+
   getAllFormations(){
     return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getAllFormations", {});
   }
@@ -73,7 +78,7 @@ export class FormationsService {
       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getFormationSemetre", {formation : 'Licence' , semestre : '4'});
     }
     else if(formation == FormationsService.LICENCE_3_S5){
-      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getFormationSemetre", {formation : 'licence' , semestre : '5'});
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getFormationSemetre", {formation : 'Licence' , semestre : '5'});
     }
     else if(formation == FormationsService.LICENCE_3_S6){
       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getFormationSemetre", {formation : 'Licence' , semestre : '6'});
@@ -99,7 +104,6 @@ export class FormationsService {
     else if(formation == FormationsService.MASTER_2_MIAGE_S3){
       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getFormationSemetre", {formation : 'Master Miage' , semestre : '3'});
     }
-    //else if(formation == FormationsService.MASTER_2_MIAGE_S4){
       return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/modules/getFormationSemetre", {formation : 'Master Miage' , semestre : '4'});
   }
 

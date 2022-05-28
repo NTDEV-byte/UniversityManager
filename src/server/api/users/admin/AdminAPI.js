@@ -131,7 +131,6 @@ class AdminAPI{
                   {$lookup: {from : "formations" , localField: "idEnseignement" , foreignField: "_id" , as: "Enseignement_Details"}},
                   {$lookup: {from : "users" , localField: "idEnseignant" , foreignField: "_id" , as: "Enseignant_Details"}},
         ])
-        //const response = await GroupeModel.find({"idEnseignant": ObjectId(idEnseignant)})
           if(response){
                 res.json(response);
           }

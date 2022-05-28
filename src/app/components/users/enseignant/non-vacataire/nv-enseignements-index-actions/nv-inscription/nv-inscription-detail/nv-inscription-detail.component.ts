@@ -1,3 +1,6 @@
+import { FormGroup, FormControl } from '@angular/forms';
+import { FormationsService } from 'src/app/services/formations/formations.service';
+import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NvInscriptionEnseignementDetailComponent implements OnInit {
 
-  constructor() { }
+  idEnseignementSelectionner : string | null;
+  enseignementDetail : any;
+  detailEnseignementForm = new FormGroup(
+    {
+      nombreCM : new FormControl('', []),
+      nombreTD : new FormControl('', []),
+      nombreTP : new FormControl('', []),
+    });
+
+
+  constructor(
+    private formationsService : FormationsService,
+    private activatedRoute : ActivatedRoute
+    ){
+    this.idEnseignementSelectionner =  this.activatedRoute.snapshot.paramMap.get("id")
+    this.formationsService.getFormationById(this.idEnseignementSelectionner!).subscribe((data) => {
+            this.enseignementDetail = data;
+    })
+  }
 
   ngOnInit() {
+
   }
 
 }
