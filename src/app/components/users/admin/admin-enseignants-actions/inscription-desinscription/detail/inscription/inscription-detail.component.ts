@@ -30,7 +30,6 @@ export class InscriptionDetailComponent implements OnInit {
 
   ngOnInit(): void {
    this.idEnseignantSelectionner = this.activatedRoute.snapshot.paramMap.get("id");
-
        this.formationService.getAllFormations().subscribe((data) => {
         this.enseignementsDisponibles = data as [];
         this.enseignantService.getListModulesEnseignees(this.idEnseignantSelectionner!).subscribe((dataEnseignant) => {

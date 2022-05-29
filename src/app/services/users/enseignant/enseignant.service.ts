@@ -52,4 +52,11 @@ export class EnseignantService {
     })
    }
 
+   desinscireEnseignement(idEnseignement: string){
+    return this.http.post<IResponse>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/DesinscriptionEnseignement",
+    {
+      idEnseignement : idEnseignement
+    })
+   }
+
 }

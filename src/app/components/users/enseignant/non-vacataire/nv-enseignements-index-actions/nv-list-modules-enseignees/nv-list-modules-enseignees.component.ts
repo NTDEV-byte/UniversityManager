@@ -1,6 +1,8 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from 'src/app/services/auths/auth.service';
 import { EnseignantService } from 'src/app/services/users/enseignant/enseignant.service';
 import { Component, OnInit } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
 
 @Component({
   selector: 'app-nv-list-modules-enseignees',
@@ -13,7 +15,8 @@ export class NvListModulesEnseigneesComponent implements OnInit {
 
   constructor(
     private enseignantService : EnseignantService,
-    private  authService : AuthService
+    private authService : AuthService,
+    private snackBar : MatSnackBar
     ) { }
 
   ngOnInit() {
@@ -22,6 +25,17 @@ export class NvListModulesEnseigneesComponent implements OnInit {
                console.log(this.enseignements);
 
        })
+  }
+
+  desinscription(enseignement: any){
+   this.enseignantService.desinscireEnseignement(enseignement["_id"]).subscribe((data) => {
+          if(data.success){
+            this.snackBar.open(data.message , "Fermer")
+          }
+          else{
+            this.snackBar.open(data.message , "Fermer")
+          }
+      })
   }
 
 }

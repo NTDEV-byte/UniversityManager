@@ -64,6 +64,7 @@ enseignantApi.getEnseignantInformationById(app,UserModel)
 enseignantApi.getListModulesEnseignees(app,UserModel)
 enseignantApi.inscriptionEnseignantModule(app,EnseignementModel)
 enseignantApi.getEnseignementsPrisEnCharges(app,EnseignementModel)
+enseignantApi.desinscireEnseignement(app,EnseignementModel)
 /**************************/
 //Shared between users
 /**************************/

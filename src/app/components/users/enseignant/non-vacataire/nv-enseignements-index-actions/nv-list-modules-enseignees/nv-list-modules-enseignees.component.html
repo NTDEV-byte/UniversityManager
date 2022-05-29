@@ -4,7 +4,8 @@
     <img matListAvatar src="https://img2.freepng.fr/20180623/iqh/kisspng-computer-icons-avatar-social-media-blog-font-aweso-avatar-icon-5b2e99c40ce333.6524068515297806760528.jpg" alt="image-indisponnible">
     <h3 matLine>  {{enseignement["teaches"][0]["Intitulé"]}}  </h3>
 
-    <button mat-button color="warn" routerLink="">Désinscription</button>
+    <button mat-button color="primary" routerLink="">Modification</button>
+    <button mat-button color="warn" (click)="desinscription(enseignement)">Désinscription</button>
   </mat-list-item>
 </mat-list>
 

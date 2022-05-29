@@ -15,7 +15,7 @@ class EnseignantAPI {
             })
    }
 
-        getListModulesEnseignees(app,UserModel){
+    getListModulesEnseignees(app,UserModel){
             app.post("/api/enseignant/modulesEnseignee" , async (req,res) => {
               const {enseignantID} = req.body;
               const response = await UserModel.aggregate(
@@ -31,12 +31,13 @@ class EnseignantAPI {
                 res.json({success: false , message : "Echec lors de la récupération des information de l'enseignant !"})
               }
             })
-   }
+    }
 
     inscriptionEnseignantModule(app,EnseignementModel){
-        app.post("/api/enseignant/inscriptionEnseignantEnseignement" , async (req,res) => {
-          const {idEnseignant,idEnseignement,nombreCM,nombreTD,nombreTP} = req.body;
-          const response = await EnseignementModel.create({idEnseignant: idEnseignant , idEnseignement: idEnseignement , nombreCM: nombreCM , nombreTD: nombreTD , nombreTP: nombreTP})
+      app.post("/api/enseignant/inscriptionEnseignantEnseignement" , async (req,res) => {
+        const {idEnseignant,idEnseignement,nombreCM,nombreTD,nombreTP} = req.body;
+        console.log("NombreCM : "+ nombreCM);
+          const response = await EnseignementModel.create({idEnseignant: idEnseignant , idEnseignement: idEnseignement, groupeCM: nombreCM , groupeTD: nombreTD , groupeTP: nombreTP})
           if(response){
               res.json({success: true , message : "Enseignant Inscrit dans le module avec succès !"});
           }
@@ -46,7 +47,6 @@ class EnseignantAPI {
         })
     }
 
-
     getEnseignementsPrisEnCharges(app,EnseignementModel){
       app.post("/api/enseignant/EnseignementsPrisEnCharge" , async (req,res) => {
         const {idEnseignant} = req.body;
@@ -54,15 +54,28 @@ class EnseignantAPI {
           [{$match : {idEnseignant : ObjectId(idEnseignant)}},
            {$lookup : {from : "formations" , localField: "idEnseignement" , foreignField: "_id" , as: "teaches"}}
           ])
-        if(response){
-            res.json(response);
-        }
-        else{
-          res.json({success: false , message : "Enseignement introuvables !"})
-        }
+          if(response){
+              res.json(response);
+          }
+          else{
+            res.json({success: false , message : "Enseignement introuvables !"})
+          }
       })
   }
+
+  desinscireEnseignement(app,EnseignementModel){
+    app.post("/api/enseignant/DesinscriptionEnseignement" , async (req,res) => {
+      const {idEnseignement} = req.body;
+      const response = await EnseignementModel.deleteOne({"_id" : idEnseignement})
+        if(response){
+          res.json({success: true , message : " Désinscription de l'enseignement réussie !"})
+        }
+        else{
+          res.json({success: false , message : "Désinscription de l'enseignement echouée !"})
+        }
+    })
 }
 
+}
 
 module.exports = EnseignantAPI;
