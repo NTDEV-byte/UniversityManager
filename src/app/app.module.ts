@@ -57,7 +57,7 @@ import {EnseignantNvEnseignementsActionsComponent} from './components/users/ense
 import {EnseignantNvRecapitulatifActionsComponent} from './components/users/enseignant/non-vacataire/nv-recapitulatif-index-actions/enseignant-nv-recapitulatif-actions.component';
 import { NvInscriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-enseignement.component';
 import { NvInscriptionEnseignementDetailComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-detail/nv-inscription-detail.component';
-
+import {NvListModulesEnseigneesComponent} from "./components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-list-modules-enseignees/nv-list-modules-enseignees.component";
 
 
 @NgModule({
@@ -91,6 +91,7 @@ import { NvInscriptionEnseignementDetailComponent } from './components/users/ens
     EnseignantNvRecapitulatifActionsComponent,
     NvInscriptionEnseignementComponent,
     NvInscriptionEnseignementDetailComponent,
+    NvListModulesEnseigneesComponent
   ],
 
   imports: [

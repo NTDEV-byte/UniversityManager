@@ -13,7 +13,7 @@ mat-sidenav{
    padding: 16px;
    text-align: center;
 }
- 
+
 .content {
   height: calc(100vh - 100px);
   margin: 16px;
@@ -22,7 +22,7 @@ mat-sidenav{
   align-items: center;
   border-radius: 10px;
 }
- 
+
 mat-sidenav-container {
    height: calc(100vh - 65px);
 }
@@ -34,7 +34,7 @@ mat-sidenav-container {
     align-items: center;
     justify-content: flex-start;
     font-size: 1rem;
-}  
+}
 
 mat-icon{
     margin-right: 5px;
@@ -61,3 +61,4 @@ mat-divider{
 .example-spacer {
     flex: 1 1 auto;
   }
+

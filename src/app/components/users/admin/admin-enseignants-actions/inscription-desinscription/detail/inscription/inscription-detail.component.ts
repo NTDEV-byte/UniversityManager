@@ -37,8 +37,8 @@ export class InscriptionDetailComponent implements OnInit {
         this.enseignementEnseigneeParCetEnseignant = dataEnseignant as [];
             this.enseignementNonEnseigneeParCetEnseignant = this.enseignementsDisponibles.filter(
                                                                                           a => !this.enseignementEnseigneeParCetEnseignant
-                                                                                         .map(b=>b["_id"])
-                                                                                         .includes(a["_id"]))
+                                                                                                  .map(b=>b["_id"])
+                                                                                                  .includes(a["_id"]))
         });
     });
   }

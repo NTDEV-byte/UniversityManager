@@ -26,10 +26,7 @@ class AdminAPI{
     modifierEnseignant(app,UserModel){
         app.post('/api/admin/modifierEnseignant' , async (req,res) => {
                const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "statut" : req.body.statut , "role" : req.body.role } , {new : true});
-               console.log(user);
                if(user){
-                console.log("User Found !")
-                console.log(user)
                     res.json({
                         success : true,
                         message : "Utilisateur modifier avec succès"

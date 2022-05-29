@@ -17,11 +17,9 @@ export class NvListModulesEnseigneesComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-
-    console.log("ID: Enseignant " + this.authService.getUserDetails.id)
        this.enseignantService.getEnseignementsPrisEnCharges(this.authService.getUserDetails.id).subscribe((data) =>{
                this.enseignements = data as [];
-               this.enseignements = this.enseignements[0]["teaches"]
+               console.log(this.enseignements);
 
        })
   }

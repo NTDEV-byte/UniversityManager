@@ -15,7 +15,7 @@ class EnseignantAPI {
             })
    }
 
-   getListModulesEnseignees(app,UserModel){
+        getListModulesEnseignees(app,UserModel){
             app.post("/api/enseignant/modulesEnseignee" , async (req,res) => {
               const {enseignantID} = req.body;
               const response = await UserModel.aggregate(
@@ -25,7 +25,6 @@ class EnseignantAPI {
                   {$lookup: {from : "formations" , localField : "teaches.idEnseignement" , foreignField : "_id", as : "modulesEnseignee" }}
               ])
               if(response){
-                //console.log(response[0].modulesEnseignee)
                   res.json(response[0].modulesEnseignee);
               }
               else{
@@ -34,18 +33,35 @@ class EnseignantAPI {
             })
    }
 
-   inscriptionEnseignantModule(app,EnseignementModel){
-    app.post("/api/enseignant/inscriptionEnseignantEnseignement" , async (req,res) => {
-      const {idEnseignant,idEnseignement,nombreCM,nombreTD,nombreTP} = req.body;
-       const response = await EnseignementModel.create({idEnseignement: idEnseignant , idEnseignant: idEnseignement , nombreCM: nombreCM , nombreTD: nombreTD , nombreTP: nombreTP})
-      if(response){
-          res.json({success: true , message : "Enseignant Inscrit dans le module avec succès !"});
-      }
-      else{
-        res.json({success: false , message : "Echec lors de l'inscription de l'enseignant dans le module !"})
-      }
-    })
-}
+    inscriptionEnseignantModule(app,EnseignementModel){
+        app.post("/api/enseignant/inscriptionEnseignantEnseignement" , async (req,res) => {
+          const {idEnseignant,idEnseignement,nombreCM,nombreTD,nombreTP} = req.body;
+          const response = await EnseignementModel.create({idEnseignant: idEnseignant , idEnseignement: idEnseignement , nombreCM: nombreCM , nombreTD: nombreTD , nombreTP: nombreTP})
+          if(response){
+              res.json({success: true , message : "Enseignant Inscrit dans le module avec succès !"});
+          }
+          else{
+            res.json({success: false , message : "Echec lors de l'inscription de l'enseignant dans le module !"})
+          }
+        })
+    }
+
+
+    getEnseignementsPrisEnCharges(app,EnseignementModel){
+      app.post("/api/enseignant/EnseignementsPrisEnCharge" , async (req,res) => {
+        const {idEnseignant} = req.body;
+        const response = await EnseignementModel.aggregate(
+          [{$match : {idEnseignant : ObjectId(idEnseignant)}},
+           {$lookup : {from : "formations" , localField: "idEnseignement" , foreignField: "_id" , as: "teaches"}}
+          ])
+        if(response){
+            res.json(response);
+        }
+        else{
+          res.json({success: false , message : "Enseignement introuvables !"})
+        }
+      })
+  }
 }
 
 

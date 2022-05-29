@@ -24,7 +24,7 @@
             <h4 class="name">{{authService.getUserDetails.prenom}} {{authService.getUserDetails.nom}}</h4>
             <p class="designation">{{authService.getUserDetails.role | uppercase}}</p>
         </button>
-         
+
     <div *ngIf="(authService.getUserDetails.statut | lowercase) == 'admin' ">
         <app-admin-menu></app-admin-menu>
     </div>

@@ -45,4 +45,11 @@ export class EnseignantService {
       })
   }
 
+  getEnseignementsPrisEnCharges(idEnseignant : string){
+    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/EnseignementsPrisEnCharge",
+    {
+      idEnseignant : idEnseignant
+    })
+   }
+
 }

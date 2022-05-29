@@ -18,24 +18,25 @@ export class SidenavComponent implements OnInit {
    }
 
   ngOnInit(): void {
-    
+
   }
 
   ngAfterViewInit(): void {
     this.observer.observe(['(max-width: 800px)']).subscribe((res) => {
-        if(res.matches){
-            this.sidenav.mode = 'over';
-            this.sidenav.close();
-        }
-        else{
-            this.sidenav.mode = 'side';
-            this.sidenav.open();
-        }
-    })
+      if(res.matches){
+          this.sidenav.mode = 'over';
+          this.sidenav.close();
+      }
+      else{
+          this.sidenav.mode = 'side';
+          this.sidenav.open();
+      }
+  })
    }
 
    deconnexion(){
       this.authService.logout()
+      this.authService.setLoginStartValue(true)
       this.router.navigate(['/connexion']);
   }
 

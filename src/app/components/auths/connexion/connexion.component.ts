@@ -41,6 +41,10 @@ export class ConnexionComponent {
                   loggedIn : true
                 }
               )
+               this.authService.setLoginStartValue(false);
+
+              console.log(this.authService.getUserDetails);
+
 
             this.router.navigate(['home']);
             }
