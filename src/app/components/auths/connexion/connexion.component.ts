@@ -27,20 +27,21 @@ export class ConnexionComponent {
 
       const email = this.LoginForm.value.email;
       const password = this.LoginForm.value.password;
-      
+
         this.authService.logUserIn({email : email , password : password}).subscribe((data) => {
             if(data.success){
               this.authService.createUserDetails(
                 {
                   id : data.id,
                   nom : data.nom ,
-                  prenom: data.prenom , 
-                  role : data.role , 
+                  prenom: data.prenom ,
+                  role : data.role ,
                   statut : data.statut,
                   email : data.email,
                   loggedIn : true
                 }
               )
+
             this.router.navigate(['home']);
             }
             else{
