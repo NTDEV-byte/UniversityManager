@@ -75,7 +75,18 @@ class EnseignantAPI {
         }
     })
 }
-
+  renseignementUC(app,UserModel){
+    app.post("/api/enseignant/ReseignementUC" , async (req,res) => {
+      const {idEnseignant,uc} = req.body;
+      const response = await UserModel.findOneAndUpdate({"_id" : idEnseignant} , {"uc" : uc})
+        if(response){
+          res.json({success: true , message : " Renseignement des UC's réussie !"})
+        }
+        else{
+          res.json({success: false , message : "Renseignement des UC echouée !"})
+        }
+    })
+  }
 }
 
 module.exports = EnseignantAPI;

@@ -17,6 +17,7 @@ const AdminAPIClass = require('./api/users/admin/AdminAPI');
 const EnseignantAPIClass = require('./api/users/enseignant/EnseignantAPI');
 const FormationAPIClass = require('./api/formation/FormationAPI');
 const SharedAPIClass  =  require('./api/users/shared/SharedAPI');
+const User = require('./models/userModel');
 
 //Mise en place de express
 const app = express()
@@ -65,6 +66,7 @@ enseignantApi.getListModulesEnseignees(app,UserModel)
 enseignantApi.inscriptionEnseignantModule(app,EnseignementModel)
 enseignantApi.getEnseignementsPrisEnCharges(app,EnseignementModel)
 enseignantApi.desinscireEnseignement(app,EnseignementModel)
+enseignantApi.renseignementUC(app,UserModel)
 /**************************/
 //Shared between users
 /**************************/

@@ -1,3 +1,7 @@
+import { AuthService } from './../../../../../services/auths/auth.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { EnseignantService } from './../../../../../services/users/enseignant/enseignant.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +11,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnseignantNvUcActionsComponent implements OnInit {
 
-  constructor() { }
+
+  ucForm = new FormGroup({uc : new FormControl("",[Validators.required])})
+
+  constructor(
+    private authService : AuthService,
+    private enseignantService : EnseignantService,
+    private matSnackBar : MatSnackBar
+    ) {}
 
   ngOnInit() {
+  }
+
+  RenseignementUC(){
+     this.enseignantService.renseignementUC(this.authService.getUserDetails.id,this.ucForm.value.uc).subscribe((data) => {
+      if(data.success){
+         this.matSnackBar.open(data.message , "Fermer")
+       }
+       else {
+         this.matSnackBar.open(data.message , "Fermer")
+          }
+      })
   }
 
 }

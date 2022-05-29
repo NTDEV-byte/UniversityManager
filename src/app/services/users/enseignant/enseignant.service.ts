@@ -59,4 +59,12 @@ export class EnseignantService {
     })
    }
 
+   renseignementUC(idEnseignant : string , uc : string){
+    return this.http.post<IResponse>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/ReseignementUC",
+    {
+      idEnseignant: idEnseignant,
+      uc : uc
+    })
+   }
+
 }

@@ -1,9 +1,13 @@
 <h1>Renseignement des UC </h1>
 
+<form [formGroup]="ucForm">
 
-<mat-form-field appearance="fill">
+  <mat-form-field appearance="fill">
     <mat-label>Nombre d'UC</mat-label>
-    <input matInput>
+    <input matInput formControlName="uc">
   </mat-form-field>
 
-  <button color="primary" mat-raised-button>Valider</button>
+<button color="primary" [disabled]="!ucForm.valid" (click)="RenseignementUC()" mat-raised-button>Valider</button>
+
+</form>
+
