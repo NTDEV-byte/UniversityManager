@@ -17,7 +17,8 @@ export interface ISendModificationEnseignant {
   prenom : string,
   email : string,
   statut : string,
-  role : string
+  role : string,
+  uc : string
 }
 
 export interface ISendSuppressionEnseignant {
@@ -70,14 +71,16 @@ export class AdminService {
   }
 
   modifierUnEnseignant(information : ISendModificationEnseignant){
-    const {id , nom , prenom , email , statut, role} = information;
+    const {id , nom , prenom , email , statut, role , uc} = information;
       console.log("Modifier Enseignant Service")
       return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+'/api/admin/modifierEnseignant',{
         id,
         nom,
         prenom,
         email,
-        role
+        statut,
+        role,
+        uc
       })
   }
 

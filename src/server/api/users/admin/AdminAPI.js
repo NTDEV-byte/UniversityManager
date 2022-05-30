@@ -25,7 +25,7 @@ class AdminAPI{
 
     modifierEnseignant(app,UserModel){
         app.post('/api/admin/modifierEnseignant' , async (req,res) => {
-               const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "statut" : req.body.statut , "role" : req.body.role } , {new : true});
+               const user = await UserModel.findOneAndUpdate({"_id" : req.body.id} , {"nom" : req.body.nom , "prenom" : req.body.prenom  , "email" : req.body.email  , "statut" : req.body.statut , "role" : req.body.role , "uc" : req.body.uc } , {new : true});
                if(user){
                     res.json({
                         success : true,
@@ -33,7 +33,6 @@ class AdminAPI{
                     });
                 }
                 else{
-                console.log("User Not Found !")
                 res.json({
                     success : false,
                     message : "Utilisateur Introuvable !"
@@ -65,7 +64,7 @@ class AdminAPI{
 
     listeEnseignants(app,UserModel){
         app.post('/api/admin/listeEnseignant' , async (req,res) => {
-            const resp =  await UserModel.find({role : 'enseignant'});
+            const resp =  await UserModel.find({role : 'Enseignant'});
             res.json(resp)
       })
     }

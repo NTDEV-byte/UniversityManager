@@ -19,7 +19,7 @@ export class ModifierEnseignantComponent implements OnInit {
   formSubmitted : boolean = false;
   enseignants : any;
   enseignantSelectionner : any;
-  
+
   statuts : IStatut[] = [
     {value: 'EC', viewValue: 'Enseignant-Chercheur'},
     {value: 'PRAG', viewValue: 'Professeur agrégé du secondaire détaché dans le supérieur'},
@@ -33,7 +33,8 @@ export class ModifierEnseignantComponent implements OnInit {
    nom: new FormControl('',[Validators.required]),
    prenom: new FormControl('',[Validators.required]),
    email: new FormControl('',[Validators.required , Validators.email]),
-   statut : new FormControl('',[Validators.required , Validators.email]), 
+   statut : new FormControl('',[Validators.required]),
+   uc : new FormControl('')
  });
 
  constructor(private adminService : AdminService, private _snackBar : MatSnackBar) { }
@@ -50,6 +51,7 @@ export class ModifierEnseignantComponent implements OnInit {
   this.modifierEnseignantForm.controls['prenom'].setValue(this.enseignantSelectionner.prenom);
   this.modifierEnseignantForm.controls['statut'].setValue(this.enseignantSelectionner.statut);
   this.modifierEnseignantForm.controls['email'].setValue(this.enseignantSelectionner.email);
+  this.modifierEnseignantForm.controls['uc'].setValue(this.enseignantSelectionner.uc);
  }
 
  onSubmit() : void{
@@ -63,10 +65,10 @@ export class ModifierEnseignantComponent implements OnInit {
      const prenom = this.modifierEnseignantForm.value.prenom;
      const email = this.modifierEnseignantForm.value.email;
      const statut = this.modifierEnseignantForm.value.statut;
+     const uc = this.modifierEnseignantForm.value.uc;
      const role = "Enseignant";
 
-
-     this.adminService.modifierUnEnseignant({id,nom,prenom,email,statut,role}).subscribe((data) => {
+     this.adminService.modifierUnEnseignant({id,nom,prenom,email,statut,role,uc}).subscribe((data) => {
             this._snackBar.open("Modifier avec succès !" , "Fermer")
             this.modifierEnseignantForm.reset();
      });

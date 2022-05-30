@@ -4,7 +4,7 @@
       <mat-label>Nom</mat-label>
       <input matInput placeholder="Nom" formControlName = "nom">
     </mat-form-field>
-  
+
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Prenom</mat-label>
         <input matInput placeholder="Prenom" formControlName = "prenom">
@@ -22,6 +22,11 @@
       <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Email</mat-label>
         <input type="email" matInput placeholder="Email" formControlName = "email">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>UC</mat-label>
+        <input matInput placeholder="UC" formControlName = "uc">
       </mat-form-field>
 
       <button mat-raised-button color="primary"  [disabled] = "modifierEnseignantForm.invalid">Modifier</button>

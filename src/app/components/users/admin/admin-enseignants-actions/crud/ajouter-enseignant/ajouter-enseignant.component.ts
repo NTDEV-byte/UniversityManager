@@ -57,11 +57,11 @@ export class AjouterEnseignantComponent implements OnInit {
       const password = this.ajouteEnseignantForm.value.password;
       const confirmPass = this.ajouteEnseignantForm.value.confirmPass;
       const statut = this.ajouteEnseignantForm.value.statut;
-      const role = "enseignant";
-  
+      const role = "Enseignant";
+
     // this.adminService.ajouterUnEnseignant(nom,prenom,email,password,role)
-  
-      if(password != confirmPass){ 
+
+      if(password != confirmPass){
         this._snackBar.open("Mot de passe non identique !" , "Fermer")
       }
       else{
@@ -77,7 +77,7 @@ export class AjouterEnseignantComponent implements OnInit {
         });
       }
     }
-    
+
      this.formSubmitted = true;
   }
 }

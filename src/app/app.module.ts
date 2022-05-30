@@ -52,13 +52,15 @@ import { DesinscriptionComponent } from './components/users/admin/admin-enseigna
 import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
 import { CreateGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/create-groupe/create-groupe.component';
 import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
-import {EnseignantNvUcActionsComponent} from './components/users/enseignant/non-vacataire/nv-uc-index-actions/enseignant-nv-uc-actions.component';
-import {EnseignantNvEnseignementsActionsComponent} from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/enseignant-nv-enseignements-actions.component';
-import {EnseignantNvRecapitulatifActionsComponent} from './components/users/enseignant/non-vacataire/nv-recapitulatif-index-actions/enseignant-nv-recapitulatif-actions.component';
+import { EnseignantNvUcActionsComponent } from './components/users/enseignant/non-vacataire/nv-uc-index-actions/enseignant-nv-uc-actions.component';
+import { EnseignantNvEnseignementsActionsComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/enseignant-nv-enseignements-actions.component';
+import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/nv-recapitulatif-index-actions/enseignant-nv-recapitulatif-actions.component';
 import { NvInscriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-enseignement.component';
 import { NvInscriptionEnseignementDetailComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-detail/nv-inscription-detail.component';
-import {NvListModulesEnseigneesComponent} from "./components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-list-modules-enseignees/nv-list-modules-enseignees.component";
-
+import { NvListModulesEnseigneesComponent } from "./components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-list-modules-enseignees/nv-list-modules-enseignees.component";
+import { RecapitulatifEnseignantComponent } from './components/users/admin/admin-enseignants-actions/recapitulatif-enseignant/recapitulatif-enseignant.component';
+import { EnseignementsRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/enseignements-recapitulatif/enseignements-recapitulatif.component';
+import { ServiceRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/service-recapitulatif/service-recapitulatif.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +93,10 @@ import {NvListModulesEnseigneesComponent} from "./components/users/enseignant/no
     EnseignantNvRecapitulatifActionsComponent,
     NvInscriptionEnseignementComponent,
     NvInscriptionEnseignementDetailComponent,
-    NvListModulesEnseigneesComponent
+    NvListModulesEnseigneesComponent,
+    RecapitulatifEnseignantComponent,
+    EnseignementsRecapitulatifComponent,
+    ServiceRecapitulatifComponent,
   ],
 
   imports: [

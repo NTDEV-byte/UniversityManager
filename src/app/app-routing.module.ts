@@ -1,3 +1,5 @@
+import { ServiceRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/service-recapitulatif/service-recapitulatif.component';
+import { RecapitulatifEnseignantComponent } from './components/users/admin/admin-enseignants-actions/recapitulatif-enseignant/recapitulatif-enseignant.component';
 import { DesinscriptionComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/desinscription/desinscription.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -24,37 +26,44 @@ import { EnseignantNvRecapitulatifActionsComponent } from './components/users/en
 import { NvInscriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-enseignement.component';
 import { NvInscriptionEnseignementDetailComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-detail/nv-inscription-detail.component';
 import { NvListModulesEnseigneesComponent} from "./components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-list-modules-enseignees/nv-list-modules-enseignees.component";
+import { AdminMenuRecapitulatifActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-recapitulatif-actions/admin-menu-recapitulatif-actions.component';
+import { EnseignementsRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/enseignements-recapitulatif/enseignements-recapitulatif.component';
+
 
 const routes: Routes = [
   { path: 'connexion', component: ConnexionComponent },
   { path: 'home', component: HomeComponent },
 
-  { path : 'admin/index' , component: SidenavComponent},
-  { path : 'admin/EnseignantActions' , component: AdminMenuEnseignantActionsComponent},
-  { path : 'admin/ajouterEnseignant' , component: AjouterEnseignantComponent},
-  { path : 'admin/modifierEnseignant' , component: ModifierEnseignantComponent},
-  { path : 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},
-  { path : 'admin/indexInscriptionDesinscriptionModule', component: IndexComponent},
-  { path:  'admin/inscriptionModuleDetail/:id' , component: InscriptionDetailComponent},
-  { path:  'admin/desinscriptionModuleDetail/:id' , component: DesinscriptionComponent},
-  { path:  'admin/attributionGroupe/:id' , component: AttributionGroupeComponent},
-  { path:  'admin/listeGroupeAttribueeEnseignant/:id' , component: ListeGroupeComponent},
-  { path : 'admin/listEnseignant' , component: ListeEnseignantComponent},
-  { path : 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},
-  { path : 'admin/listFormation' , component: FormationsComponent},
-  { path : 'admin/RecapitulatifActions' , component: AdminMenuEnseignantActionsComponent},
-
-  { path : 'EnseignantNV/UcIndex' , component: EnseignantNvUcActionsComponent},
-  { path : 'EnseignantNV/EnseignementIndex' , component: EnseignantNvEnseignementsActionsComponent},
-  { path : 'EnseignantNV/InscriptionListEnseignement', component: NvInscriptionEnseignementComponent},
-  { path : 'EnseignantNV/InscriptionEnseignementDetail/:id' , component: NvInscriptionEnseignementDetailComponent},
-  { path : 'EnseignantNV/ListeModulesEnseignee' , component: NvListModulesEnseigneesComponent},
-  { path : 'EnseignantNV/RecapitulatifIndex' , component: EnseignantNvRecapitulatifActionsComponent},
+  { path: 'admin/index' , component: SidenavComponent},
+  { path: 'admin/EnseignantActions' , component: AdminMenuEnseignantActionsComponent},
+  { path: 'admin/ajouterEnseignant' , component: AjouterEnseignantComponent},
+  { path: 'admin/modifierEnseignant' , component: ModifierEnseignantComponent},
+  { path: 'admin/supprimerEnseignant' , component: SupprimerEnseignantComponent},
+  { path: 'admin/indexInscriptionDesinscriptionModule', component: IndexComponent},
+  { path: 'admin/inscriptionModuleDetail/:id' , component: InscriptionDetailComponent},
+  { path: 'admin/desinscriptionModuleDetail/:id' , component: DesinscriptionComponent},
+  { path: 'admin/RecapitulatifEnseignant/:id' , component: RecapitulatifEnseignantComponent},
+  { path: 'admin/attributionGroupe/:id' , component: AttributionGroupeComponent},
+  { path: 'admin/listeGroupeAttribueeEnseignant/:id' , component: ListeGroupeComponent},
+  { path: 'admin/RecapitulatifAdminIndex' , component: AdminMenuRecapitulatifActionsComponent},
+  { path: 'admin/listEnseignant' , component: ListeEnseignantComponent},
+  { path: 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},
+  { path: 'admin/listFormation' , component: FormationsComponent},
+  { path: 'admin/RecapitulatifActions' , component: AdminMenuEnseignantActionsComponent},
+  { path: 'admin/RecapitulatifEnseignement' , component: EnseignementsRecapitulatifComponent},
+  { path: 'admin/RecapitulatifService' , component: ServiceRecapitulatifComponent},
 
 
-  { path : 'formation/detail' , component: DetailComponent},
+  { path: 'EnseignantNV/UcIndex' , component: EnseignantNvUcActionsComponent},
+  { path: 'EnseignantNV/EnseignementIndex' , component: EnseignantNvEnseignementsActionsComponent},
+  { path: 'EnseignantNV/InscriptionListEnseignement', component: NvInscriptionEnseignementComponent},
+  { path: 'EnseignantNV/InscriptionEnseignementDetail/:id' , component: NvInscriptionEnseignementDetailComponent},
+  { path: 'EnseignantNV/ListeModulesEnseignee' , component: NvListModulesEnseigneesComponent},
+  { path: 'EnseignantNV/RecapitulatifIndex' , component: EnseignantNvRecapitulatifActionsComponent},
 
-  { path : 'shared/modificationProfil' , component: ProfilComponent},
+  { path: 'formation/detail' , component: DetailComponent},
+
+  { path: 'shared/modificationProfil' , component: ProfilComponent},
 
 ];
 
