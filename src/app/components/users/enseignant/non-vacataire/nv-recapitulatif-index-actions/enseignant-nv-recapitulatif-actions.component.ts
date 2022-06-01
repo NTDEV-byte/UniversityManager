@@ -1,3 +1,6 @@
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from './../../../../../services/auths/auth.service';
+import { EnseignantService } from 'src/app/services/users/enseignant/enseignant.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EnseignantNvRecapitulatifActionsComponent implements OnInit {
 
-  constructor() { }
+  recapitulatifData: any[]= []
+
+  constructor(
+    private enseignantService : EnseignantService,
+    private authService : AuthService,
+    private snackBar : MatSnackBar
+    ) {
+    this.enseignantService.recapitulatifEnseignant(this.authService.getUserDetails.id).subscribe((data) => {
+          if(data){
+            this.recapitulatifData = data as [];
+            this.recapitulatifData = this.recapitulatifData[0]["EnseignementEnseignee"]
+            //console.log(this.recapitulatifData[0]["EnseignementEnseignee"])
+          }
+          else{
+             snackBar.open("Information Indisponible !" , "Fermer", {duration  : 2000})
+          }
+    })
+  }
 
   ngOnInit() {
   }
