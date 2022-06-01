@@ -87,6 +87,30 @@ class EnseignantAPI {
         }
     })
   }
+
+  recapitulatifEnseignant(app,UserModel) {
+    app.post('/api/enseignant/RecapitulatifEnseignant' , async (req,res) => {
+            const{idEnseignant} = req.body;
+
+            const response = await UserModel.aggregate(
+            [
+            {$match:  {role : 'Enseignant'}},
+            {$lookup: {from: 'enseignements' , localField: '_id' , foreignField: 'idEnseignant' , as : 'EnseignementsT'}},
+            {$lookup: {from: 'formations' , localField: 'EnseignementsT.idEnseignement' , foreignField: '_id' , as: 'EnseignementEnseignee'}}
+            ])
+
+            if(response){
+                res.json(response)
+            }
+            else{
+                res.json({success : false , message : "Echec lors de l'édition du récapitulatif"})
+            }
+    })
+ }
+
+
 }
+
+
 
 module.exports = EnseignantAPI;

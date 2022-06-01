@@ -67,4 +67,10 @@ export class EnseignantService {
     })
    }
 
+   recapitulatifEnseignant(idEnseignant: string){
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/RecapitulatifEnseignant" , {
+              idEnseignant : idEnseignant,
+      })
+   }
+
 }

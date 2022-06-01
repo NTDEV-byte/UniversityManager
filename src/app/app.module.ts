@@ -61,6 +61,7 @@ import { NvListModulesEnseigneesComponent } from "./components/users/enseignant/
 import { RecapitulatifEnseignantComponent } from './components/users/admin/admin-enseignants-actions/recapitulatif-enseignant/recapitulatif-enseignant.component';
 import { EnseignementsRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/enseignements-recapitulatif/enseignements-recapitulatif.component';
 import { ServiceRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/service-recapitulatif/service-recapitulatif.component';
+import { NvEnseignementsModificationComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-enseignements-modification/nv-enseignements-modification.component';
 
 @NgModule({
   declarations: [
@@ -97,6 +98,7 @@ import { ServiceRecapitulatifComponent } from './components/users/admin/admin-re
     RecapitulatifEnseignantComponent,
     EnseignementsRecapitulatifComponent,
     ServiceRecapitulatifComponent,
+    NvEnseignementsModificationComponent,
   ],
 
   imports: [
