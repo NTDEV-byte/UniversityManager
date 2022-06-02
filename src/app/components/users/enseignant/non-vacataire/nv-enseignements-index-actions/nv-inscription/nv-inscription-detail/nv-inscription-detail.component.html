@@ -9,9 +9,12 @@
     <mat-card-subtitle><strong>Heure TD</strong>  {{this.enseignementDetail["h/TD"]}}</mat-card-subtitle>
     <mat-card-subtitle><strong>Heure TP</strong>  {{this.enseignementDetail["h/TP"]}}</mat-card-subtitle>
     <mat-card-subtitle><strong>Effectif</strong>  {{this.enseignementDetail["Effectif"]}}</mat-card-subtitle>
-    <mat-card-subtitle><strong>Groupe CM</strong> 0 / {{this.enseignementDetail["grCM"]}}</mat-card-subtitle>
-    <mat-card-subtitle><strong>Groupe TD</strong> 0 / {{this.enseignementDetail["grTD"]}}</mat-card-subtitle>
-    <mat-card-subtitle><strong>Groupe TP</strong> 0 / {{this.enseignementDetail["grTP"]}}</mat-card-subtitle>
+    <mat-card-subtitle *ngIf="enseignementInformationGroupes.length > 0"><strong>Groupe CM</strong> {{this.enseignementInformationGroupes[0]["totalCM"]}} / {{this.enseignementDetail["grCM"]}} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="enseignementInformationGroupes.length > 0"><strong>Groupe TD</strong> {{this.enseignementInformationGroupes[0]["totalTD"]}} / {{this.enseignementDetail["grTD"]}} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="enseignementInformationGroupes.length > 0"><strong>Groupe TP</strong> {{this.enseignementInformationGroupes[0]["totalTP"]}} / {{this.enseignementDetail["grTP"]}} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="enseignementInformationGroupes.length ==  0"><strong>Groupe CM</strong> 0 / {{this.enseignementDetail["grCM"]}} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="enseignementInformationGroupes.length ==  0"><strong>Groupe TD</strong> 0 / {{this.enseignementDetail["grTD"]}} </mat-card-subtitle>
+    <mat-card-subtitle *ngIf="enseignementInformationGroupes.length ==  0"><strong>Groupe TP</strong> 0 / {{this.enseignementDetail["grTP"]}} </mat-card-subtitle>
     <img mat-card-xl-image src="https://img.freepik.com/vecteurs-libre/fond-plat-concept-universite_23-2148192915.jpg?t=st=1654069926~exp=1654070526~hmac=9dd21389583ccc749b8c7bd67eb33b3afae0964045d8db9614653561c9b69926&w=740" >
   </mat-card-title-group>
   <mat-card-content>

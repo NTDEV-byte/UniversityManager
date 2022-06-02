@@ -49,9 +49,6 @@ import { AdminMenuFormationActionsComponent } from './components/home/sidenav/me
 import { IndexComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/index/index.component';
 import { InscriptionDetailComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/inscription/inscription-detail.component';
 import { DesinscriptionComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/desinscription/desinscription.component';
-import { AttributionGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/attribution-groupe.component';
-import { CreateGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/create-groupe/create-groupe.component';
-import { ListeGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/attribution-groupe/liste-groupe/liste-groupe.component';
 import { EnseignantNvUcActionsComponent } from './components/users/enseignant/non-vacataire/nv-uc-index-actions/enseignant-nv-uc-actions.component';
 import { EnseignantNvEnseignementsActionsComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/enseignant-nv-enseignements-actions.component';
 import { EnseignantNvRecapitulatifActionsComponent } from './components/users/enseignant/non-vacataire/nv-recapitulatif-index-actions/enseignant-nv-recapitulatif-actions.component';
@@ -86,9 +83,6 @@ import { NvEnseignementsModificationComponent } from './components/users/enseign
     IndexComponent,
     InscriptionDetailComponent,
     DesinscriptionComponent,
-    AttributionGroupeComponent,
-    CreateGroupeComponent,
-    ListeGroupeComponent,
     EnseignantNvUcActionsComponent,
     EnseignantNvEnseignementsActionsComponent,
     EnseignantNvRecapitulatifActionsComponent,

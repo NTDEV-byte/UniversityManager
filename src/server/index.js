@@ -57,9 +57,10 @@ adminApi.supprimerEnseignant(app,UserModel)
 adminApi.listeEnseignants(app,UserModel)
 adminApi.inscriptionEnseignantModules(app,EnseignementModel)
 adminApi.desinscriptionEnseignantModules(app,EnseignementModel)
-adminApi.attributionGroupeEnseignant(app,GroupeModel)
-adminApi.getGroupesAttribuerACetEnseignant(app,GroupeModel)
-
+adminApi.getALLEnseignementsDetailNombreGroupesCM_TD_TP(app,EnseignementModel)
+adminApi.getEnseignementDetailNombreGroupesCM_TD_TP(app,EnseignementModel)
+adminApi.getEnseignementPourvu(app,EnseignementModel)
+adminApi.getALLEnseignementsPourvus(app,EnseignementModel)
 //Enseignant
 enseignantApi.getEnseignantInformationById(app,UserModel)
 enseignantApi.getListModulesEnseignees(app,UserModel)
@@ -68,8 +69,7 @@ enseignantApi.getEnseignementsPrisEnCharges(app,EnseignementModel)
 enseignantApi.desinscireEnseignement(app,EnseignementModel)
 enseignantApi.renseignementUC(app,UserModel)
 enseignantApi.recapitulatifEnseignant(app,UserModel)
-enseignantApi.getALLEnseignementsDetailNombreGroupesCM_TD_TP(app,EnseignementModel)
-enseignantApi.getEnseignementDetailNombreGroupesCM_TD_TP(app,EnseignementModel)
+
 /**************************/
 //Shared between users
 /**************************/

@@ -105,36 +105,74 @@ class AdminAPI{
       })
  }
 
-    attributionGroupeEnseignant(app,GroupeModel){
-       app.post('/api/admin/attributionGroupeEnseignant', async(req,res) => {
-                const{nomGroupe,typeGroupe,nombreEtudiants,idEnseignant,idEnseignement} =  req.body;
-                const response = await GroupeModel.create({"nomGroupe" : nomGroupe, "typeGroupe": typeGroupe, "nombreEtudiants"  : nombreEtudiants , "idEnseignant" : ObjectId(idEnseignant),"idEnseignement" : ObjectId(idEnseignement)})
-                if(response){
-                        res.json({success : true , message:  "Attribution du groupe avec succès !"});
-                }
-                else{
-                  res.json({success : false , message:  "Echec lors de l'attribution du groupe !"});
-                }
-      })
+  // added
+     getALLEnseignementsDetailNombreGroupesCM_TD_TP(app,EnseignementModel){
+      app.post('/api/admin/AllEnseignementGroupesDetail' , async (req,res) => {
+        const response = await EnseignementModel.aggregate(
+        [
+          {$group : {_id: "$idEnseignement", totalCM :{ $sum : {"$toDouble" : "$groupeCM"}},totalTD :{ $sum : {"$toDouble" : "$groupeTD"}},totalTP :{ $sum : {"$toDouble" : "$groupeTP"}}     }}
+        ])
+
+        if(response){
+            res.json(response)
+        }
+        else{
+            res.json({success : false , message : "Echec lors de la récupération du detail CM TD TP"})
+        }
+    })
+    }
+
+    getEnseignementDetailNombreGroupesCM_TD_TP(app,EnseignementModel){
+      app.post('/api/admin/EnseignementGroupeDetail' , async (req,res) => {
+        const {idEnseignement} = req.body
+        const response = await EnseignementModel.aggregate(
+        [
+          {$match : {"idEnseignement" : ObjectId(idEnseignement)}},
+          {$group : {_id: "$idEnseignement", totalCM :{ $sum : {"$toDouble" : "$groupeCM"}},totalTD :{ $sum : {"$toDouble" : "$groupeTD"}},totalTP :{ $sum : {"$toDouble" : "$groupeTP"}}     }}
+        ])
+        if(response){
+            res.json(response)
+        }
+        else{
+            res.json({success : false , message : "Echec lors de la récupération du detail CM TD TP"})
+        }
+    })
+    }
+
+    getEnseignementPourvu(app,EnseignementModel){
+      app.post('/api/admin/EnseignementPourvu' , async (req,res) => {
+        const {idEnseignement} =req.body;
+        const response = await EnseignementModel.aggregate(
+          [
+          {$match : {"idEnseignement" : ObjectId(idEnseignement)}},
+          {$group : {_id: "$idEnseignement", totalCM :{ $sum : {"$toDouble" : "$groupeCM"}},totalTD :{ $sum : {"$toDouble" : "$groupeTD"}},totalTP :{ $sum :    {"$toDouble" : "$groupeTP"}}     }},
+          {$lookup : {from : 'formations' , localField: '_id' , foreignField: '_id' , as : 'details'}}
+         ])
+        if(response){
+            res.json(response)
+        }
+        else{
+            res.json({success : false , message : "Echec lors de la récupération du detail CM TD TP"})
+        }
+    })
     }
 
 
-  getGroupesAttribuerACetEnseignant(app,GroupeModel){
-      app.post('/api/admin/groupesSuiviParCetEnseignant', async(req,res) => {
-        const {idEnseignant} = req.body;
-        const response = await GroupeModel.aggregate([
-                  {$match: {idEnseignant: ObjectId(idEnseignant)}},
-                  {$lookup: {from : "formations" , localField: "idEnseignement" , foreignField: "_id" , as: "Enseignement_Details"}},
-                  {$lookup: {from : "users" , localField: "idEnseignant" , foreignField: "_id" , as: "Enseignant_Details"}},
-        ])
-          if(response){
-                res.json(response);
-          }
-        else{
-                res.json({success : false , message:  "Aucun groupe trouvés "});
+    getALLEnseignementsPourvus(app,EnseignementModel){
+      app.post('/api/admin/AllEnseignementsPourvus' , async (req,res) => {
+        const response = await EnseignementModel.aggregate([
+          {$group : {_id: "$idEnseignement", totalCM :{ $sum : {"$toDouble" : "$groupeCM"}},totalTD :{ $sum : {"$toDouble" : "$groupeTD"}},totalTP :{ $sum :    {"$toDouble" : "$groupeTP"}}     }},
+          {$lookup : {from : 'formations' , localField: '_id' , foreignField: '_id' , as : 'details'}}
+         ])
+        if(response){
+            res.json(response)
         }
-      })
-     }
+        else{
+            res.json({success : false , message : "Echec lors de la récupération du detail CM TD TP"})
+        }
+    })
+    }
+
 
 }
 

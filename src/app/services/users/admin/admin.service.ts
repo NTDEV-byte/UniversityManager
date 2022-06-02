@@ -105,34 +105,35 @@ export class AdminService {
        })
   }
 
-  desinscriptionEnseignantModules(information : ISendDesinscriptionEnseignantModule){
+   desinscriptionEnseignantModules(information : ISendDesinscriptionEnseignantModule){
     const {idEnseignant , modulesIDs} = information;
     return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/desinscriptionEnseignantModules",
      {
       idEnseignant : idEnseignant,
       modulesIDs: modulesIDs
      })
-  }
+    }
 
-  attributionGroupeEnseignant(information : ISendAttributionGroupeEnseignant){
-    const  {nomGroupe,typeGroupe,nombreEtudiants,idEnseignant,idEnseignement} = information;
-    return this.http.post<IinformationRetour>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/attributionGroupeEnseignant",
-    {
-      nomGroupe: nomGroupe,
-      typeGroupe : typeGroupe,
-      nombreEtudiants: nombreEtudiants,
-      idEnseignant : idEnseignant,
-      idEnseignement: idEnseignement,
-    })
-   }
+    getALLEnseignementsDetailCM_TD_TP(){
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/AllEnseignementGroupesDetail",{})
+     }
 
-   getGroupesAttribuerACetEnseignant(idEnseignant : string){
-    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/groupesSuiviParCetEnseignant",
-    {
-      idEnseignant : idEnseignant
-    })
-   }
+     getEnseignementDetailCM_TD_TP(idEnseignement : string){
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/EnseignementGroupeDetail",
+      {
+        idEnseignement : idEnseignement
+      })
+     }
 
+     getEnseignementPourvu(idEnseignement : string){
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/EnseignementPourvu",{
+        idEnseignement : idEnseignement
+      })
+     }
+
+     getAllEnseignementsPourvu(){
+      return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/admin/AllEnseignementsPourvus",{})
+     }
 
 
 
