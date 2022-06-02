@@ -94,11 +94,10 @@ class EnseignantAPI {
 
             const response = await UserModel.aggregate(
             [
-            {$match:  {role : 'Enseignant'}},
-            {$lookup: {from: 'enseignements' , localField: '_id' , foreignField: 'idEnseignant' , as : 'EnseignementsT'}},
-            {$lookup: {from: 'formations' , localField: 'EnseignementsT.idEnseignement' , foreignField: '_id' , as: 'EnseignementEnseignee'}}
+            {$match:  {"_id": ObjectId(idEnseignant)}},
+            {$lookup: {from: 'enseignements', localField: '_id' , foreignField: 'idEnseignant' , as : 'EnseignementsT'}},
+            {$lookup: {from: 'formations', localField: 'EnseignementsT.idEnseignement' , foreignField: '_id' , as: 'EnseignementEnseignee'}}
             ])
-
             if(response){
                 res.json(response)
             }

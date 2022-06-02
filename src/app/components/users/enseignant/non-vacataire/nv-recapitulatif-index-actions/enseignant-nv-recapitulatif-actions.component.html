@@ -1,12 +1,16 @@
 <h1>Edition du récapitulatif</h1>
 
 <h3>Enseignant</h3>
-
-
+  <p><strong>Email</strong> {{recapitulatifData[0]['email']}}</p>
+  <p><strong>Nom</strong> {{recapitulatifData[0]['nom']}}</p>
+  <p><strong>Prenom</strong> {{recapitulatifData[0]['prenom']}}</p>
+  <p><strong>Role</strong> {{recapitulatifData[0]['role']}}</p>
+  <p><strong>Statut</strong> {{recapitulatifData[0]['statut']}}</p>
+  <p><strong>UC's</strong> {{recapitulatifData[0]['uc']}}</p>
 
 <h3>Modules pris en charges</h3>
 
-<div *ngFor="let recapitulatif of recapitulatifData">
+<div *ngFor="let recapitulatif of recapitulatifData[0]['EnseignementEnseignee']">
   <mat-accordion>
     <mat-expansion-panel >
       <mat-expansion-panel-header>
@@ -14,10 +18,28 @@
           {{recapitulatif["Intitulé"]}}
         </mat-panel-title>
         <mat-panel-description>
-          This is a summary of the content
+          {{recapitulatif["Formation"]}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <p>This is the primary content of the panel.</p>
+      <h3>Total Groupes pris en charges </h3>
+      <div *ngFor="let groupeInfo of recapitulatifData[0]['EnseignementsT']">
+              <div *ngIf="recapitulatif['_id'] == groupeInfo['idEnseignement']">
+                    <p><strong>Groupes CM </strong>{{groupeInfo["groupeCM"]}}</p>
+                    <p><strong>Groupes TD</strong>  {{groupeInfo["groupeTD"]}}</p>
+                    <p><strong>Groupes TP</strong> {{groupeInfo["groupeTP"]}}</p>
+              </div>
+      </div>
+      <h3>UE</h3>
+      <p><strong>Effectif</strong> {{recapitulatif["Effectif"]}}</p>
+      <p><strong>Ref</strong> {{recapitulatif["Ref"]}}</p>
+      <p><strong>Semestre</strong> {{recapitulatif["Semestre"]}}</p>
+      <p><strong>Statut</strong> {{recapitulatif["Statut"]}}</p>
+      <p><strong>Groupe CM</strong> {{recapitulatif["grCM"]}}</p>
+      <p><strong>Groupe TD</strong> {{recapitulatif["grTD"]}}</p>
+      <p><strong>Groupe TP</strong> {{recapitulatif["grTP"]}}</p>
+      <p><strong>Heure CM</strong> {{recapitulatif["h/CM"]}}</p>
+      <p><strong>Heure TD</strong> {{recapitulatif["h/TD"]}}</p>
+      <p><strong>Heure TP</strong> {{recapitulatif["h/TP"]}}</p>
     </mat-expansion-panel>
   </mat-accordion>
 </div>

@@ -20,8 +20,7 @@ export class EnseignantNvRecapitulatifActionsComponent implements OnInit {
     this.enseignantService.recapitulatifEnseignant(this.authService.getUserDetails.id).subscribe((data) => {
           if(data){
             this.recapitulatifData = data as [];
-            this.recapitulatifData = this.recapitulatifData[0]["EnseignementEnseignee"]
-            //console.log(this.recapitulatifData[0]["EnseignementEnseignee"])
+            console.log(this.recapitulatifData);
           }
           else{
              snackBar.open("Information Indisponible !" , "Fermer", {duration  : 2000})
