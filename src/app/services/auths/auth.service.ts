@@ -1,9 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-
-
-
 export interface ISendLoginData {
       email : string,
       password:  string,

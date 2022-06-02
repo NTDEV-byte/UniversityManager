@@ -26,8 +26,8 @@ export class SharedUsersService {
 
   modifyProfil(information : ISendModificationInformation ){
 
-      const {id,nom,prenom,email,password} = information; 
-      
+      const {id,nom,prenom,email,password} = information;
+
       return this.http.post<IReponseModificationProfil>(AuthService.SERVER_EXPRESS_IP_PORT+"/api/shared/modificationProfil",{
           id,
           nom,
@@ -36,4 +36,8 @@ export class SharedUsersService {
           password
       });
   }
+
+
+
+
 }

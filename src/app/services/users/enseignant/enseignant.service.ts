@@ -73,4 +73,15 @@ export class EnseignantService {
       })
    }
 
+   getALLEnseignementsDetailCM_TD_TP(){
+    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/AllEnseignementGroupesDetail",{})
+   }
+
+   getEnseignementDetailCM_TD_TP(idEnseignement : string){
+    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/EnseignementGroupeDetail",
+    {
+      idEnseignement : idEnseignement
+    })
+   }
+
 }

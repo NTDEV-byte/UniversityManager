@@ -108,6 +108,41 @@ class EnseignantAPI {
     })
  }
 
+ getALLEnseignementsDetailNombreGroupesCM_TD_TP(app,EnseignementModel){
+  app.post('/api/enseignant/AllEnseignementGroupesDetail' , async (req,res) => {
+    const response = await EnseignementModel.aggregate(
+    [
+      {$group : {_id: "$idEnseignement", totalCM :{ $sum : {"$toDouble" : "$groupeCM"}},totalTD :{ $sum : {"$toDouble" : "$groupeTD"}},totalTP :{ $sum : {"$toDouble" : "$groupeTP"}}     }}
+    ])
+
+    if(response){
+        res.json(response)
+    }
+    else{
+        res.json({success : false , message : "Echec lors de la récupération du detail CM TD TP"})
+    }
+})
+}
+
+getEnseignementDetailNombreGroupesCM_TD_TP(app,EnseignementModel){
+  app.post('/api/enseignant/EnseignementGroupeDetail' , async (req,res) => {
+    const {idEnseignement} = req.body
+    const response = await EnseignementModel.aggregate(
+    [
+      {$match : {"idEnseignement" : ObjectId(idEnseignement)}},
+      {$group : {_id: "$idEnseignement", totalCM :{ $sum : {"$toDouble" : "$groupeCM"}},totalTD :{ $sum : {"$toDouble" : "$groupeTD"}},totalTP :{ $sum : {"$toDouble" : "$groupeTP"}}     }}
+    ])
+
+    if(response){
+        res.json(response)
+    }
+    else{
+        res.json({success : false , message : "Echec lors de la récupération du detail CM TD TP"})
+    }
+})
+}
+
+
 
 }
 

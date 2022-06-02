@@ -12,9 +12,7 @@ import { AuthService} from '../../../services/auths/auth.service';
 })
 export class ConnexionComponent {
 
-
-  constructor(private authService: AuthService, private router: Router , private snackBar : MatSnackBar){
-     }
+  constructor(private authService: AuthService, private router: Router , private snackBar : MatSnackBar){}
 
   LoginForm = new FormGroup({
     email: new FormControl('',[Validators.required,Validators.email]),
@@ -42,11 +40,8 @@ export class ConnexionComponent {
                 }
               )
                this.authService.setLoginStartValue(false);
-
               console.log(this.authService.getUserDetails);
-
-
-            this.router.navigate(['home']);
+              this.router.navigate(['home']);
             }
             else{
                 this.snackBar.open("Email ou mot de passe incorrect " , "Fermer");
@@ -55,6 +50,4 @@ export class ConnexionComponent {
     }
     this.LoginForm.reset();
   }
-
-
 }

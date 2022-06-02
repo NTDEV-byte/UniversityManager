@@ -1,17 +1,17 @@
 
-//dépendance
+// Dépendance
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors');
 const mongoose = require('mongoose')
 
-// models
+// Models
 const UserModel = require('./models/userModel')
 const FormationModel = require('./models/FormationModel')
 const EnseignementModel = require('./models/EnseignementModel')
 const GroupeModel = require('./models/GroupeModel')
 
-// api
+// Api
 const AuthAPIClass = require('./api/auths/AuthAPI');
 const AdminAPIClass = require('./api/users/admin/AdminAPI');
 const EnseignantAPIClass = require('./api/users/enseignant/EnseignantAPI');
@@ -19,7 +19,7 @@ const FormationAPIClass = require('./api/formation/FormationAPI');
 const SharedAPIClass  =  require('./api/users/shared/SharedAPI');
 const User = require('./models/userModel');
 
-//Mise en place de express
+// Mise en place de express
 const app = express()
 
 // Connexion à la base de données avec mongoose
@@ -68,6 +68,8 @@ enseignantApi.getEnseignementsPrisEnCharges(app,EnseignementModel)
 enseignantApi.desinscireEnseignement(app,EnseignementModel)
 enseignantApi.renseignementUC(app,UserModel)
 enseignantApi.recapitulatifEnseignant(app,UserModel)
+enseignantApi.getALLEnseignementsDetailNombreGroupesCM_TD_TP(app,EnseignementModel)
+enseignantApi.getEnseignementDetailNombreGroupesCM_TD_TP(app,EnseignementModel)
 /**************************/
 //Shared between users
 /**************************/
