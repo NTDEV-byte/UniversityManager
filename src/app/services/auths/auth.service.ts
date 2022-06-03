@@ -35,7 +35,6 @@ export class AuthService {
 
 public static SERVER_EXPRESS_IP_PORT : string = "http://localhost:8888";
 
-
 constructor(private http: HttpClient) {
     this.setLoginStartValue(true)
     console.log(this.getUserDetails);

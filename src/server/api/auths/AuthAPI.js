@@ -1,13 +1,11 @@
 class AuthsAPI {
     // inscription
-    
+
     // connexion
     logUserIn(app,UserModel){
         app.post('/api/auths/login' , async (req,res) => {
             const {email,password} = req.body
-            //console.log(req.body)
             const response = await UserModel.findOne({email,password})
-            //console.log("reponse Mongo: "+response)
             if(!response){
                 console.log('utilisateur non trouvé')
                 res.json({
@@ -16,9 +14,6 @@ class AuthsAPI {
                 })
             }
             else{
-                // creation d'une session
-                console.log('utilisateur trouvé')
-                console.log(response._id)
                 res.json({
                     id : response._id,
                     nom: response.nom,
@@ -30,8 +25,7 @@ class AuthsAPI {
                     role: response.role
                 })
             }
-          //  res.send("Ok Route correct") test
-        }) 
+        })
     }
 
     logInDBWithMongoDB(app){
@@ -51,8 +45,8 @@ class AuthsAPI {
                });
         })
     }
-    
-    
+
+
 }
 
 module.exports = AuthsAPI;

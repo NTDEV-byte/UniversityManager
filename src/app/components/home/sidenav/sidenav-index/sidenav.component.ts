@@ -42,7 +42,7 @@ export class SidenavComponent implements OnInit {
           this.sidenav.open();
       }
   })
-   }
+}
 
    deconnexion(){
       this.authService.logout()

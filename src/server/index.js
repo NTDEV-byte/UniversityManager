@@ -1,5 +1,5 @@
 
-// Dépendance
+// Dépendances
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors');
@@ -9,7 +9,6 @@ const mongoose = require('mongoose')
 const UserModel = require('./models/userModel')
 const FormationModel = require('./models/FormationModel')
 const EnseignementModel = require('./models/EnseignementModel')
-const GroupeModel = require('./models/GroupeModel')
 
 // Api
 const AuthAPIClass = require('./api/auths/AuthAPI');
@@ -17,7 +16,6 @@ const AdminAPIClass = require('./api/users/admin/AdminAPI');
 const EnseignantAPIClass = require('./api/users/enseignant/EnseignantAPI');
 const FormationAPIClass = require('./api/formation/FormationAPI');
 const SharedAPIClass  =  require('./api/users/shared/SharedAPI');
-const User = require('./models/userModel');
 
 // Mise en place de express
 const app = express()

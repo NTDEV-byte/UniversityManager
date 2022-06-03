@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 
-// schema dans la base de données
+// schéma dans la base de données
 const UserSchema = new mongoose.Schema({
     nom: String,
     prenom: String,
