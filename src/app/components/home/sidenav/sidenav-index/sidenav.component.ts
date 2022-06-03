@@ -3,6 +3,7 @@ import { MatSidenav } from '@angular/material/sidenav';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { AuthService } from 'src/app/services/auths/auth.service';
 import { Router } from '@angular/router';
+import { LowerCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-sidenav',
@@ -14,11 +15,20 @@ export class SidenavComponent implements OnInit {
 
   @ViewChild(MatSidenav) sidenav!: MatSidenav;
 
-  constructor(private observer : BreakpointObserver , public authService : AuthService , private router : Router) {
+  constructor(
+    private observer : BreakpointObserver ,
+    public authService : AuthService ,
+    private router : Router,
+    private lowerPipe : LowerCasePipe) {
    }
 
   ngOnInit(): void {
-
+      if(this.lowerPipe.transform(this.authService.getUserDetails.role) == "admin"){
+              this.router.navigate(['/admin/EnseignantActions'])
+      }
+      if(this.lowerPipe.transform(this.authService.getUserDetails.role) == "enseignant"){
+              this.router.navigate(['/EnseignantNV/EnseignementIndex'])
+      }
   }
 
   ngAfterViewInit(): void {
