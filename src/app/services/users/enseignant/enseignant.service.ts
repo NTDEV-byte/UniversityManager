@@ -73,6 +73,14 @@ export class EnseignantService {
       })
    }
 
+   getEnseignementGroupeDetailsEnseignant(idEnseignant : string){
+    return this.http.post(AuthService.SERVER_EXPRESS_IP_PORT+"/api/enseignant/EnseignementGroupeDetail",
+    {
+      idEnseignant: idEnseignant,
+    })
+   }
+
+
 
 
 }

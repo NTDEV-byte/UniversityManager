@@ -69,7 +69,7 @@ enseignantApi.getEnseignementsPrisEnCharges(app,EnseignementModel)
 enseignantApi.desinscireEnseignement(app,EnseignementModel)
 enseignantApi.renseignementUC(app,UserModel)
 enseignantApi.recapitulatifEnseignant(app,UserModel)
-
+enseignantApi.getEnseignementGroupeDetailsEnseignant(app,UserModel)
 /**************************/
 //Shared between users
 /**************************/

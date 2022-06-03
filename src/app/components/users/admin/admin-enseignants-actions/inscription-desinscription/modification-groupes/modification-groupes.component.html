@@ -1,0 +1,37 @@
+<h1>Modification Groupes Enseignement de l'Enseignant </h1>
+
+<div *ngFor="let recapitulatif of enseignementsEnseignants[0]['EnseignementEnseignee']">
+  <mat-accordion>
+    <mat-expansion-panel >
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          {{recapitulatif["Intitulé"]}}
+        </mat-panel-title>
+        <mat-panel-description>
+          {{recapitulatif["Formation"]}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <h3>Total Groupes pris en charges </h3>
+      <div *ngFor="let groupeInfo of enseignementsEnseignants[0]['EnseignementsT']">
+        <div *ngIf="recapitulatif['_id'] == groupeInfo['idEnseignement']">
+              <p><strong>Groupes CM </strong>{{groupeInfo["groupeCM"]}} / {{recapitulatif["grCM"]}}</p>
+              <p><strong>Groupes TD</strong>  {{groupeInfo["groupeTD"]}} / {{recapitulatif["grTD"]}}</p>
+              <p><strong>Groupes TP</strong> {{groupeInfo["groupeTP"]}} / {{recapitulatif["grTP"]}}</p>
+        </div>
+    </div>
+      <h3>UE</h3>
+      <p><strong>Effectif</strong> {{recapitulatif["Effectif"]}}</p>
+      <p><strong>Ref</strong> {{recapitulatif["Ref"]}}</p>
+      <p><strong>Semestre</strong> {{recapitulatif["Semestre"]}}</p>
+      <p><strong>Statut</strong> {{recapitulatif["Statut"]}}</p>
+      <p><strong>Groupe CM</strong> {{recapitulatif["grCM"]}}</p>
+      <p><strong>Groupe TD</strong> {{recapitulatif["grTD"]}}</p>
+      <p><strong>Groupe TP</strong> {{recapitulatif["grTP"]}}</p>
+      <p><strong>Heure CM</strong> {{recapitulatif["h/CM"]}}</p>
+      <p><strong>Heure TD</strong> {{recapitulatif["h/TD"]}}</p>
+      <p><strong>Heure TP</strong> {{recapitulatif["h/TP"]}}</p>
+      <button mat-button color="primary" [routerLink]="['', recapitulatif['_id']]">Modifier</button>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>

@@ -1,5 +1,4 @@
 import { ServiceRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/service-recapitulatif/service-recapitulatif.component';
-import { RecapitulatifEnseignantComponent } from './components/users/admin/admin-enseignants-actions/recapitulatif-enseignant/recapitulatif-enseignant.component';
 import { DesinscriptionComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/detail/desinscription/desinscription.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -26,6 +25,7 @@ import { NvInscriptionEnseignementDetailComponent } from './components/users/ens
 import { NvListModulesEnseigneesComponent} from "./components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-list-modules-enseignees/nv-list-modules-enseignees.component";
 import { AdminMenuRecapitulatifActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-recapitulatif-actions/admin-menu-recapitulatif-actions.component';
 import { EnseignementsRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/enseignements-recapitulatif/enseignements-recapitulatif.component';
+import { ModificationGroupesComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/modification-groupes/modification-groupes.component';
 
 
 const routes: Routes = [
@@ -40,7 +40,7 @@ const routes: Routes = [
   { path: 'admin/indexInscriptionDesinscriptionModule', component: IndexComponent},
   { path: 'admin/inscriptionModuleDetail/:id' , component: InscriptionDetailComponent},
   { path: 'admin/desinscriptionModuleDetail/:id' , component: DesinscriptionComponent},
-  { path: 'admin/RecapitulatifEnseignant/:id' , component: RecapitulatifEnseignantComponent},
+  { path: 'admin/modificationGroupeEnseignant/:id' , component: ModificationGroupesComponent},
   { path: 'admin/RecapitulatifAdminIndex' , component: AdminMenuRecapitulatifActionsComponent},
   { path: 'admin/listEnseignant' , component: ListeEnseignantComponent},
   { path: 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},

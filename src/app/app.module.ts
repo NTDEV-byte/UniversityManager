@@ -55,9 +55,9 @@ import { EnseignantNvRecapitulatifActionsComponent } from './components/users/en
 import { NvInscriptionEnseignementComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-enseignement.component';
 import { NvInscriptionEnseignementDetailComponent } from './components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-inscription/nv-inscription-detail/nv-inscription-detail.component';
 import { NvListModulesEnseigneesComponent } from "./components/users/enseignant/non-vacataire/nv-enseignements-index-actions/nv-list-modules-enseignees/nv-list-modules-enseignees.component";
-import { RecapitulatifEnseignantComponent } from './components/users/admin/admin-enseignants-actions/recapitulatif-enseignant/recapitulatif-enseignant.component';
 import { EnseignementsRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/enseignements-recapitulatif/enseignements-recapitulatif.component';
 import { ServiceRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/service-recapitulatif/service-recapitulatif.component';
+import { ModificationGroupesComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/modification-groupes/modification-groupes.component';
 
 @NgModule({
   declarations: [
@@ -88,9 +88,9 @@ import { ServiceRecapitulatifComponent } from './components/users/admin/admin-re
     NvInscriptionEnseignementComponent,
     NvInscriptionEnseignementDetailComponent,
     NvListModulesEnseigneesComponent,
-    RecapitulatifEnseignantComponent,
     EnseignementsRecapitulatifComponent,
     ServiceRecapitulatifComponent,
+    ModificationGroupesComponent,
   ],
 
   imports: [

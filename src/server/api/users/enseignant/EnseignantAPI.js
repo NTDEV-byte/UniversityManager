@@ -108,6 +108,25 @@ class EnseignantAPI {
  }
 
 
+  getEnseignementGroupeDetailsEnseignant(app,UserModel) {
+    app.post('/api/enseignant/EnseignementGroupeDetail' , async (req,res) => {
+            const{idEnseignant} = req.body;
+            const response = await UserModel.aggregate(
+            [
+            {$match:  {"_id": ObjectId(idEnseignant)}},
+            {$lookup: {from: 'enseignements', localField: '_id' , foreignField: 'idEnseignant' , as : 'EnseignementsT'}},
+            {$lookup: {from: 'formations', localField: 'EnseignementsT.idEnseignement' , foreignField: '_id' , as: 'EnseignementEnseignee'}}
+            ])
+            if(response){
+                res.json(response)
+            }
+            else{
+                res.json({success : false , message : "Echec lors de l'édition du récapitulatif"})
+            }
+    })
+ }
+
+
 
 
 
