@@ -58,7 +58,7 @@ import { NvListModulesEnseigneesComponent } from "./components/users/enseignant/
 import { EnseignementsRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/enseignements-recapitulatif/enseignements-recapitulatif.component';
 import { ServiceRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/service-recapitulatif/service-recapitulatif.component';
 import { ModificationGroupesComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/modification-groupes/modification-groupes.component';
-
+import { DetailModificationGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/modification-groupes/detail-modification-groupe/detail-modification.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -91,6 +91,7 @@ import { ModificationGroupesComponent } from './components/users/admin/admin-ens
     EnseignementsRecapitulatifComponent,
     ServiceRecapitulatifComponent,
     ModificationGroupesComponent,
+    DetailModificationGroupeComponent
   ],
 
   imports: [

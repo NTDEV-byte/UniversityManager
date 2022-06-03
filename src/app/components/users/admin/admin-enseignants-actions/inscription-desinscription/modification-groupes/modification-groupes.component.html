@@ -1,4 +1,4 @@
-<h1>Modification Groupes Enseignement de l'Enseignant </h1>
+<h1>Module pris en charge par {{enseignementsEnseignants[0]["prenom"]}}  {{enseignementsEnseignants[0]["nom"]}} </h1>
 
 <div *ngFor="let recapitulatif of enseignementsEnseignants[0]['EnseignementEnseignee']">
   <mat-accordion>
@@ -11,7 +11,7 @@
           {{recapitulatif["Formation"]}}
         </mat-panel-description>
       </mat-expansion-panel-header>
-      <h3>Total Groupes pris en charges </h3>
+      <h3>Groupes</h3>
       <div *ngFor="let groupeInfo of enseignementsEnseignants[0]['EnseignementsT']">
         <div *ngIf="recapitulatif['_id'] == groupeInfo['idEnseignement']">
               <p><strong>Groupes CM </strong>{{groupeInfo["groupeCM"]}} / {{recapitulatif["grCM"]}}</p>
@@ -30,7 +30,7 @@
       <p><strong>Heure CM</strong> {{recapitulatif["h/CM"]}}</p>
       <p><strong>Heure TD</strong> {{recapitulatif["h/TD"]}}</p>
       <p><strong>Heure TP</strong> {{recapitulatif["h/TP"]}}</p>
-      <button mat-button color="primary" [routerLink]="['', recapitulatif['_id']]">Modifier</button>
+      <button mat-button color="primary" [routerLink]="['/admin/modificationGroupeEnseignantDetail/', recapitulatif['_id']]">Modifier</button>
     </mat-expansion-panel>
   </mat-accordion>
 

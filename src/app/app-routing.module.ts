@@ -26,6 +26,7 @@ import { NvListModulesEnseigneesComponent} from "./components/users/enseignant/n
 import { AdminMenuRecapitulatifActionsComponent } from './components/home/sidenav/menu-sidenav/admin/admin-menu-recapitulatif-actions/admin-menu-recapitulatif-actions.component';
 import { EnseignementsRecapitulatifComponent } from './components/users/admin/admin-recapitulatifs/enseignements-recapitulatif/enseignements-recapitulatif.component';
 import { ModificationGroupesComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/modification-groupes/modification-groupes.component';
+import { DetailModificationGroupeComponent } from './components/users/admin/admin-enseignants-actions/inscription-desinscription/modification-groupes/detail-modification-groupe/detail-modification.component';
 
 
 const routes: Routes = [
@@ -41,6 +42,7 @@ const routes: Routes = [
   { path: 'admin/inscriptionModuleDetail/:id' , component: InscriptionDetailComponent},
   { path: 'admin/desinscriptionModuleDetail/:id' , component: DesinscriptionComponent},
   { path: 'admin/modificationGroupeEnseignant/:id' , component: ModificationGroupesComponent},
+  { path: 'admin/modificationGroupeEnseignantDetail/:id' , component: DetailModificationGroupeComponent},
   { path: 'admin/RecapitulatifAdminIndex' , component: AdminMenuRecapitulatifActionsComponent},
   { path: 'admin/listEnseignant' , component: ListeEnseignantComponent},
   { path: 'admin/FormationActions' , component: AdminMenuFormationActionsComponent},
