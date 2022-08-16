@@ -87,7 +87,6 @@ class AdminAPI{
          })
     }
 
-
     desinscriptionEnseignantModules(app,EnseignementModel){
       app.post('/api/admin/desinscriptionEnseignantModules', async(req,res) => {
                  const {idEnseignant , modulesIDs} = req.body;

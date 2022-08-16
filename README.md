@@ -1,27 +1,17 @@
 # MoodleV2
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
+ Moodle v2 is a project made as part of the web architecture teaching unit with the aim of discovering the M.E.A.N Stack we made a simple application to manage teachers, admins, and their teaching units. 
+    
+## How To Launch  
+    npm start 
+    node src/server/index.js to start express 
+    
+## Screenshots
 
-## Development server
+![image](https://user-images.githubusercontent.com/52135405/184972374-8c627cd5-5488-475b-aeca-818be08c6c98.png)
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+![image](https://user-images.githubusercontent.com/52135405/184972992-2dfc10cd-11b8-4131-925e-8a02e8816aeb.png)
 
-## Code scaffolding
+![image](https://user-images.githubusercontent.com/52135405/184973207-8817722a-c722-40a1-a63c-e305e33d5057.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://user-images.githubusercontent.com/52135405/184973556-1291c32d-897d-46a0-9179-8fe240df0408.png)
